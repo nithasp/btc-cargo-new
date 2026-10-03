@@ -2,15 +2,18 @@
   "name": "argon-dashboard-pro-angular",
   "version": "1.2.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --aot --build-optimizer --prod --vendor-chunk",
-    "test": "ng test",
+    "ng": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng",
+    "start": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng serve",
+    "build": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng build --aot --build-optimizer --prod --vendor-chunk",
+    "test": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install --legacy-peer-deps && npm start"
   },
   "private": true,
+  "overrides": {
+    "@line/bot-sdk": "7.5.2"
+  },
   "dependencies": {
     "@angular/compiler": "11.0.5",
     "@angular/core": "11.0.5",
@@ -23,9 +26,9 @@
     "@fullcalendar/core": "5.5.0",
     "@fullcalendar/daygrid": "5.5.0",
     "@fullcalendar/interaction": "5.5.0",
-    "@line/liff": "^2.18.1",
+    "@line/liff": "2.18.1",
     "@swimlane/ngx-datatable": "19.0.0",
-    "@types/jquery": "^3.5.12",
+    "@types/jquery": "3.5.32",
     "@types/select2": "^4.0.54",
     "@zxing/browser": "0.0.9",
     "@zxing/library": "0.18.6",

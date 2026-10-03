@@ -39,6 +39,13 @@ Follow these steps to get the development environment running on your local mach
     npm install -g @angular/cli
     ```
 
+> **Note on Node.js versions.** This project targets Angular 11, whose build
+> pipeline runs on webpack 4. webpack 4 hashes with MD4, which OpenSSL 3
+> (bundled with Node 17 and newer) disables by default. The `npm` scripts in
+> this repo therefore launch the Angular CLI with `--openssl-legacy-provider`,
+> which keeps the project building on current Node releases. Run the project
+> through those scripts rather than invoking a global `ng` directly.
+
 ### Installation Steps
 
 1.  **Clone the repository:**
@@ -49,16 +56,24 @@ Follow these steps to get the development environment running on your local mach
 
 2.  **Install all required dependencies:**
     ```bash
-    npm install
+    npm install --legacy-peer-deps
     ```
+    The `--legacy-peer-deps` flag is required. npm 7 and newer enforce peer
+    dependencies strictly, and this project pins `zone.js@0.10.2` while
+    `@angular/core@11.0.5` asks for `~0.10.3`; a plain `npm install` stops
+    with an `ERESOLVE` error.
 
 3.  **Run the development server:**
     ```bash
-    ng serve
-    ```
-    # or use the npm script
-    ```bash
     npm start
+    ```
+    Use `npm start` rather than a bare `ng serve`: the npm script passes the
+    `--openssl-legacy-provider` flag that webpack 4 needs on modern Node. A
+    global `ng serve` will fail with `ERR_OSSL_EVP_UNSUPPORTED`.
+
+    To produce a production bundle:
+    ```bash
+    npm run build
     ```
 
 4.  **Open your browser:**
