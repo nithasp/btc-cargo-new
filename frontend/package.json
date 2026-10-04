@@ -11,6 +11,9 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install --legacy-peer-deps && npm start"
   },
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "overrides": {
     "@line/bot-sdk": "7.5.2"
   },
