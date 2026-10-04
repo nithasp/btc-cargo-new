@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: "https://your-backend.example.com",
+  apiUrl: "https://btc-cargo-api.proxystack.dev",
   autoDemoLogin: true,
   googleClientId:
     "246196017998-q52ius7kkuf4g917g4qjgusbl9ga0f4e.apps.googleusercontent.com",
