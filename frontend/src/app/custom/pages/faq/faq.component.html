@@ -3,62 +3,62 @@
     <div class="wrapper">
         <div class="faq-sidebar">
             <div class="faq-list">
-                <h1>คำถามที่ถามบ่อย</h1>
+                <h1>{{ "faq.title" | transloco }}</h1>
                 <div class="faq-item faq-item1">
                     <a routerLink="conditions" routerLinkActive="active">
-                        ข้อตกลง/เงื่อนไขการใช้บริการ
+                        {{ "faq.conditions_title" | transloco }}
                     </a>
                 </div>
                 <div class="faq-item faq-item2">
                     <a routerLink="how-to-calculate" routerLinkActive="active">
-                        วิธีคำนวณค่าขนส่งพัสดุ
+                        {{ "faq.how_to_calculate_title" | transloco }}
                     </a>
                 </div>
                 <div class="faq-item faq-item3">
                     <a routerLink="storage-fee" routerLinkActive="active">
-                        ค่าเก็บรักษาพัสดุ
+                        {{ "faq.storage_fee_title" | transloco }}
 
                     </a>
                 </div>
                 <div class="faq-item faq-item4">
                     <a routerLink="invoice" routerLinkActive="active">
-                        BTC Cargo สามารถออกใบเสร็จ<br/>
-                        หรือใบกำกับภาษีได้หรือไม่
+                        {{ "faq.invoice_menu_1" | transloco }}<br/>
+                        {{ "faq.invoice_menu_2" | transloco }}
                     </a>
                 </div>
                 <div class="faq-item faq-item5">
                     <a routerLink="delivery" routerLinkActive="active">
-                        วิธีการจัดส่งพัสดุในไทย
+                        {{ "faq.delivery_title" | transloco }}
                     </a>
                 </div>
                 <div class="faq-item faq-item6">
                     <a routerLink="status" routerLinkActive="active">
-                        การเช็คสถานะพัสดุและเพิ่มเลขพัสดุใหม่
+                        {{ "faq.status_title" | transloco }}
                     </a>
                 </div>
                 <div class="faq-item faq-item7">
                     <a routerLink="goods-type" routerLinkActive="active">
-                        สินค้าแต่ละประเภทดูอย่างไร
+                        {{ "faq.goods_type_title" | transloco }}
                     </a>
                 </div>
                 <div class="faq-item faq-item8">
                     <a routerLink="goods-type-special" routerLinkActive="active">
-                        การขนส่งสินค้าลิขสิทธิ์และอย.
+                        {{ "faq.goods_type_special_title" | transloco }}
                     </a>
                 </div>
                 <div class="faq-item faq-item9">
                     <a routerLink="pallet" routerLinkActive="active">
-                        บริการตีลังไม้
+                        {{ "faq.pallet_title" | transloco }}
                     </a>
                 </div>
                 <div class="faq-item faq-item10">
                     <a routerLink="exchange" routerLinkActive="active">
-                        สร้างรายการฝากจ่ายเงินหยวนไม่ได้?
+                        {{ "faq.exchange_menu" | transloco }}
                     </a>
                 </div>
 
                 <a [routerLink]="['/web']" class="to-main-page">
-                    กลับสู่หน้าหลัก
+                    {{ "faq.back_to_home" | transloco }}
                 </a>
             </div>
         </div>

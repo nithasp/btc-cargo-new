@@ -54,14 +54,21 @@ import { OverviewManageAgentComponent } from "./custom/pages/affiliate/overview-
 import { AgentComponent } from "./custom/pages/affiliate/agent/agent.component";
 import { ManageParcelComponent } from "./custom/pages/affiliate/manage-parcel/manage-parcel.component";
 import { GoalComponent } from "./custom/pages/affiliate/goal/goal.component";
+import { GuestGuard } from "./custom/guards/guest.guard";
+import { SessionGuard } from "./custom/guards/session.guard";
 
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
-  { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent },
+  { path: "login", component: LoginComponent, canActivate: [GuestGuard] },
+  {
+    path: "register",
+    component: RegisterComponent,
+    canActivate: [GuestGuard],
+  },
   {
     path: "web",
     component: AdminLayoutComponent,
+    canActivate: [SessionGuard],
     children: [
       { path: "warehouse-address", component: WarehouseAddressComponent },
       {

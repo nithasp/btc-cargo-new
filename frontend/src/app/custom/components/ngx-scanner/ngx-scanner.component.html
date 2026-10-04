@@ -1,7 +1,7 @@
 <div class="inner">
   <p>ngx-scanner works!</p>
   <h1>
-    <span>Scan Result = </span>
+    <span>{{ "scan_result" | transloco }} </span>
     <span>{{ scanResult || "undefined" }}</span>
   </h1>
   <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>

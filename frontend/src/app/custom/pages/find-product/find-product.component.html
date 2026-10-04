@@ -5,29 +5,29 @@
       *ngIf="isAlertMsgBoxDisplay"
     >
       <span class="text-white"
-        >เพิ่มสินค้าเข้าตะกร้าเรียบร้อย (ดูสินค้าในตะกร้าได้ที่รูปรถเข็น)</span
+        >{{ "shop.added_to_cart" | transloco }}</span
       >
       <i
         class="ni ni-fat-remove text-white display-4 close-btn"
         (click)="closeAlertMsgBox()"
       ></i>
     </div>
-    <h1 class="mb-4">Products</h1>
+    <h1 class="mb-4">{{ "shop.products" | transloco }}</h1>
     <div class="loading" *ngIf="isLoading">
-      <h1>Loading ...</h1>
+      <h1>{{ "loading" | transloco }}</h1>
     </div>
 
     <h1 *ngIf="!isShopExist" class="text-red">
-      กรุณาเพิ่มร้านค้า ท่านสามารถติดต่อ Admin ได้เพื่อเพิ่มร้านค้า
+      {{ "shop.add_shop_first" | transloco }}
     </h1>
 
     <h1 *ngIf="!isShopHasProduct" class="text-red">
-      ตอนนี้ร้านของท่านยังไม่มีสินค้า ท่านสามารถติดต่อ Admin ได้เพื่อเพิ่มสินค้า
+      {{ "shop.no_products_yet" | transloco }}
     </h1>
 
     <div class="products-container" *ngIf="!isLoading && cartData.length > 0">
       <p class="text-red mb-3">
-        **สินค้าบางตัวต้องเลือกตัวเลือกก่อนจะกดสั่งซื้อ
+        {{ "shop.choose_option_first" | transloco }}
       </p>
       <div class="row">
         <div class="item col-sm-6 col-md-4" *ngFor="let product of cartData">
@@ -62,9 +62,7 @@
                     product.variants.length === 0 ? 'hide-variants' : ''
                   "
                 >
-                  <span>{{
-                    product.variants.length > 0 ? "ตัวเลือก" : "ไม่มีตัวเลือก"
-                  }}</span>
+                  <span>{{ (product.variants.length > 0 ? "shop.options" : "shop.no_options") | transloco }}</span>
                 </button>
                 <div
                   aria-labelledby="dropdownMenuButton"
@@ -103,9 +101,9 @@
             <button
               class="btn btn-block btn-primary mt-3 add-to-cart"
               (click)="addItem(product, variantsRef.innerText)"
-              [disabled]="variantsRef.innerText === 'ตัวเลือก'"
+              [disabled]="product.variants.length > 0 && !variantsRef.dataset.selected"
             >
-              Add to cart
+              {{ "shop.add_to_cart" | transloco }}
             </button>
           </div>
         </div>

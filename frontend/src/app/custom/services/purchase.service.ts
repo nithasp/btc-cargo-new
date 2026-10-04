@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Observable } from "rxjs"
 import { Product } from "../interfaces/product"
+import { btcBaseUrl } from "./config"
 
 @Injectable({
   providedIn: "root",
@@ -18,7 +19,7 @@ export class PurchaseService {
         Authorization: `Token ${accessToken}`,
       })
       return this.http.post<Product>(
-        "https://btc-uat.beonit.xyz/api/nextship/get",
+        `${btcBaseUrl}/api/nextship/get`,
         {
           url: url,
           mock: "true",

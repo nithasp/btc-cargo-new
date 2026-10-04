@@ -1,0 +1,10 @@
+DROP TABLE currency_rates;
+DROP TABLE alipay_accounts;
+DROP TABLE local_deliveries;
+DROP TABLE thai_carriers;
+DROP TABLE shop_types;
+DROP TABLE stock_locations;
+DROP TABLE stock_picking_types;
+DROP TABLE product_type_delivery_types;
+DROP TABLE product_types;
+DROP TABLE delivery_types;

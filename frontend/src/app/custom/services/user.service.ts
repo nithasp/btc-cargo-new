@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Observable } from "rxjs"
 import { UserInfo } from "../interfaces/user-information"
+import { btcBaseUrl } from "./config"
 
 @Injectable({
   providedIn: "root",
@@ -17,7 +18,7 @@ export class UserService {
         "content-type": "application/json",
         Authorization: `Token ${accessToken}`,
       })
-      return this.http.get<UserInfo>("https://btc-uat.beonit.xyz/api/user/", {
+      return this.http.get<UserInfo>(`${btcBaseUrl}/api/user/`, {
         headers: httpHeadersValue,
       })
     }
@@ -32,7 +33,7 @@ export class UserService {
         Authorization: `Token ${accessToken}`,
       })
       return this.http.put<Partial<UserInfo>>(
-        `https://btc-uat.beonit.xyz/api/user/`,
+        `${btcBaseUrl}/api/user/`,
         user,
         { headers: httpHeadersValue }
       )

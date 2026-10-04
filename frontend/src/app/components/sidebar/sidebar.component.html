@@ -47,7 +47,7 @@
               >
                 <i class="{{ menuitem.icontype }}"></i>
                 <span class="main-title nav-link-text">{{
-                  menuitem.title
+                  menuitem.title | transloco
                 }}</span>
               </a>
               <!--If it have a submenu-->
@@ -61,7 +61,9 @@
                 class="nav-link"
               >
                 <i class="ni {{ menuitem.icontype }}"></i>
-                <span class="nav-link-text">{{ menuitem.title }}</span>
+                <span class="nav-link-text">{{
+                  menuitem.title | transloco
+                }}</span>
               </a>
 
               <!--Display the submenu items-->
@@ -84,7 +86,7 @@
                       class="nav-link"
                       *ngIf="childitems.type === 'link'"
                     >
-                      {{ childitems.title }}
+                      {{ childitems.title | transloco }}
                     </a>
 
                     <!--If it have a submenu-->
@@ -96,7 +98,7 @@
                       *ngIf="childitems.type === 'sub'"
                       class="nav-link"
                     >
-                      {{ childitems.title }}
+                      {{ childitems.title | transloco }}
                     </a>
 
                     <!--Display the submenu items-->
@@ -113,7 +115,7 @@
                           class="nav-item"
                         >
                           <a href="javascript:void(0)" class="nav-link">
-                            {{ childitem.title }}
+                            {{ childitem.title | transloco }}
                           </a>
                         </li>
                       </ul>
@@ -136,7 +138,7 @@
               <a class="nav-link" href="javascript:void(0)">
                 <i class="fa fa-sign-out-alt crimson"></i>
                 <span class="nav-link-text" (click)="signOut()"
-                  >ออกจากระบบ</span
+                  >{{ "logout" | transloco }}</span
                 >
               </a>
             </li>

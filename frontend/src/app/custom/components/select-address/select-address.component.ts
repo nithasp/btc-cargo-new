@@ -2,10 +2,13 @@ import {
   AfterViewInit,
   Component,
   Input,
+  OnDestroy,
   Output,
   EventEmitter,
 } from "@angular/core"
+import { Subscription } from "rxjs"
 import { addresses } from "../../../model/addresses"
+import { TranslocoService } from "@ngneat/transloco"
 declare var $: any
 
 @Component({
@@ -13,18 +16,45 @@ declare var $: any
   templateUrl: "./select-address.component.html",
   styleUrls: ["./select-address.component.scss"],
 })
-export class SelectAddressComponent implements AfterViewInit {
+export class SelectAddressComponent implements AfterViewInit, OnDestroy {
   readonly addresses = addresses
   @Input() id
   @Input() address
   @Output() addressSelected = new EventEmitter<string>()
-  constructor() {}
+  private placeholderSubscription: Subscription
+  constructor(private transloco: TranslocoService) {}
 
   ngAfterViewInit(): void {
     const id = this.id
     const component = this
-    $(`#${id}`).select2({
-      placeholder: "เลือกที่อยู่",
+    let initialized = false
+    this.placeholderSubscription = this.transloco
+      .selectTranslate("select_address")
+      .subscribe((placeholder) => {
+        this.initSelect2(placeholder)
+        if (initialized) {
+          return
+        }
+        initialized = true
+
+        $(`#${id}`).on("select2:select", (e) => {
+          component.selectedCallback(e.params.data.id);
+        })
+
+        if (this.address) {
+          $(`#${id}`).val(this.address).trigger("change")
+          component.selectedCallback(this.address);
+        }
+      })
+  }
+
+  ngOnDestroy(): void {
+    this.placeholderSubscription.unsubscribe()
+  }
+
+  initSelect2(placeholder: string) {
+    $(`#${this.id}`).select2({
+      placeholder,
       multiple: false,
       data: this.getInitData(),
       ajax: {
@@ -48,16 +78,6 @@ export class SelectAddressComponent implements AfterViewInit {
         },
       },
     })
-
-    $(`#${id}`).on("select2:select", (e) => {
-      component.selectedCallback(e.params.data.id);
-      
-    })
-
-    if (this.address) {
-      $(`#${id}`).val(this.address).trigger("change")
-      component.selectedCallback(this.address);
-    }
   }
 
   selectedCallback(id){

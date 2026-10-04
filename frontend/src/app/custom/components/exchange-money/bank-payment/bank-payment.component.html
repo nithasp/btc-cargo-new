@@ -1,6 +1,6 @@
 <div>
   <div *ngIf="formState === 'selectAccount'">
-    <h4 class="mb-2">กรุณาใส่รายละเอียดบัญชีธนาคารที่ต้องการให้ชำระเงิน</h4>
+    <h4 class="mb-2">{{ "exchange.bank_details_prompt" | transloco }}</h4>
     <div class="custom-control custom-radio custom-control-inline">
       <input
         type="radio"
@@ -12,7 +12,7 @@
         (click)="handleChangeFormState('input')"
       />
       <label class="custom-control-label" for="customRadioInputForm"
-        >ฉันสามารถกรอกรายละเอียดบัญชีได้</label
+        >{{ "exchange.bank_can_fill" | transloco }}</label
       >
     </div>
     <div class="custom-control custom-radio custom-control-inline">
@@ -26,23 +26,23 @@
         (click)="handleChangeFormState('image')"
       />
       <label class="custom-control-label" for="customRadioImageForm"
-        >ฉันต้องการแจ้งรายละเอียดบัญชีเป็นไฟล์ภาพ</label
+        >{{ "exchange.bank_send_image" | transloco }}</label
       >
     </div>
     <div *ngIf="form === 'input'">
-      <h4 class="mt-3">กรุณากรอกข้อมูลบัญชีธนาคาร</h4>
-      <h4 class="mt-3">ชื่อบัญชี (ภาษาจีน)</h4>
+      <h4 class="mt-3">{{ "exchange.bank_fill_prompt" | transloco }}</h4>
+      <h4 class="mt-3">{{ "exchange.account_name_chinese" | transloco }}</h4>
       <input
         type="text"
         class="form-control mt-2"
-        placeholder="ชื่อบัญชี"
+        [placeholder]="'exchange.account_name' | transloco"
         [(ngModel)]="accountName"
       />
-      <h4 class="mt-2">เลขบัญชี</h4>
+      <h4 class="mt-2">{{ "exchange.account_number" | transloco }}</h4>
       <input
         type="text"
         class="form-control mt-2"
-        placeholder="เลขบัญชี"
+        [placeholder]="'exchange.account_number' | transloco"
         [(ngModel)]="accountNumber"
       />
     </div>
@@ -51,7 +51,7 @@
     </div>
     <div class="button-container">
       <button class="btn btn-danger mr-2" type="button" (click)="onCancel()">
-        ยกเลิก
+        {{ "cancel" | transloco }}
       </button>
       <button
         class="btn btn-primary"
@@ -59,7 +59,7 @@
         (click)="handleNextFormState()"
         [disabled]="isDisabledNextButton()"
       >
-        ดำเนินการต่อ
+        {{ "continue" | transloco }}
       </button>
     </div>
   </div>

@@ -1,61 +1,60 @@
 <section id="how-to-calculate">
     <div class="container">
-        <h3>วิธีคำนวณค่าขนส่งพัสดุ</h3>
+        <h3>{{ "faq.how_to_calculate_title" | transloco }}</h3>
         <p>
-            <span class="font-weight-bold">การคำนวณค่าขนส่งคิดได้ 2 แบบ </span>
-            <span class="text-danger">* คิดจากขนาด และน้ำหนักของกล่องพัสดุ *</span>
+            <span class="font-weight-bold">{{ "faq.calc_two_ways" | transloco }} </span>
+            <span class="text-danger">{{ "faq.calc_by_size_and_weight" | transloco }}</span>
         </p>
         <p>
-            <u>วิธีการคำนวณ</u>
+            <u>{{ "faq.calc_method" | transloco }}</u>
         </p>
         <ol>
-            <li>หาขนาดคิวบิกเมตร<br />
-                <small>โดยนำขนาดกล่อง กว้าง ยาว สูง (หน่วยเซนติเมตร) มาคูณกัน จากนั้นหารด้วย 1 ล้าน
-                    จะได้ขนาดคิวบิกเมตร</small>
+            <li>{{ "faq.calc_step1_title" | transloco }}<br />
+                <small>{{ "faq.calc_step1_desc" | transloco }}</small>
             </li>
-            <li>นำคิวบิกเมตรที่คำนวณได้มาคูณกับ 200 เพื่อหาน้ำหนักที่ควรหนักของพัสดุ<br />
-                <small>(1 คิวบิกเมตรจะต้องหนัก 200 กิโลกรัม)</small>
+            <li>{{ "faq.calc_step2" | transloco }}<br />
+                <small>{{ "faq.calc_step2_note" | transloco }}</small>
             </li>
-            <li>ผลลัพธ์ที่ได้จากข้อ 2 คือน้ำหนักที่พัสดุขนาดเท่านี้ควรหนัก (ขอเรียกว่า 'น้ำหนักควรหนัก')</li>
-            <li>เปรียบเทียบน้ำหนักจริงและน้ำหนักควรหนัก
+            <li>{{ "faq.calc_step3" | transloco }}</li>
+            <li>{{ "faq.calc_step4" | transloco }}
                 <ol>
-                    <li>หากน้ำหนักที่ชั่งจริง <u>มากกว่า</u> น้ำหนักควรหนัก = สินค้าหนัก : <span
-                            class="text-danger">ใช้เรทค่าขนส่งแบบกิโลกรัมคำนวณ</span></li>
-                    <li>น้ำหนักที่ชั่งจริง <u>น้อยกว่า</u> น้ำหนักควรหนัก = สินค้าเบา : <span
-                            class="text-danger">ใช้เรทค่าขนส่งแบบคิวบิกเมตรคำนวณ</span></li>
+                    <li>{{ "faq.calc_if_actual_weight" | transloco }} <u>{{ "faq.greater_than" | transloco }}</u> {{ "faq.calc_heavy" | transloco }} <span
+                            class="text-danger">{{ "faq.calc_use_kg_rate" | transloco }}</span></li>
+                    <li>{{ "faq.calc_actual_weight" | transloco }} <u>{{ "faq.less_than" | transloco }}</u> {{ "faq.calc_light" | transloco }} <span
+                            class="text-danger">{{ "faq.calc_use_cbm_rate" | transloco }}</span></li>
                 </ol>
             </li>
         </ol>
 
         <div class="calculator pt-3">
             <p class="my-0">
-                <u>เครื่องคำนวณ</u>
+                <u>{{ "faq.calculator" | transloco }}</u>
             </p>
             <div class="row pt-3">
                 <div class="col-2">
-                    <label>กว้าง (ซม.)</label>
+                    <label>{{ "faq.width_cm" | transloco }}</label>
                     <input type="text" id="width" class="form-control form-control-sm">
                 </div>
                 <div class="col-2">
-                    <label>ยาว (ซม.)</label>
+                    <label>{{ "faq.length_cm" | transloco }}</label>
                     <input type="text" id="long" class="form-control form-control-sm">
                 </div>
                 <div class="col-2">
-                    <label>สูง (ซม.)</label>
+                    <label>{{ "faq.height_cm" | transloco }}</label>
                     <input type="text" id="height" class="form-control form-control-sm">
                 </div>
                 <div class="col-2">
-                    <label>นน. (กก.)</label>
+                    <label>{{ "faq.weight_kg" | transloco }}</label>
                     <input type="text" id="weight" class="form-control form-control-sm">
                 </div>
             </div>
             <div class="row pt-3">
                 <div class="col-2">
-                    <label>คิวบิกเมตร</label>
+                    <label>{{ "cubic_meter" | transloco }}</label>
                     <input type="text" id="cubic" class="form-control form-control-sm" disabled="">
                 </div>
                 <div class="col-2">
-                    <label>ควรหนัก</label>
+                    <label>{{ "faq.expected_weight" | transloco }}</label>
                     <input type="text" id="shouldweight" class="form-control form-control-sm" disabled="">
                 </div>
                 <div class="col-2">
@@ -65,7 +64,7 @@
             </div>
             <div class="row pt-4">
                 <div class="col-4">
-                    <button (click)="cal()" class="btn btn-sm btn-primary">คำนวณ</button>
+                    <button (click)="cal()" class="btn btn-sm btn-primary">{{ "faq.calculate" | transloco }}</button>
                 </div>
             </div>
         </div>

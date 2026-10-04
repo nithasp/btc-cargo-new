@@ -3,20 +3,20 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body text-center align-self-center mb-4">
-          <h2 class="mb-1 mt-3">กรุณายืนยันตัวตนก่อนใช้บริการ</h2>
+          <h2 class="mb-1 mt-3">{{ "verify_identity_before_use" | transloco }}</h2>
           <div class="d-flex row justify-content-center mb-3">
-            <h1>สถานะ</h1>
-            <h1 class="text-danger ml-1">ยังไม่ได้ยืนยันตัวตน</h1>
+            <h1>{{ "status" | transloco }}</h1>
+            <h1 class="text-danger ml-1">{{ "identity_not_verified" | transloco }}</h1>
           </div>
           <div class="upload-file mt-5">
-            <h1 class="mb-1">อัพโหลดรูปถ่ายหน้าตรงคู่กับบัตรประชาชน</h1>
+            <h1 class="mb-1">{{ "upload_photo_with_id_card" | transloco }}</h1>
             <h2 class="text-danger mb-2">
-              (ให้เห็นหน้าคู่กับบัตรประชาชนอย่างชัดเจน)
+              {{ "photo_with_id_card_hint" | transloco }}
             </h2>
             <input type="file" (change)="handleUploadFile($event, 'idCard')" />
           </div>
           <div class="consent-file my-5">
-            <h1 class="mb-2">อัพโหลดสัญญา</h1>
+            <h1 class="mb-2">{{ "affiliate.upload_contract" | transloco }}</h1>
             <input type="file" (change)="handleUploadFile($event, 'consent')" />
           </div>
 
@@ -26,14 +26,14 @@
               class="btn btn-primary submit-file-button mb-3"
               (click)="handleSubmit()"
             >
-              <h2 class="text-white">ยืนยันตัวตน</h2>
+              <h2 class="text-white">{{ "verify_identity" | transloco }}</h2>
             </button>
             <button
               type="button"
               class="btn btn-danger"
               [routerLink]="['/web/warehouse-address']"
             >
-              <h2 class="text-white">กลับไปที่หน้าภาพรวมบัญชี</h2>
+              <h2 class="text-white">{{ "back_to_account_overview" | transloco }}</h2>
             </button>
           </div>
         </div>
@@ -44,15 +44,15 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body text-center align-self-center">
-          <h1 class="mb-3 mt-3">กรุณายืนยันตัวตนก่อนใช้บริการ</h1>
+          <h1 class="mb-3 mt-3">{{ "verify_identity_before_use" | transloco }}</h1>
           <div class="d-flex row justify-content-center mb-5">
-            <h1>สถานะ</h1>
-            <h1 class="text-warning ml-2">อยู่ระหว่างการตรวจสอบ</h1>
+            <h1>{{ "status" | transloco }}</h1>
+            <h1 class="text-warning ml-2">{{ "under_review" | transloco }}</h1>
           </div>
-          <p class="mt-5">กรุณารอเจ้าหน้าที่ทำการตรวจสอบข้อมูลการยืนยันตัวตน</p>
+          <p class="mt-5">{{ "wait_for_identity_review" | transloco }}</p>
 
-          <p>ท่านจะได้รับการแจ้งเตือนในระบบเมื่อเจ้าหน้าที่</p>
-          <p>ทำการตรวจสอบข้อมูลแล้ว</p>
+          <p>{{ "notified_after_review_1" | transloco }}</p>
+          <p>{{ "notified_after_review_2" | transloco }}</p>
         </div>
         <div class="modal-footer justify-content-center mb-3">
           <button
@@ -60,7 +60,7 @@
             class="btn btn-danger"
             [routerLink]="['/web/warehouse-address']"
           >
-            <h2 class="text-white">กลับไปที่หน้าภาพรวมบัญชี</h2>
+            <h2 class="text-white">{{ "back_to_account_overview" | transloco }}</h2>
           </button>
         </div>
       </div>

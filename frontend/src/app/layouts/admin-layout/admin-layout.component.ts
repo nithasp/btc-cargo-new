@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from "@angular/core";
+import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { Subscription } from "rxjs";
 import {
   AuthService,
   getAccessToken,
@@ -14,9 +15,10 @@ import { UserInfo } from "src/app/custom/interfaces";
   templateUrl: "./admin-layout.component.html",
   styleUrls: ["./admin-layout.component.scss"],
 })
-export class AdminLayoutComponent implements OnInit {
+export class AdminLayoutComponent implements OnInit, OnDestroy {
   isMobileResolution: boolean;
   hasUserAdmin: boolean = false;
+  sessionReady: Subscription;
 
   constructor(
     private router: Router,
@@ -40,6 +42,15 @@ export class AdminLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+    // The route guards can start a session while this layout is still on screen, after the one it
+    // loaded stopped working: without this it would stay hidden, or keep showing the old account
+    this.sessionReady = this.authService
+      .getSessionReady()
+      .subscribe(() => this.getUser());
+  }
+
+  ngOnDestroy() {
+    this.sessionReady.unsubscribe();
   }
 
   getUser() {

@@ -2,41 +2,36 @@
   <div class="card purchase-card">
     <div class="instruction">
       <div>
-        <h3>ขั้นตอนการสั่งซื้อ</h3>
+        <h3>{{ "shop.ordering_steps" | transloco }}</h3>
         <ol>
-          <li>ดาวน์โหลดไฟล์สั่งซื้อตามลิงค์ด้านล่าง</li>
-          <li>ลูกค้ากรอกรายละเอียดในไฟล์ใบสั่งซื้อ</li>
-          <li>อัพโหลดไฟล์เพื่อสร้างรายการสั่งซื้อ</li>
+          <li>{{ "shop.step_download" | transloco }}</li>
+          <li>{{ "shop.step_fill" | transloco }}</li>
+          <li>{{ "shop.step_upload" | transloco }}</li>
           <li>
-            บริษัทประสานงานสั่งซื้อสินค้ากับร้านค้าทันที
-            รบกวนรอทางบริษัทสรุปค่าใช้จ่ายประมาณ 2 วัน
+            {{ "shop.step_company_orders" | transloco }}
           </li>
           <li>
-            เมื่อเจ้าหน้าที่ทำการสรุปออเดอร์เสร็จเรียบร้อยแล้ว
-            สถานะออเดอร์จะเปลี่ยนเป็น "รอชำระเงิน"
+            {{ "shop.step_status_changes" | transloco }}
           </li>
           <li>
-            ลูกค้าชำระค่าใช้จ่ายในครั้งแรก ซึ่งเป็นค่าสินค้า และค่าจัดส่งในจีน
-            (ถ้ามี) และทางบริษัทชำระค่าสินค้าให้แก่ร้านค้าทันที <br />
-            * เนื่องจากทางบริษัทสั่งสินค้าเลยทันที
-            หลังสรุปลูกค้าต้องทำการชำระยอดเงินภายใน 2 วัน
-            มิฉะนั้นออเดอร์จะถูกยกเลิกโดยอัตโนมัติ
+            {{ "shop.step_first_payment" | transloco }} <br />
+            {{ "shop.step_pay_within" | transloco }}
           </li>
           <li>
-            ลูกค้าสามารถติดตามสถานะสินค้าได้ที่เมนู "สร้าง/ติดตามการสั่งซื้อ"
+            {{ "shop.step_track" | transloco }}
           </li>
         </ol>
       </div>
       <div class="d-flex flex-column ml-3">
-        <a href="javascript:void(0)">วิธีดูร้านค้าใน taobao และ tmall</a>
+        <a href="javascript:void(0)">{{ "shop.how_to_view_shops" | transloco }}</a>
         <a class="text-danger" href="javascript:void(0)"
-          >เงื่อนไขสั่งซื้อ-นำเข้า BTC CARGO</a
+          >{{ "shop.order_import_conditions" | transloco }}</a
         >
       </div>
     </div>
   </div>
   <div class="card purchase-card">
-    <h2 class="mb-2">Link</h2>
+    <h2 class="mb-2">{{ "shop.link" | transloco }}</h2>
     <div class="input-link">
       <input [(ngModel)]="url" type="text" class="form-control mr-4" />
       <button
@@ -44,7 +39,7 @@
         class="btn btn-danger search-button"
         (click)="getProduct()"
       >
-        ไป
+        {{ "shop.go" | transloco }}
       </button>
     </div>
     <div *ngIf="product" class="d-flex flex-column">
@@ -68,7 +63,7 @@
           <h2 class="mb-2">{{ product.title }}</h2>
           <div class="row mb-2">
             <div class="col-2 d-flex align-items-center">
-              <h3>Price</h3>
+              <h3>{{ "shop.price" | transloco }}</h3>
             </div>
             <div class="col-6 d-flex align-items-center">
               <h3 class="mr-2">¥</h3>
@@ -83,7 +78,7 @@
           </div>
           <div class="row">
             <div class="col-2 d-flex align-items-center">
-              <h3>Freight</h3>
+              <h3>{{ "shop.freight" | transloco }}</h3>
             </div>
             <div class="col-6 d-flex align-items-center">
               <h3>{{ product.freight }}</h3>
@@ -92,7 +87,7 @@
           <div class="details-divider"></div>
           <div class="row attribute mt-1">
             <div class="col-2 d-flex align-items-center">
-              <h3>ไซส์</h3>
+              <h3>{{ "shop.size" | transloco }}</h3>
             </div>
             <div class="col options">
               <div
@@ -120,7 +115,7 @@
           </div>
           <div class="row attribute mt-4">
             <div class="col-2 d-flex align-items-center">
-              <h3>สี</h3>
+              <h3>{{ "shop.color" | transloco }}</h3>
             </div>
             <div class="col options">
               <div
@@ -148,7 +143,7 @@
           </div>
           <div class="row attribute mt-4">
             <div class="col-2 d-flex align-items-center">
-              <h3>จำนวน</h3>
+              <h3>{{ "shop.quantity" | transloco }}</h3>
             </div>
               <div class="col input-group amount-input">
                 <div class="input-group-prepend">
@@ -179,7 +174,7 @@
           </div>
           <div class="row mt-4">
             <div class="col d-flex align-items-center">
-              <h3>หมายเหตุ</h3>
+              <h3>{{ "remark" | transloco }}</h3>
             </div>
           </div>
           <div class="row mt-3">
@@ -196,7 +191,7 @@
         </div>
       </div>
       <div class="add-to-cart mt-3">
-        <button type="button" class="btn btn-danger">เพิ่มลงรถเข็น</button>
+        <button type="button" class="btn btn-danger">{{ "shop.add_to_cart" | transloco }}</button>
       </div>
     </div>
   </div>

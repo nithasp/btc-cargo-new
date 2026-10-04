@@ -7,6 +7,7 @@ import {
 } from "angularx-social-login";
 import { AuthService } from "src/app/custom/services/auth.service";
 import { ApiService } from "src/app/custom/services/api.service";
+import { TranslocoService } from "@ngneat/transloco";
 
 @Component({
   selector: "app-facebook-login",
@@ -25,7 +26,8 @@ export class FacebookLoginComponent implements OnInit {
     private authService: AuthService,
     private apiService: ApiService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -77,14 +79,14 @@ export class FacebookLoginComponent implements OnInit {
     this.authService.isMsgBoxDisplay.next(true);
     this.authService.isLoginSuccess.next(true);
     this.authService.loginMsg.next(
-      "เข้าสู่ระบบสำเร็จ เรากำลังจะพาคุณไปยังหน้า Dashboard"
+      this.transloco.translate("auth.login_success")
     );
   }
   showFailedLoginMsg() {
     this.authService.isMsgBoxDisplay.next(true);
     this.authService.isLoginSuccess.next(false);
     this.authService.loginMsg.next(
-      "เกิดข้อผิดพลาดในการเข้าสู่ระบบ ลองเข้าสู่ระบบใหม่อีกครั้ง หรือลองลบ Cookies แล้วเข้าสู่ระบบใหม่"
+      this.transloco.translate("auth.social_login_failed")
     );
   }
 

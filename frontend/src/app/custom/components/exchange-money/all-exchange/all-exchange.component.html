@@ -1,13 +1,13 @@
 <div class="card">
   <div class="card-header">
-    <h2 class="card-title">รายการแลกเงินทั้งหมด</h2>
+    <h2 class="card-title">{{ "exchange.all_exchange_orders" | transloco }}</h2>
     <div>
       <button
         class="btn btn-icon btn-3 btn-primary mr-3"
         [routerLink]="['/web/wallets']"
       >
         <span class="btn-inner--icon"><i class="fas fa-wallet"></i></span>
-        <span class="btn-inner--text">กระเป๋าเงินหยวน</span>
+        <span class="btn-inner--text">{{ "exchange.yuan_wallet" | transloco }}</span>
       </button>
       <button
         class="btn btn-icon btn-3 btn-primary"
@@ -15,39 +15,39 @@
         [disabled]="!isServiceAvailable"
       >
         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-        <span class="btn-inner--text">สร้างรายการใหม่</span>
+        <span class="btn-inner--text">{{ "exchange.create_new_order" | transloco }}</span>
       </button>
     </div>
   </div>
   <div class="card-body">
     <div class="text-right">
       <p>
-        ดู
+        {{ "exchange.view" | transloco }}
         <a
           href="https://www.bestthaichina.com/downloads/how_to_use_hub_exchange.pdf"
           target="_blank"
-          >วิธีใช้ระบบฝากจ่าย</a
+          >{{ "exchange.how_to_use_payment_service" | transloco }}</a
         >
       </p>
       <p>
-        ดู
+        {{ "exchange.view" | transloco }}
         <a
           href="https://www.bestthaichina.com/downloads/ขั้นตอนการขอคืนเงิน.pdf"
           target="_blank"
-          >ขั้นตอนการขอคืนเงิน</a
+          >{{ "exchange.refund_procedure" | transloco }}</a
         >
       </p>
       <p>
-        กรุณายืนยันตัว Alipay ดู
+        {{ "exchange.please_verify_alipay" | transloco }}
         <a
           href="https://bestthaichina.com/downloads/how_to_verify_alipay.pdf"
           target="_blank"
-          >วิธียืนยันตัว</a
+          >{{ "exchange.how_to_verify" | transloco }}</a
         >
       </p>
       <p>
-        ไม่สามารถสร้างการชำระเงินใหม่ได้ในขณะนี้
-        <a href="faq#exchange" target="_blank">ดูข้อมูลเพิ่มเติม</a>
+        {{ "exchange.cannot_create_now" | transloco }}
+        <a href="faq#exchange" target="_blank">{{ "exchange.see_more_info" | transloco }}</a>
       </p>
     </div>
     <div *ngIf="!isEmptyDetails()">
@@ -55,11 +55,11 @@
         <table class="table align-items-center table-flush mt-4">
           <thead class="thead-light">
             <tr>
-              <th scope="col">เลขที่รายการ</th>
-              <th scope="col">วัน-เวลาที่สร้าง</th>
-              <th scope="col">ยอดเงินที่แลก</th>
-              <th scope="col">ยอดเงินที่ต้องชำระ</th>
-              <th scope="col">สถานะ</th>
+              <th scope="col">{{ "transaction_number" | transloco }}</th>
+              <th scope="col">{{ "exchange.created_at" | transloco }}</th>
+              <th scope="col">{{ "exchange.exchange_amount" | transloco }}</th>
+              <th scope="col">{{ "exchange.amount_to_pay" | transloco }}</th>
+              <th scope="col">{{ "status" | transloco }}</th>
             </tr>
           </thead>
           <tbody>
@@ -74,7 +74,7 @@
                   *ngIf="item.state === 'wait'"
                   href="javascript:void()"
                   [routerLink]="['/web/payment-notice', item.id]"
-                  >แจ้งชำระเงิน</a
+                  >{{ "notify_payment" | transloco }}</a
                 >
               </td>
             </tr>
@@ -91,7 +91,7 @@
           >
             <a class="page-link" (click)="handleChangePage(pagination.page - 1)">
               <i class="fa fa-angle-left"></i>
-              <span class="sr-only">Previous</span>
+              <span class="sr-only">{{ "paginator.previous" | transloco }}</span>
             </a>
           </li>
           <li
@@ -113,14 +113,14 @@
           >
             <a class="page-link" (click)="handleChangePage(pagination.page + 1)">
               <i class="fa fa-angle-right"></i>
-              <span class="sr-only">Next</span>
+              <span class="sr-only">{{ "paginator.next" | transloco }}</span>
             </a>
           </li>
         </ul>
       </div>
     </div>
     <div *ngIf="isEmptyDetails()">
-      <h3 class="text-center p-3">ไม่มีรายการแลกเงิน</h3>
+      <h3 class="text-center p-3">{{ "exchange.no_exchange_orders" | transloco }}</h3>
     </div>
   </div>
 </div>

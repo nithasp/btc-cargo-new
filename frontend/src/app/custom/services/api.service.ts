@@ -7,12 +7,14 @@ import { ApiResponse, HtmlContent } from '../interfaces'
   providedIn: "root",
 })
 export class ApiService {
-  baseUrl: string = "https://btc-uat.beonit.xyz";
+  baseUrl: string = btcBaseUrl;
 
   constructor(private http: HttpClient) {}
 
   getData() {
-    return this.http.get<any>("https://product8-api.netlify.app/product8.json");
+    return this.http.get<any>(`${btcBaseUrl}/api/product/cart-test/`, {
+      headers: getHttpHeadersWithContentType(),
+    });
   }
 
   getConsent() {

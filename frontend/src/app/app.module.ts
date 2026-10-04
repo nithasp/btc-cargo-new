@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { ToastrModule } from "ngx-toastr";
@@ -20,7 +20,10 @@ import { ZXingScannerModule } from "@zxing/ngx-scanner";
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
+import { environment } from "../environments/environment";
+import { TranslocoRootModule } from "src/transloco/transloco-root.module";
 import { AppComponent } from "./app.component";
+import { AuthInterceptor } from "./custom/services/auth.interceptor";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
 import { PresentationModule } from "./pages/presentation/presentation.module";
@@ -54,6 +57,8 @@ import { PalletComponent } from "./custom/pages/faq/faq-children-pages/pallet/pa
 import { ExchangeComponent } from "./custom/pages/faq/faq-children-pages/exchange/exchange.component";
 import { ProfileComponent } from "./custom/pages/profile/profile.component";
 import { WarehouseAddressComponent } from "./custom/pages/overview/warehouse-address/warehouse-address.component";
+import { InternationalShippingRateComponent } from "./custom/pages/overview/international-shipping-rate/international-shipping-rate.component";
+import { DomesticShippingRateComponent } from "./custom/pages/overview/domestic-shipping-rate/domestic-shipping-rate.component";
 import { TermsAndConditionsComponent } from "./custom/pages/terms-and-conditions/terms-and-conditions/terms-and-conditions.component";
 import { PdpaConditionsComponent } from "./custom/pages/terms-and-conditions/pdpa-conditions/pdpa-conditions.component";
 import { MockupCartDataPageComponent } from "./custom/pages/cart/mockup-cart-data-page/mockup-cart-data-page.component";
@@ -124,6 +129,8 @@ import { AffiliateModalComponent } from "./custom/pages/affiliate/affiliate-moda
     ExchangeComponent,
     ProfileComponent,
     WarehouseAddressComponent,
+    InternationalShippingRateComponent,
+    DomesticShippingRateComponent,
     TermsAndConditionsComponent,
     PdpaConditionsComponent,
     MockupCartDataPageComponent,
@@ -184,8 +191,10 @@ import { AffiliateModalComponent } from "./custom/pages/affiliate/affiliate-moda
     ZXingScannerModule,
     NgxDropzoneModule,
     InfiniteScrollModule,
+    TranslocoRootModule,
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     // Angular Social-x-login provider
     {
       provide: "SocialAuthServiceConfig",
@@ -194,13 +203,11 @@ import { AffiliateModalComponent } from "./custom/pages/affiliate/affiliate-moda
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              "246196017998-q52ius7kkuf4g917g4qjgusbl9ga0f4e.apps.googleusercontent.com"
-            ),
+            provider: new GoogleLoginProvider(environment.googleClientId),
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider("1050061045557139"),
+            provider: new FacebookLoginProvider(environment.facebookAppId),
           },
         ],
       } as SocialAuthServiceConfig,

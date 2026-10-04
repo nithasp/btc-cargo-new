@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router"
+import { take } from "rxjs/operators"
 import { PaymentGatewayRecords, PaymentAccount } from "../../interfaces"
 import {
   btcBaseUrl,
@@ -7,11 +8,13 @@ import {
   PaymentGatewayService,
   PaymentService,
 } from "../../services"
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "app-payment-notice",
   templateUrl: "./payment-notice.component.html",
   styleUrls: ["./payment-notice.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "payment" }],
 })
 export class PaymentNoticeComponent implements OnInit {
   isMeridian: boolean
@@ -27,7 +30,8 @@ export class PaymentNoticeComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private paymentService: PaymentService,
     private paymentGatewayService: PaymentGatewayService,
-    private exchangeService: ExchangeService
+    private exchangeService: ExchangeService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -75,13 +79,13 @@ export class PaymentNoticeComponent implements OnInit {
           }
           this.paymentService.createPayment(bodyParams2).subscribe(
             (res) => {
-              alert("แจ้งการชำระเงินสำเร็จ เรากำลังจะพาท่านกลับไปที่หน้าบิล")
+              alert(this.transloco.translate("notify_success", {}, "payment"))
               setTimeout(() => {
                 this.router.navigate(["/web/bills"])
               }, 2000)
             },
             (err) => {
-              alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง")
+              alert(this.transloco.translate("error_occurred_try_again"))
               console.log(err)
             }
           )
@@ -93,13 +97,13 @@ export class PaymentNoticeComponent implements OnInit {
     } else {
       this.paymentService.createPayment(bodyParams1).subscribe(
         (res) => {
-          alert("แจ้งการชำระเงินสำเร็จ เรากำลังจะพาท่านกลับไปที่หน้าบิล")
+          alert(this.transloco.translate("notify_success", {}, "payment"))
           setTimeout(() => {
             this.router.navigate(["/web/bills"])
           }, 2000)
         },
         (err) => {
-          alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง")
+          alert(this.transloco.translate("error_occurred_try_again"))
           console.log(err)
         }
       )
@@ -113,8 +117,13 @@ export class PaymentNoticeComponent implements OnInit {
         if (res.data) {
           this.bill = res.data
         } else {
-          alert("ไม่พบเลขที่บิลนี้")
-          this.router.navigate(["/web/bills"])
+          this.transloco
+            .selectTranslate("bill_not_found", {}, "payment")
+            .pipe(take(1))
+            .subscribe((message) => {
+              alert(message)
+              this.router.navigate(["/web/bills"])
+            })
         }
       },
       (err) => {
@@ -144,17 +153,17 @@ export class PaymentNoticeComponent implements OnInit {
   getPaymentAccount(serviceType: string): PaymentAccount {
     const paymentAccountConfig: {[serviceType: string]: PaymentAccount} = {
       "delivery": {
-        bankName: "กสิกรไทย",
-        branchName: "เดอะมอลล์ งามวงศ์วาน",
+        bankName: "payment.bank_kasikorn",
+        branchName: "payment.branch_the_mall_ngamwongwan",
         accountName: "บจก. บีทีซี คาร์โก้ แอนด์ เซอร์วิซ",
-        accountTypeName: "กระแสรายวัน",
+        accountTypeName: "payment.account_type_current",
         accountNumber: "050-2-93840-1",
       },
       "default": {
-        bankName: "ไทยพาณิชย์",
-        branchName: "-",
+        bankName: "payment.bank_scb",
+        branchName: null,
         accountName: "บัญชี บริษัท เก็ท ต้า หยวน จำกัด",
-        accountTypeName: "-",
+        accountTypeName: null,
         accountNumber: "381-3-00728-1",
       }
     };

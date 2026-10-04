@@ -1,58 +1,52 @@
 <section id="delivery">
     <div class="container">
-        <h3>วิธีการจัดส่งพัสดุในไทย</h3>
-        <p class="mb-3">ทางบริษัทจะคิดค่าขนส่งตามจริงจากที่บริษัทขนส่งนั้นๆ เรียกเก็บ</p>
+        <h3>{{ "faq.delivery_title" | transloco }}</h3>
+        <p class="mb-3">{{ "faq.delivery_actual_cost" | transloco }}</p>
         <ol>
             <li class="mb-3">
                 J&amp;T
                 <ul>
-                    <li>เฉพาะสินค้าที่สามารถแพ็คลงกล่องได้ ขนาดไม่เกินไซส์ L (หรือกล่องขนาด 30x40x50 cm)</li>
-                    <li>เฉพาะพัสดุที่มีขนาด 3 ด้านรวมกันไม่เกิน 150 เซนติเมตรและน้ำหนักไม่เกิน 20 กิโลกรัม</li>
-                    <li>แอดมินโกดังจะตรวจสอบค่าขนส่งได้ก็ต่อเมื่อลูกค้าสร้างรายการจัดส่งเข้ามาในระบบแล้ว</li>
-                    <li>ตัดรอบส่งพัสดุ 12.00-14.00 น.</li>
-                    <li>การส่งของ แอดมินโกดังทำตามคิวแจ้งยอดชำระ หากไม่ทันจะจัดส่งในวันถัดไป</li>
+                    <li>{{ "overview.jt_box_limit" | transloco }}</li>
+                    <li>{{ "overview.jt_size_limit" | transloco }}</li>
+                    <li>{{ "overview.admin_checks_after_order" | transloco }}</li>
+                    <li>{{ "overview.cutoff_time" | transloco }}</li>
+                    <li>{{ "overview.dispatch_queue" | transloco }}</li>
                 </ul>
             </li>
             <li class="mb-3">
-                มารับเอง
+                {{ "faq.self_pickup" | transloco }}
                 <ul>
-                    <li>เข้ารับเองได้ช่วง 9.00-18.00น. ทุกวันจันทร์-เสาร์ โกดังอยู่ย่านดอนเมือง ใกล้กับวัดทุ่งสีกัน
+                    <li>{{ "overview.self_pickup_hours" | transloco }}
                     </li>
                 </ul>
             </li>
             <li class="mb-3">
-                ขนส่งต่างจังหวัด
+                {{ "faq.provincial_carrier" | transloco }}
                 <ul>
-                    <li>มีค่าบริการส่ง(รวมทั้งช่วยซ่อมและบรรจุใหม่)ที่ขนส่งเที่ยวละ 100 บาท ไม่จำกัดจำนวน</li>
-                    <li>ค่าขนส่งในประเทศไทย ลูกค้าต้องเป็นผู้ชำระกับคนส่งพัสดุ โดยราคาค่าขนส่งในไทยจะเริ่มต้นที่ 100
-                        บาทต่อชิ้น</li>
-                    <li>แอดมินโกดังจะช่วยตรวจสอบและหาขนส่งที่เหมาะสมกับให้ลูกค้า</li>
-                    <li>ตัดรอบส่งพัสดุ 12.00-14.00 น.</li>
-                    <li>การส่งของ แอดมินโกดังทำตามคิวแจ้งยอดชำระ หากไม่ทัน จะจัดส่งในรอบวันถัดไป</li>
+                    <li>{{ "faq.provincial_fee" | transloco }}</li>
+                    <li>{{ "faq.provincial_pay_on_delivery" | transloco }}</li>
+                    <li>{{ "faq.provincial_admin_helps" | transloco }}</li>
+                    <li>{{ "overview.cutoff_time" | transloco }}</li>
+                    <li>{{ "faq.provincial_dispatch_queue" | transloco }}</li>
                 </ul>
             </li>
             <li class="mb-3">
-                รถบริษัทจัดส่ง
+                {{ "faq.company_truck" | transloco }}
                 <ul>
-                    <li>ค่าขนส่งตั้งแต่ 5,000 บาทขึ้นไป จัดส่งฟรีด้วยรถกระบะตู้ทึบ 2.1 เมตรเท่านั้น เฉพาะในกรุงเทพ
-                        นนทบุรี สมุทรปราการ
-                        และปทุมธานี</li>
-                    <li>ค่าขนส่งน้อยกว่า 5,000 บาท มีค่าขนส่งเที่ยวละ 400 บาท เฉพาะในกรุงเทพ นนทบุรี สมุทรปราการ
-                        และปทุมธานี</li>
-                    <li>หากพัสดุของลูกค้ามีจำนวนมาก หรือมีขนาดใหญ่และน้ำหนักมากที่ไม่สามารถใช้แรงคนยกได้ บริษัทฯ
-                        จะจัดส่งด้วยการเหมารถกระบะสี่ล้อ/หกล้อ หรือรถเฮี้ยบและมีค่าบริการเพิ่มเติม เริ่มต้น 2,000 บาท
-                        จัดส่งได้ทั่วประเทศไทย</li>
-                    <li>รอบรถบริษัทจะอิงรอบจัดส่งจากคิวก่อนหน้าโดยจะส่งได้เร็วสุดคือในวันถัดไปหลังจากชำระเงิน</li>
+                    <li>{{ "overview.truck_free_over_5000" | transloco }}</li>
+                    <li>{{ "overview.truck_under_5000" | transloco }}</li>
+                    <li>{{ "faq.truck_large_parcels" | transloco }}</li>
+                    <li>{{ "overview.company_truck_schedule" | transloco }}</li>
                 </ul>
             </li>
             <li class="mb-3">
-                ส่งไปรษณีย์แบบลงทะเบียน / EMS
+                {{ "faq.post" | transloco }}
                 <ul>
-                    <li>เฉพาะพัสดุที่สามารถแพ็คลงกล่องได้ ขนาดไม่เกินไซส์ L (หรือกล่องขนาด 30x40x50 cm)</li>
-                    <li>จำกัดน้ำหนักไม่เกิน 10 กิโลกรัม สำหรับแบบลงทะเบียน</li>
-                    <li>จำกัดน้ำหนักไม่เกิน 20 กิโลกรัม สำหรับแบบ EMS</li>
-                    <li>ตัดรอบส่งพัสดุ 12.00-14.00 น.</li>
-                    <li>การส่งของ แอดมินโกดังทำตามคิวแจ้งยอดชำระ หากไม่ทันจะจัดส่งในวันถัดไป</li>
+                    <li>{{ "overview.post_box_limit" | transloco }}</li>
+                    <li>{{ "overview.post_registered_limit" | transloco }}</li>
+                    <li>{{ "overview.post_ems_limit" | transloco }}</li>
+                    <li>{{ "overview.cutoff_time" | transloco }}</li>
+                    <li>{{ "overview.dispatch_queue" | transloco }}</li>
                 </ul>
             </li>
         </ol>

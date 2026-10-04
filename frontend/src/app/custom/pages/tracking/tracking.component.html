@@ -1,11 +1,11 @@
 <section>
   <div class="card parcel-list-card">
     <div class="card-header">
-      <h2 class="card-title">ติดตามสถานะสินค้า</h2>
+      <h2 class="card-title">{{ "shop.track_order_status" | transloco }}</h2>
     </div>
     <div class="card-body">
       <div class="order-header">
-        <h2>ออเดอร์</h2>
+        <h2>{{ "shop.order" | transloco }}</h2>
         <input
           type="text"
           class="form-control input-text"
@@ -17,12 +17,12 @@
         <table class="table align-items-center table-flush">
           <thead class="thead-light">
             <tr>
-              <th scope="col">ออเดอร์</th>
-              <th scope="col">จำนวนร้าน</th>
-              <th scope="col">วันที่สร้างออเดอร์</th>
-              <th scope="col">จำนวนสินค้า</th>
-              <th scope="col">ยอดชำระ</th>
-              <th scope="col">ติดตามสถานะสินค้า</th>
+              <th scope="col">{{ "shop.order" | transloco }}</th>
+              <th scope="col">{{ "shop.shop_count" | transloco }}</th>
+              <th scope="col">{{ "shop.order_created_date" | transloco }}</th>
+              <th scope="col">{{ "item_quantity" | transloco }}</th>
+              <th scope="col">{{ "amount_due" | transloco }}</th>
+              <th scope="col">{{ "shop.track_order_status" | transloco }}</th>
             </tr>
           </thead>
           <tbody>
@@ -36,7 +36,7 @@
               <td>xxx Baht</td>
               <td>
                 <a [routerLink]="['/web/tracking-details']"
-                  >ติดตามสถานะสินค้า</a
+                  >{{ "shop.track_order_status" | transloco }}</a
                 >
               </td>
             </tr>
@@ -50,7 +50,7 @@
               <td>xxx Baht</td>
               <td>
                 <a [routerLink]="['/web/tracking-details']"
-                  >ติดตามสถานะสินค้า</a
+                  >{{ "shop.track_order_status" | transloco }}</a
                 >
               </td>
             </tr>
@@ -64,7 +64,7 @@
               <td>xxx Baht</td>
               <td>
                 <a [routerLink]="['/web/tracking-details']"
-                  >ติดตามสถานะสินค้า</a
+                  >{{ "shop.track_order_status" | transloco }}</a
                 >
               </td>
             </tr>
@@ -78,7 +78,7 @@
               <td>xxx Baht</td>
               <td>
                 <a [routerLink]="['/web/tracking-details']"
-                  >ติดตามสถานะสินค้า</a
+                  >{{ "shop.track_order_status" | transloco }}</a
                 >
               </td>
             </tr>
@@ -92,7 +92,7 @@
               <td>xxx Baht</td>
               <td>
                 <a [routerLink]="['/web/tracking-details']"
-                  >ติดตามสถานะสินค้า</a
+                  >{{ "shop.track_order_status" | transloco }}</a
                 >
               </td>
             </tr>

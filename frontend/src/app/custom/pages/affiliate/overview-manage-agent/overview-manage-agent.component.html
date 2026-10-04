@@ -1,12 +1,12 @@
 <section id="overview-manage-agent" *ngIf="isMainContentDisplay">
   <div class="card container-card mb-0">
     <div class="card-header d-flex align-items-center justify-content-between">
-      <h2 class="card-title">ภาพรวมตัวแทน</h2>
+      <h2 class="card-title">{{ "affiliate.agent_overview" | transloco }}</h2>
     </div>
   </div>
   <div class="overview-manage-section1 card container-card">
     <div class="card-body">
-      <p>ค่าคอมมิชชัน</p>
+      <p>{{ "affiliate.commission" | transloco }}</p>
       <iframe
         *ngIf="report1"
         [src]="report1Url"
@@ -19,7 +19,7 @@
   </div>
   <div class="overview-manage-section2 card container-card">
     <div class="card-body">
-      <p>รายการตัวแทน</p>
+      <p>{{ "affiliate.agent_list" | transloco }}</p>
       <div *ngIf="report2">
         <iframe
           *ngIf="report2.data.report_type === 'dashboard'"

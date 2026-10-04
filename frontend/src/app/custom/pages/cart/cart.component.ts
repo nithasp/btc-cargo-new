@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core"
 import { CartData, Shop } from "../../interfaces"
 import { CartService } from "../../services"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "app-cart",
   templateUrl: "./cart.component.html",
   styleUrls: ["./cart.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "shop" }],
 })
 export class CartComponent implements OnInit {
   cartItems: Shop[] = []

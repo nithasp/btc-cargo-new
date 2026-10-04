@@ -1,13 +1,13 @@
 <section>
   <div class="card card-container">
     <div class="card-header">
-      <h2 class="card-title">กระเป๋าเงินหยวน</h2>
+      <h2 class="card-title">{{ "exchange.yuan_wallet" | transloco }}</h2>
       <button
         class="btn btn-icon btn-3 btn-primary"
         (click)="displayAddModal()"
       >
         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-        <span class="btn-inner--text">สร้างกระเป๋าเงินใหม่</span>
+        <span class="btn-inner--text">{{ "exchange.create_wallet" | transloco }}</span>
       </button>
     </div>
     <div class="card-body">
@@ -15,10 +15,10 @@
         <table class="table align-items-center table-flush">
           <thead class="thead-light">
             <tr>
-              <th>กระเป๋าเงินหยวน</th>
-              <th>วัน-เวลาที่สร้าง</th>
-              <th>ยอดเงินคืนหยวน</th>
-              <th>หมายเหตุ</th>
+              <th>{{ "exchange.yuan_wallet" | transloco }}</th>
+              <th>{{ "exchange.created_at" | transloco }}</th>
+              <th>{{ "exchange.yuan_refund_balance" | transloco }}</th>
+              <th>{{ "remark" | transloco }}</th>
               <th></th>
             </tr>
           </thead>
@@ -26,7 +26,7 @@
             <tr *ngFor="let wallet of wallets; let i = index">
               <td>{{ wallet.name }}</td>
               <td>{{ getDateTimeText(wallet.create_date) }}</td>
-              <td>{{ wallet.credit_amount }} หยวน</td>
+              <td>{{ wallet.credit_amount }} {{ "yuan" | transloco }}</td>
               <td>{{ wallet.remark || "-" }}</td>
               <td>
                 <div>
@@ -57,12 +57,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <div class="col-lg-12">
-            <h3>สร้างกระเป๋าเงินใหม่</h3>
+            <h3>{{ "exchange.create_wallet" | transloco }}</h3>
           </div>
         </div>
         <div class="modal-body pb-0 pt-0">
           <div class="col-lg-12 mb-3">
-            <h4>ชื่อกระเป๋าเงิน</h4>
+            <h4>{{ "exchange.wallet_name" | transloco }}</h4>
           </div>
           <div class="col-lg-12">
             <input
@@ -77,7 +77,7 @@
               *ngIf="!isValidName('add')"
             >
               <small
-                >ชื่อกระเป๋าเงินนี้มีอยู่แล้ว กรุณาใช้ชื่อกระเป๋าเงินอื่น</small
+                >{{ "exchange.wallet_name_exists" | transloco }}</small
               >
             </div>
           </div>
@@ -88,7 +88,7 @@
             class="btn btn-danger mr-2"
             (click)="isDisplayAddModal = false"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
           <button
             type="button"
@@ -97,7 +97,7 @@
             (click)="addWallet()"
             [disabled]="isDiabledSubmitButton('add')"
           >
-            ยืนยัน
+            {{ "confirm" | transloco }}
           </button>
         </div>
       </div>
@@ -108,12 +108,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <div class="col-lg-12">
-            <h3>แก้ไข {{ editingWallet.name }}</h3>
+            <h3>{{ "edit" | transloco }} {{ editingWallet.name }}</h3>
           </div>
         </div>
         <div class="modal-body pb-0 pt-0">
           <div class="col-lg-12 mb-3">
-            <h4>ชื่อกระเป๋าเงิน</h4>
+            <h4>{{ "exchange.wallet_name" | transloco }}</h4>
           </div>
           <div class="col-lg-12">
             <input
@@ -128,7 +128,7 @@
               *ngIf="!isValidName('edit')"
             >
               <small
-                >ชื่อกระเป๋าเงินนี้มีอยู่แล้ว กรุณาใช้ชื่อกระเป๋าเงินอื่น</small
+                >{{ "exchange.wallet_name_exists" | transloco }}</small
               >
             </div>
           </div>
@@ -139,7 +139,7 @@
             class="btn btn-danger mr-2"
             (click)="isDisplayEditModal = false"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
           <button
             type="button"
@@ -148,7 +148,7 @@
             (click)="editWallet()"
             [disabled]="isDiabledSubmitButton('edit')"
           >
-            ยืนยัน
+            {{ "confirm" | transloco }}
           </button>
         </div>
       </div>
@@ -159,12 +159,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <div class="col-lg-12">
-            <h3>ลบ {{ deletingWallet.name }}</h3>
+            <h3>{{ "delete" | transloco }} {{ deletingWallet.name }}</h3>
           </div>
         </div>
         <div class="modal-body pb-0 pt-0">
           <div class="col-lg-12">
-            <h4>คุณต้องการจะลบ {{ deletingWallet.name }} ?</h4>
+            <h4>{{ "exchange.confirm_delete_wallet" | transloco: { name: deletingWallet.name } }}</h4>
           </div>
         </div>
         <div class="modal-footer justify-content-end">
@@ -173,7 +173,7 @@
             class="btn btn-danger mr-2"
             (click)="isDisplayConfirmDeleteModal = false"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
           <button
             type="button"
@@ -181,7 +181,7 @@
             data-dismiss="modal"
             (click)="deleteWallet()"
           >
-            ยืนยัน
+            {{ "confirm" | transloco }}
           </button>
         </div>
       </div>

@@ -10,6 +10,7 @@ import {
 } from "@angular/forms"
 import { Router } from "@angular/router"
 import { ApiService } from "src/app/custom/services"
+import { TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "app-register",
@@ -34,7 +35,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -109,7 +111,7 @@ export class RegisterComponent implements OnInit {
             localStorage.setItem("accessToken", accessToken)
             this.isMsgBoxDisplay = true
             this.isRegisterSuccess = true
-            this.registerMsg = "สมัครสมาชิกสำเร็จ เรากำลังจะพาคุณเข้าสู่ระบบ"
+            this.registerMsg = this.transloco.translate("auth.register_success")
             this.registerForm.reset()
             this.router.navigate(["/pdpa-conditions"])
           },
@@ -127,10 +129,10 @@ export class RegisterComponent implements OnInit {
               const filterError = err.error.username.find((item: any) => {
                 if (item.includes("valid")) {
                   invalidUsernameErrorMsg =
-                    "กรุณาใส่ username ที่ประกอบด้วยตัวอักษรภาษาอังกฤษ ตัวเลข และเครื่องหมาย @ . + - _ เท่านั้น"
+                    this.transloco.translate("auth.error_username_invalid_chars")
                 }
                 if (item.includes("exists")) {
-                  usernameExists = "ชื่อผู้ใช้งานนี้ถูกใช้ไปแล้ว"
+                  usernameExists = this.transloco.translate("auth.error_username_taken")
                 }
               })
             }
@@ -138,21 +140,21 @@ export class RegisterComponent implements OnInit {
             if (err.error.password1) {
               const filterError = err.error.password1.find((item: any) => {
                 if (item.includes("numeric")) {
-                  numericPasswordErrMsg = "รหัสผ่านห้ามเป็นตัวเลขอย่างเดียว"
+                  numericPasswordErrMsg = this.transloco.translate("auth.error_password_numeric")
                 }
                 if (item.includes("common")) {
                   commonPasswordErrMsg =
-                    "รหัสผ่านนี้ธรรมดาเกินไป ควรจะประกอบด้วยตัวอักษร ตัวเลข และเครื่องหมายผสมกัน"
+                    this.transloco.translate("auth.error_password_common")
                 }
                 if (item.includes("short")) {
                   tooShortPasswordErrMsg =
-                    "รหัสผ่านสั้นเกินไป ต้องมีอย่างน้อย 8 ตัวอักษร"
+                    this.transloco.translate("auth.error_password_short")
                 }
               })
             }
             this.isMsgBoxDisplay = true
             this.isRegisterSuccess = false
-            this.registerMsg = `<p>สมัครสมาชิกไม่สำเร็จ</p> 
+            this.registerMsg = `<p>${this.transloco.translate("auth.register_failed")}</p> 
             ${
               err.error.username
                 ? invalidUsernameErrorMsg
@@ -169,12 +171,16 @@ export class RegisterComponent implements OnInit {
             }
             ${
               err.error.email
-                ? "<p class='mb-0'>- อีเมลนี้ถูกใช้ไปแล้ว</p>"
+                ? `<p class='mb-0'>- ${this.transloco.translate(
+                    "auth.error_email_taken"
+                  )}</p>`
                 : ""
             }
              ${
                err.error.non_field_errors
-                 ? "<p class='mb-0'>- รหัสผ่านคล้ายกับชื่อผู้ใช้มากเกินไป</p>"
+                 ? `<p class='mb-0'>- ${this.transloco.translate(
+                     "auth.error_password_similar"
+                   )}</p>`
                  : ""
              }
              ${
@@ -204,7 +210,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.isMsgBoxDisplay = true
       this.isRegisterSuccess = false
-      this.registerMsg = "สมัครสมาชิกไม่สำเร็จ"
+      this.registerMsg = this.transloco.translate("auth.register_failed")
     }
 
     this.registerForm.markAllAsTouched()

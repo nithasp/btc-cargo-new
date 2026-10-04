@@ -6,11 +6,13 @@ import {
   ReRenderSelectAddressComponentMethod,
 } from "../../../interfaces";
 import { AffiliateService } from "../../../services";
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 
 @Component({
   selector: "app-agent",
   templateUrl: "./agent.component.html",
   styleUrls: ["./agent.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "affiliate" }],
 })
 export class AgentComponent implements OnInit {
   id: number;
@@ -70,7 +72,8 @@ export class AgentComponent implements OnInit {
 
   constructor(
     private affiliateService: AffiliateService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -165,9 +168,9 @@ export class AgentComponent implements OnInit {
       (res: any) => {
         if (res.success === true) {
           if (this.id) {
-            alert("อัพเดทข้อมูลสำเร็จ");
+            alert(this.transloco.translate("update_success", {}, "affiliate"));
           } else {
-            alert("สร้างรหัสผู้แนะนำสำเร็จ");
+            alert(this.transloco.translate("create_referral_success", {}, "affiliate"));
           }
           this.getTeamMembers();
           this.clearFormValue();
@@ -176,15 +179,15 @@ export class AgentComponent implements OnInit {
             ReRenderSelectAddressComponentMethod.Clear
           );
         } else {
-          alert("กรุณากรอกข้อมูลของท่านให้ครบ");
+          alert(this.transloco.translate("fill_all_info", {}, "affiliate"));
         }
       },
       (err) => {
         console.log(err);
         if (err.error.message.includes("email")) {
-          alert("กรุณากรอกข้อมูลของท่านให้ครบ");
+          alert(this.transloco.translate("fill_all_info", {}, "affiliate"));
         }
-        alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+        alert(this.transloco.translate("error_occurred_try_again"));
       }
     );
   }

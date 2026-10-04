@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
+import { LanguageService } from "./custom/services/language.service";
 
 @Component({
   selector: "app-root",
@@ -8,7 +9,8 @@ import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '
 })
 export class AppComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private languageService: LanguageService) {
+     this.languageService.applySavedLanguage();
 
      this.router.events.subscribe((event: Event) => {
          if (event instanceof NavigationStart) {

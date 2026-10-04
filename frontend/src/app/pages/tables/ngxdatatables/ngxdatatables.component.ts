@@ -1,11 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-export enum SelectionType {
-  single = "single",
-  multi = "multi",
-  multiClick = "multiClick",
-  cell = "cell",
-  checkbox = "checkbox"
-}
+import { SelectionType } from "src/app/custom/interfaces";
 @Component({
   selector: "app-ngxdatatables",
   templateUrl: "ngxdatatables.component.html"

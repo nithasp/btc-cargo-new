@@ -10,11 +10,13 @@ import {
   PaymentGatewayService,
   StorageService,
 } from "../../../services"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "all-exchange",
   templateUrl: "./all-exchange.component.html",
   styleUrls: ["./all-exchange.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "exchange" }],
 })
 export class AllExchangeComponent implements OnInit {
   isServiceAvailable: boolean

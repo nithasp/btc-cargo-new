@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core"
 import { Wallet } from "../../interfaces"
 import { WalletService } from "../../services"
 import * as moment from "moment";
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 
 @Component({
   selector: "app-wallets",
   templateUrl: "./wallets.component.html",
   styleUrls: ["./wallets.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "exchange" }],
 })
 export class WalletsComponent implements OnInit {
   constructor(private walletService: WalletService) {}

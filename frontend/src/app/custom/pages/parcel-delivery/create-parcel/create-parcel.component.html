@@ -1,7 +1,7 @@
 <section>
   <div class="card parcel-card">
     <div class="card-header">
-      <h2 class="card-title">รายการพัสดุ</h2>
+      <h2 class="card-title">{{ "parcel_list" | transloco }}</h2>
       <a
         class="btn btn-icon btn-3 btn-primary create-button"
         type="button"
@@ -9,21 +9,21 @@
         (click)="addItem()"
       >
         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-        <span class="btn-inner--text">เพิ่มรายการพัสดุ</span>
+        <span class="btn-inner--text">{{ "parcel.add_parcel" | transloco }}</span>
       </a>
     </div>
     <div class="card-body">
-      <h2 class="mb-3">รายการพัสดุ</h2>
+      <h2 class="mb-3">{{ "parcel_list" | transloco }}</h2>
       <div class="overflow-x">
         <table class="table align-items-center table-flush">
           <thead class="thead-light">
             <tr>
-              <th scope="col">เลขพัสดุ</th>
-              <th scope="col">ประเภทการขนส่ง</th>
-              <th scope="col">ตีลังไม้</th>
-              <th scope="col">ดูรูปถ่าย</th>
+              <th scope="col">{{ "tracking_number" | transloco }}</th>
+              <th scope="col">{{ "parcel.shipping_type" | transloco }}</th>
+              <th scope="col">{{ "parcel.wooden_crate" | transloco }}</th>
+              <th scope="col">{{ "parcel.view_photo" | transloco }}</th>
               <th scope="col">QC</th>
-              <th class="min-200" scope="col">หมายเหตุ</th>
+              <th class="min-200" scope="col">{{ "remark" | transloco }}</th>
               <th class="unset-min-width"></th>
             </tr>
           </thead>
@@ -33,7 +33,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Tracking No"
+                  [placeholder]="'tracking_number' | transloco"
                   [(ngModel)]="item.parcelNo"
                   maxlength="50"
                 />
@@ -70,21 +70,21 @@
                     id="dropdownMenuButton"
                     dropdownToggle
                   >
-                    {{ item.boxType }}
+                    {{ "parcel." + item.boxType | transloco }}
                   </button>
                   <div
                     aria-labelledby="dropdownMenuButton"
                     *dropdownMenu
                     class="dropdown-menu"
                   >
-                    <a class="dropdown-item" (click)="item.boxType = 'ไม่ตี'"
-                      >ไม่ตี</a
+                    <a class="dropdown-item" (click)="item.boxType = 'crate_none'"
+                      >{{ "parcel.crate_none" | transloco }}</a
                     >
-                    <a class="dropdown-item" (click)="item.boxType = 'ตีเฟรม'"
-                      >ตีเฟรม</a
+                    <a class="dropdown-item" (click)="item.boxType = 'crate_frame'"
+                      >{{ "parcel.crate_frame" | transloco }}</a
                     >
-                    <a class="dropdown-item" (click)="item.boxType = 'ตีลังทึบ'"
-                      >ตีลังทึบ</a
+                    <a class="dropdown-item" (click)="item.boxType = 'crate_solid'"
+                      >{{ "parcel.crate_solid" | transloco }}</a
                     >
                   </div>
                 </div>
@@ -97,7 +97,7 @@
                     id="dropdownMenuButton"
                     dropdownToggle
                   >
-                    {{ item.pictureType }}
+                    {{ "parcel." + item.pictureType | transloco }}
                   </button>
                   <div
                     aria-labelledby="dropdownMenuButton"
@@ -106,13 +106,13 @@
                   >
                     <a
                       class="dropdown-item"
-                      (click)="item.pictureType = 'ไม่ต้องการดูรูปถ่าย'"
-                      >ไม่ต้องการดู</a
+                      (click)="item.pictureType = 'photo_not_required'"
+                      >{{ "parcel.photo_not_required" | transloco }}</a
                     >
                     <a
                       class="dropdown-item"
-                      (click)="item.pictureType = 'ต้องการดูรูปถ่าย'"
-                      >ต้องการดูรูปถ่าย</a
+                      (click)="item.pictureType = 'photo_required'"
+                      >{{ "parcel.photo_required" | transloco }}</a
                     >
                   </div>
                 </div>
@@ -125,17 +125,17 @@
                     id="dropdownMenuButton"
                     dropdownToggle
                   >
-                    {{ item.qcType }}
+                    {{ "parcel." + item.qcType | transloco }}
                   </button>
                   <div
                     aria-labelledby="dropdownMenuButton"
                     *dropdownMenu
                     class="dropdown-menu"
                   >
-                    <a class="dropdown-item" (click)="item.qcType = 'ไม่ต้องการ QC'"
-                      >ไม่ต้องการ QC</a
+                    <a class="dropdown-item" (click)="item.qcType = 'qc_not_required'"
+                      >{{ "parcel.qc_not_required" | transloco }}</a
                     >
-                    <a class="dropdown-item" (click)="item.qcType = 'ต้องการ QC'">ต้องการ QC</a>
+                    <a class="dropdown-item" (click)="item.qcType = 'qc_required'">{{ "parcel.qc_required" | transloco }}</a>
                   </div>
                 </div>
               </td>
@@ -143,7 +143,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="หมายเหตุ"
+                  [placeholder]="'remark' | transloco"
                   maxlength="150"
                   [(ngModel)]="item.note"
                 />
@@ -167,7 +167,7 @@
           type="button"
           (click)="onCancel()"
         >
-          ยกเลิก
+          {{ "cancel" | transloco }}
         </button>
         <button
           class="btn btn-primary footer-button"
@@ -175,7 +175,7 @@
           (click)="onValidate()"
           [disabled]="isDisabledSubmitButton()"
         >
-          ยืนยันพัสดุ
+          {{ "parcel.confirm_parcels" | transloco }}
       </button>
       </div>
     </div>

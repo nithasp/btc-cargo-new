@@ -27,6 +27,7 @@
     "@fullcalendar/daygrid": "5.5.0",
     "@fullcalendar/interaction": "5.5.0",
     "@line/liff": "2.18.1",
+    "@ngneat/transloco": "2.23.5",
     "@swimlane/ngx-datatable": "19.0.0",
     "@types/jquery": "3.5.32",
     "@types/select2": "^4.0.54",

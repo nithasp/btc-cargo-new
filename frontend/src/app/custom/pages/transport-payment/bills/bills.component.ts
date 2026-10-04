@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { Pagination, PaymentGatewayRecords } from "src/app/custom/interfaces";
 import { PaymentGatewayService } from "src/app/custom/services";
 import * as dayjs from "dayjs";
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 
 @Component({
   selector: "app-bills",
   templateUrl: "./bills.component.html",
   styleUrls: ["./bills.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "payment" }],
 })
 export class BillsComponent implements OnInit {
   bills: PaymentGatewayRecords[] = [];

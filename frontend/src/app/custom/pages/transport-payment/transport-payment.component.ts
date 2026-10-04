@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ApiResponse, Details, Pagination, Quotation } from "../../interfaces";
 import { QuotationService, TrackingService } from "../../services";
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 
 @Component({
   selector: "app-transport-payment",
   templateUrl: "./transport-payment.component.html",
   styleUrls: ["./transport-payment.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "payment" }],
 })
 export class TransportPaymentComponent implements OnInit {
   bsValue: Date = new Date();

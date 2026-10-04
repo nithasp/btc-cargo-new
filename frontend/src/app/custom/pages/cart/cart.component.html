@@ -6,12 +6,12 @@
           <img
             src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/cart/9bdd8040b334d31946f49e36beaf32db.png"
           />
-          <h2>ไม่มีสินค้าในรถเข็น</h2>
+          <h2>{{ "shop.cart_empty" | transloco }}</h2>
           <a
             [routerLink]="['/web/find-product']"
             class="btn btn-primary mt-3 d-block"
           >
-            กลับไปซื้อของ
+            {{ "shop.back_to_shopping" | transloco }}
           </a>
         </div>
       </div>
@@ -22,7 +22,7 @@
         class="select-all card d-flex align-items-center flex-row bg-white p-3 mb-1"
       >
         <input type="checkbox" (click)="selectAllItems($event.target)" />
-        <span>เลือกทั้งหมด</span>
+        <span>{{ "shop.select_all" | transloco }}</span>
       </div>
       <ng-container *ngFor="let item of cartItems">
         <div class="shop card my-3 p-3">
@@ -32,7 +32,7 @@
               class="checkbox-shop"
               (click)="selectAllShopItems($event.target, item)"
             />
-            <span class="shop-name ml-2">ร้านค้า: {{ item.shop_name }}</span>
+            <span class="shop-name ml-2">{{ "shop.shop_label" | transloco }} {{ item.shop_name }}</span>
           </div>
           <div class="table">
             <div class="thead text-center">
@@ -40,20 +40,20 @@
                 <div class="col-2">
                   <div class="row h-100">
                     <div class="col-lg-4 border-left-0 th th-checkbox">
-                      เลือก
+                      {{ "shop.select" | transloco }}
                     </div>
-                    <div class="col-lg-8 th th-image">รูป</div>
+                    <div class="col-lg-8 th th-image">{{ "shop.image" | transloco }}</div>
                   </div>
                 </div>
                 <div class="col-10">
                   <div class="row h-100">
-                    <div class="col-lg-3 th th-title">ชื่อสินค้า</div>
-                    <div class="col-lg-2 th th-category">สี/ไซส์</div>
-                    <div class="col-lg-2 th th-price">ราคาต่อชิ้น</div>
-                    <div class="col-lg-2 th th-quantity">จำนวนสินค้า</div>
-                    <div class="col-lg-2 th th-total-price">รวมราคา</div>
+                    <div class="col-lg-3 th th-title">{{ "shop.product_name" | transloco }}</div>
+                    <div class="col-lg-2 th th-category">{{ "shop.color_size" | transloco }}</div>
+                    <div class="col-lg-2 th th-price">{{ "shop.price_per_piece" | transloco }}</div>
+                    <div class="col-lg-2 th th-quantity">{{ "item_quantity" | transloco }}</div>
+                    <div class="col-lg-2 th th-total-price">{{ "shop.line_total" | transloco }}</div>
                     <div class="col-lg-1 border-right-0 th th-menu">
-                      ลบสินค้า
+                      {{ "shop.remove_item" | transloco }}
                     </div>
                   </div>
                 </div>
@@ -157,30 +157,30 @@
       <div class="calculator text-dark p-3 card">
         <div class="calculator-item text-right">
           <div class="item total-quantity">
-            <span>จำนวนสินค้ารวม</span>
+            <span>{{ "shop.total_items" | transloco }}</span>
             <span>{{ this.grandTotalQuantity || 0 }}</span>
-            <span>ชิ้น</span>
+            <span>{{ "pieces" | transloco }}</span>
           </div>
           <div class="item total-price-yuan">
-            <span>ราคาสินค้ารวม (หยวน)</span>
+            <span>{{ "shop.total_price_yuan" | transloco }}</span>
             <span>{{ totalPrice.toFixed(2) || 0 }}</span>
-            <span>หยวน</span>
+            <span>{{ "yuan" | transloco }}</span>
           </div>
           <div class="item rate">
-            <span>เรท</span>
+            <span>{{ "rate" | transloco }}</span>
             <span>{{ rate }}</span>
           </div>
           <div class="item total-price-baht">
-            <span>ราคาสินค้ารวม (บาท)</span>
+            <span>{{ "shop.total_price_baht" | transloco }}</span>
             <span>{{ (totalPrice * rate).toFixed(2) || 0 }}</span>
-            <span>บาท</span>
+            <span>{{ "baht" | transloco }}</span>
           </div>
           <div class="wrap-btn mt-2">
             <a [routerLink]="'/web/find-product'" class="btn btn-danger"
-              >กลับไปหน้าสั่งซื้อสินค้า</a
+              >{{ "shop.back_to_order_page" | transloco }}</a
             >
             <a href="javascript:void(0)" class="btn btn-primary"
-              >สร้างออเดอร์</a
+              >{{ "shop.create_order" | transloco }}</a
             >
           </div>
         </div>
@@ -191,7 +191,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">ต้องการจะลบสินค้าชิ้นนี้หรือไม่</h5>
+          <h5 class="modal-title">{{ "shop.confirm_remove_item" | transloco }}</h5>
         </div>
         <div class="modal-footer">
           <button
@@ -199,7 +199,7 @@
             class="btn btn-danger"
             (click)="closeConfirmDeleteModal()"
           >
-            ยกเลิก
+            {{ "cancel" | transloco }}
           </button>
           <button
             type="button"
@@ -207,7 +207,7 @@
             data-dismiss="modal"
             (click)="deleteItem()"
           >
-            ยืนยัน
+            {{ "confirm" | transloco }}
           </button>
         </div>
       </div>

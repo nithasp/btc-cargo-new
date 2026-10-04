@@ -1,10 +1,12 @@
 import { Component, OnInit } from "@angular/core"
 import { PurchaseService } from "../../services"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "app-purchase",
   templateUrl: "./purchase.component.html",
   styleUrls: ["./purchase.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "shop" }],
 })
 export class PurchaseComponent implements OnInit {
   selectedSize: string

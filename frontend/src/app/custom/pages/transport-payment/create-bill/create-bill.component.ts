@@ -18,11 +18,13 @@ import {
   QuotationService,
   UserService,
 } from "../../../services";
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 
 @Component({
   selector: "app-create-bill",
   templateUrl: "./create-bill.component.html",
   styleUrls: ["./create-bill.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "payment" }],
 })
 export class CreateBillComponent implements OnInit {
   userInfo: UserInfo;
@@ -77,7 +79,8 @@ export class CreateBillComponent implements OnInit {
     private addressService: AddressService,
     private userService: UserService,
     private quotationService: QuotationService,
-    private masterDataService: MasterDataService
+    private masterDataService: MasterDataService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -121,6 +124,7 @@ export class CreateBillComponent implements OnInit {
 
       const abbDistrict = defaultShippingAddress.district.substring(0, 2);
       this.abbDistrict = abbDistrict;
+      this.setDefaultLocalDelivery();
     });
   }
 
@@ -167,27 +171,35 @@ export class CreateBillComponent implements OnInit {
   getLocalDelivery(): void {
     this.masterDataService.getLocalDelivery().subscribe((value) => {
       this.expresses = value.data;
-      const subDistrict = value.data.filter((i) => {
-        return i.sub_district_codes.includes(
-          this.defaultShippingAddress.district
-        );
-      });
-      const defaultLocalDelivery = value.data.filter((i) => {
-        return i.province_codes.includes(this.abbDistrict);
-      });
-
-      if (subDistrict.length === 0 && defaultLocalDelivery.length === 0) {
-        this.localDelivery = [];
-        this.localDeliveryId = null;
-      } else if (subDistrict.length > 0) {
-        const selectedExpress = [...subDistrict, ...defaultLocalDelivery];
-        this.localDelivery = selectedExpress;
-        this.localDeliveryId = selectedExpress[0].id;
-      } else {
-        this.localDelivery = defaultLocalDelivery;
-        this.localDeliveryId = defaultLocalDelivery[0].id;
-      }
+      this.setDefaultLocalDelivery();
     });
+  }
+
+  // The address list and the carrier list are separate requests that can finish in either order,
+  // so the carriers for the default address are worked out once both have arrived
+  setDefaultLocalDelivery(): void {
+    if (!this.expresses || !this.defaultShippingAddress) {
+      return;
+    }
+
+    const subDistrict = this.expresses.filter((i) => {
+      return i.sub_district_codes.includes(this.defaultShippingAddress.district);
+    });
+    const defaultLocalDelivery = this.expresses.filter((i) => {
+      return i.province_codes.includes(this.abbDistrict);
+    });
+
+    if (subDistrict.length === 0 && defaultLocalDelivery.length === 0) {
+      this.localDelivery = [];
+      this.localDeliveryId = null;
+    } else if (subDistrict.length > 0) {
+      const selectedExpress = [...subDistrict, ...defaultLocalDelivery];
+      this.localDelivery = selectedExpress;
+      this.localDeliveryId = selectedExpress[0].id;
+    } else {
+      this.localDelivery = defaultLocalDelivery;
+      this.localDeliveryId = defaultLocalDelivery[0].id;
+    }
   }
 
   transformAddress(district: string) {
@@ -293,7 +305,7 @@ export class CreateBillComponent implements OnInit {
       },
       (err) => {
         console.log(err);
-        alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+        alert(this.transloco.translate("error_occurred_try_again"));
       }
     );
   }

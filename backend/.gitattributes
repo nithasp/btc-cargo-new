@@ -1,0 +1,2 @@
+# The Postgres container runs this script with bash, which rejects CRLF line endings
+*.sh text eol=lf

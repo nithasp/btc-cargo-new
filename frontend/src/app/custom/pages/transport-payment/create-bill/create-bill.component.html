@@ -4,13 +4,13 @@
       <div
         class="card-header d-flex align-items-center justify-content-between"
       >
-        <h2 class="card-title">สรุปรายการจัดส่ง</h2>
+        <h2 class="card-title">{{ "payment.delivery_summary" | transloco }}</h2>
         <div class="wrap-link">
           <button
             class="btn btn-primary text-white"
             (click)="isDisplayAddAddress = true"
           >
-            + เพิ่มที่อยู่จัดส่งใหม่/เพิ่มที่อยู่ใบเสร็จใหม่
+            {{ "payment.add_new_addresses" | transloco }}
           </button>
         </div>
       </div>
@@ -19,11 +19,11 @@
           <table class="table align-items-center">
             <thead class="thead-light">
               <tr>
-                <th class="th-parcel-number">เลขพัสดุ</th>
-                <th class="th-delivery-method">บริการจัดส่ง</th>
-                <th class="th-shipping-address">เลือกที่อยู่จัดส่ง</th>
+                <th class="th-parcel-number">{{ "tracking_number" | transloco }}</th>
+                <th class="th-delivery-method">{{ "payment.delivery_service" | transloco }}</th>
+                <th class="th-shipping-address">{{ "payment.select_shipping_address" | transloco }}</th>
                 <th class="th-billing-address">
-                  เลือกที่อยู่สำหรับใบเสร็จ/ใบส่งสินค้า
+                  {{ "payment.select_billing_address" | transloco }}
                 </th>
               </tr>
             </thead>
@@ -69,7 +69,7 @@
                     *ngIf="isExpressDisplay && localDelivery.length === 0"
                   >
                     <select class="select-local-delivery-method">
-                      <option>ที่อยู่นี้ไม่มีขนส่งในพื้นที่</option>
+                      <option>{{ "payment.no_carrier_for_address" | transloco }}</option>
                     </select>
                   </div>
                 </td>
@@ -122,7 +122,7 @@
   <div class="create-bill-section2 mt-5">
     <div class="card container-card">
       <div class="card-header">
-        <h2 class="card-title">สรุปรายการชำระเงิน</h2>
+        <h2 class="card-title">{{ "payment.payment_summary" | transloco }}</h2>
       </div>
       <div class="card-body">
         <!-- <div class="container-filter mb-3">
@@ -142,58 +142,57 @@
           <table class="table align-items-center">
             <thead class="thead-light">
               <tr>
-                <th class="th-list-summary">สรุปรายการ</th>
-                <th class="th-amount">จำนวนเงิน</th>
+                <th class="th-list-summary">{{ "summary" | transloco }}</th>
+                <th class="th-amount">{{ "payment.amount" | transloco }}</th>
               </tr>
             </thead>
             <tbody>
               <tr class="item">
-                <td class="td-transportation-cost">ค่าขนส่ง</td>
-                <td class="td-amount">{{ totalDeliveryCost }} บาท</td>
+                <td class="td-transportation-cost">{{ "shipping_fee" | transloco }}</td>
+                <td class="td-amount">{{ totalDeliveryCost }} {{ "baht" | transloco }}</td>
               </tr>
               <tr class="item">
-                <td class="td-other-expenses">ค่าใช้จ่ายอื่นๆ</td>
-                <td class="td-amount">{{ totalOtherCost }} บาท</td>
+                <td class="td-other-expenses">{{ "other_fees" | transloco }}</td>
+                <td class="td-amount">{{ totalOtherCost }} {{ "baht" | transloco }}</td>
               </tr>
               <tr class="item">
-                <td class="td-shipping-cost">ค่าจัดส่งสินค้า</td>
-                <td class="td-amount">0.00 บาท</td>
+                <td class="td-shipping-cost">{{ "payment.delivery_fee" | transloco }}</td>
+                <td class="td-amount">0.00 {{ "baht" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-other-expenses-in-shipping">
-                  ค่าใช้จ่ายอื่นๆ ในการจัดส่งสินค้า
+                  {{ "payment.other_delivery_fees" | transloco }}
                 </td>
-                <td class="td-amount">{{ totalThOtherCost }} บาท</td>
+                <td class="td-amount">{{ totalThOtherCost }} {{ "baht" | transloco }}</td>
               </tr>
               <!-- <tr class="item">
                 <td class="td-parcel-storage-fee">ค่าจัดเก็บพัสดุ</td>
                 <td class="td-amount">{{ totalStorageCost }} บาท</td>
               </tr> -->
               <tr class="item">
-                <td class="td-discount">ส่วนลด</td>
-                <td class="td-amount">0.00 บาท</td>
+                <td class="td-discount">{{ "discount" | transloco }}</td>
+                <td class="td-amount">0.00 {{ "baht" | transloco }}</td>
               </tr>
               <tr class="item">
-                <th class="td-other-expenses">รวมยอดที่ต้องชำระ</th>
-                <th class="td-amount">{{ totalPrice }} บาท</th>
+                <th class="td-other-expenses">{{ "payment.total_amount_due" | transloco }}</th>
+                <th class="td-amount">{{ totalPrice }} {{ "baht" | transloco }}</th>
               </tr>
             </tbody>
           </table>
           <div class="message text-right p-4">
             <p class="text-danger mb-2">
-              หลังจากยืนยันการสร้างบิลแล้ว กรุณารอให้สถานะบิลเปลี่ยนเป็น
-              "รอชำระเงิน" ก่อนทำการชำระยอด
+              {{ "payment.wait_for_bill_status" | transloco }}
             </p>
             <div class="wrap-btn">
               <button (click)="onCancel()" class="btn btn-danger">
-                ยกเลิก
+                {{ "cancel" | transloco }}
               </button>
               <button
                 class="btn btn-success confirm-bill"
                 (click)="createQuotation()"
                 [disabled]="isSubmitDisabled()"
               >
-                ยืนยันการสร้างบิล
+                {{ "payment.confirm_create_bill" | transloco }}
               </button>
             </div>
           </div>
@@ -206,12 +205,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add new address</h5>
+          <h5 class="modal-title">{{ "add_new_address" | transloco }}</h5>
           <button
             type="button"
             class="close-btn"
             data-dismiss="modal"
-            aria-label="Close"
+            [attr.aria-label]="'close' | transloco"
             (click)="onCloseAddAddress()"
           >
             <span aria-hidden="true">&times;</span>
@@ -222,12 +221,12 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-address-name">
-                  ชื่อที่อยู่
+                  {{ "address_name" | transloco }}
                 </label>
                 <input
                   class="form-control"
                   id="input-address-name"
-                  placeholder="ชื่อที่อยู่"
+                  [placeholder]="'address_name' | transloco"
                   type="text"
                   maxlength="50"
                   [(ngModel)]="newAddressName"
@@ -239,12 +238,12 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-name">
-                  ชื่อ-นามสกุล
+                  {{ "full_name" | transloco }}
                 </label>
                 <input
                   class="form-control"
                   id="input-name"
-                  placeholder="ชื่อ-นามสกุล"
+                  [placeholder]="'full_name' | transloco"
                   type="text"
                   maxlength="50"
                   [(ngModel)]="newReceiverName"
@@ -256,13 +255,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-phone-number">
-                  เบอร์โทรศัพท์
+                  {{ "phone_number" | transloco }}
                 </label>
 
                 <input
                   class="form-control"
                   id="input-phone-number"
-                  placeholder="เบอร์โทรศัพท์"
+                  [placeholder]="'phone_number' | transloco"
                   type="tel"
                   pattern="[0-9]*"
                   maxlength="15"
@@ -288,7 +287,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxAddJuristic"
-                    >นิติบุคคล</label
+                    >{{ "juristic_person" | transloco }}</label
                   >
                 </div>
               </div>
@@ -299,13 +298,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-vat">
-                  เลขประจำตัวผู้เสียภาษี
+                  {{ "tax_id" | transloco }}
                 </label>
 
                 <input
                   class="form-control"
                   id="input-vat"
-                  placeholder="เลขประจำตัวผู้เสียภาษี"
+                  [placeholder]="'tax_id' | transloco"
                   type="text"
                   [(ngModel)]="newVat"
                 />
@@ -316,12 +315,12 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-address-1">
-                  บ้านเลขที่ ซอย ถนน ฯลฯ
+                  {{ "address_line_hint" | transloco }}
                 </label>
                 <input
                   class="form-control"
                   id="input-address-1"
-                  placeholder="บ้านเลขที่ ซอย ถนน ฯลฯ"
+                  [placeholder]="'address_line_hint' | transloco"
                   type="text"
                   maxlength="100"
                   [(ngModel)]="newAddressLine1"
@@ -333,7 +332,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="select-new-address">
-                  ที่อยู่
+                  {{ "address" | transloco }}
                 </label>
                 <select-address
                   [id]="'select-new-address'"
@@ -358,7 +357,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxAddDefaultAddress"
-                    >ที่อยู่จัดส่ง</label
+                    >{{ "shipping_address" | transloco }}</label
                   >
                 </div>
                 <div
@@ -374,7 +373,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxAddRegisterAddress"
-                    >ที่อยู่ออกใบเสร็จ</label
+                    >{{ "billing_address" | transloco }}</label
                   >
                 </div>
               </div>
@@ -387,7 +386,7 @@
             class="btn btn-danger"
             (click)="onCloseAddAddress()"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
           <button
             type="button"
@@ -395,7 +394,7 @@
             data-dismiss="modal"
             (click)="createAddress()"
           >
-            บันทึก
+            {{ "save" | transloco }}
           </button>
         </div>
       </div>

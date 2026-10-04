@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { RouteInfo } from "src/app/custom/interfaces";
 import { AuthService } from "src/app/custom/services/auth.service";
 import { Router } from "@angular/router";
 
@@ -6,30 +7,6 @@ var misc: any = {
   sidebar_mini_active: true,
 };
 
-export interface RouteInfo {
-  path: string;
-  title: string;
-  type: string;
-  icontype: string;
-  collapse?: string;
-  isCollapsed?: boolean;
-  isCollapsing?: any;
-  children?: ChildrenItems[];
-}
-
-export interface ChildrenItems {
-  path: string;
-  title: string;
-  type?: string;
-  collapse?: string;
-  children?: ChildrenItems2[];
-  isCollapsed?: boolean;
-}
-export interface ChildrenItems2 {
-  path?: string;
-  title?: string;
-  type?: string;
-}
 //Menu Items
 export const ROUTES: RouteInfo[] = [
   // Source code
@@ -154,39 +131,39 @@ export const ROUTES: RouteInfo[] = [
   // },
   {
     path: "/web/",
-    title: "ภาพรวมบัญชี",
+    title: "menu.account_overview",
     type: "sub",
     icontype: "fa fa-credit-card text-primary",
     isCollapsed: true,
     children: [
-      { path: "warehouse-address", title: "ที่อยู่โกดังจีน", type: "link" },
+      { path: "warehouse-address", title: "menu.china_warehouse_address", type: "link" },
       {
         path: "international-shipping-rate",
-        title: "อัตราค่าบริการและระยะเวลาขนส่งจีน-ไทย",
+        title: "menu.international_shipping_rate",
         type: "link",
       },
       {
         path: "domestic-shipping-rate",
-        title: "อัตราค่าบริการส่งสินค้าในไทย",
+        title: "menu.domestic_shipping_rate",
         type: "link",
       },
     ],
   },
   {
     path: "/web/",
-    title: "บริการจัดส่งพัสดุ",
+    title: "menu.parcel_delivery_service",
     type: "sub",
     icontype: "fa fa-truck black",
     isCollapsed: true,
     children: [
-      { path: "parcel-list", title: "รายการพัสดุ", type: "link" },
-      { path: "created-parcel-list", title: "สร้างรายการติดตามพัสดุ", type: "link" },
+      { path: "parcel-list", title: "menu.parcel_list", type: "link" },
+      { path: "created-parcel-list", title: "menu.created_parcel_list", type: "link" },
       {
         path: "transport-payment",
-        title: "สินค้ารอชําระค่าขนส่ง",
+        title: "menu.pending_transport_payment",
         type: "link",
       },
-      { path: "goods-confirm", title: "พัสดุรอการยืนยันเจ้าของ", type: "link" },
+      { path: "goods-confirm", title: "menu.goods_confirm", type: "link" },
     ],
   },
   // {
@@ -204,14 +181,14 @@ export const ROUTES: RouteInfo[] = [
   // },
   {
     path: "/web/",
-    title: "บริการโอน/แลก/จ่ายเงินหยวน",
+    title: "menu.yuan_service",
     type: "sub",
     icontype: "fa fa-retweet text-danger",
     isCollapsed: true,
     children: [
-      { path: "create-exchange", title: "สร้างรายการแลกเงิน", type: "link" },
-      { path: "web", title: "รายการรอการชําระเงิน", type: "link" },
-      { path: "web", title: "รายการทั้งหมด", type: "link" },
+      { path: "create-exchange", title: "menu.create_exchange", type: "link" },
+      { path: "web", title: "menu.pending_payment_list", type: "link" },
+      { path: "web", title: "menu.all_orders", type: "link" },
     ],
   },
   // {
@@ -238,7 +215,7 @@ export const ROUTES: RouteInfo[] = [
   // },
   {
     path: "/web/bills",
-    title: "บิลทั้งหมด",
+    title: "menu.all_bills",
     type: "link",
     icontype: "fa fa-book text-info",
   },
@@ -250,20 +227,20 @@ export const ROUTES: RouteInfo[] = [
   // },
   {
     path: "/web/",
-    title: "จัดการตัวแทน",
+    title: "menu.manage_agents",
     type: "sub",
     icontype: "ni ni-circle-08 text-danger",
     isCollapsed: true,
     children: [
-      { path: "overview-manage-agent", title: "ดูภาพรวม", type: "link" },
-      { path: "agent", title: "สร้าง/แก้ไขตัวแทน", type: "link" },
-      { path: "manage-parcel", title: "จัดการพัสดุ", type: "link" },
-      { path: "goal", title: "ตั้งค่าเป้าหมาย", type: "link" },
+      { path: "overview-manage-agent", title: "menu.agent_overview", type: "link" },
+      { path: "agent", title: "menu.create_edit_agent", type: "link" },
+      { path: "manage-parcel", title: "menu.manage_parcels", type: "link" },
+      { path: "goal", title: "menu.set_goals", type: "link" },
     ],
   },
   {
     path: "/web/profile",
-    title: "ข้อมูลสมาชิก",
+    title: "menu.member_info",
     type: "link",
     icontype: "fa fa-user salmon",
   },

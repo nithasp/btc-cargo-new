@@ -1,16 +1,16 @@
 <div>
   <div class="row justify-content-between">
-    <h4>รายการยอดเงิน (หยวน)</h4>
+    <h4>{{ "exchange.amount_list" | transloco }}</h4>
     <div *ngIf="paymentMethod === 'alipay'" class="row">
-      <h4>ยอดเงินคืนที่มีอยู่</h4>
+      <h4>{{ "exchange.available_refund_balance" | transloco }}</h4>
       <h4 class="ml-3">{{ getTotalWalletsBalance() }}</h4>
-      <h4 class="ml-3">(หยวน)</h4>
+      <h4 class="ml-3">{{ "exchange.yuan_parens" | transloco }}</h4>
     </div>
   </div>
   <div *ngIf="paymentMethod === 'bank'">
     <div class="row mt-3">
       <div class="col">
-        <h4>{{ getAmountLabel(i) }}</h4>
+        <h4>{{ getAmountLabel(i) | transloco: { index: i + 1 } }}</h4>
         <input type="text" class="form-control mt-2" [(ngModel)]="amount" />
       </div>
     </div>
@@ -21,7 +21,7 @@
       class="row mt-3 align-items-end"
     >
       <div class="col">
-        <h4>{{ getAmountLabel(i) }}</h4>
+        <h4>{{ getAmountLabel(i) | transloco: { index: i + 1 } }}</h4>
         <input
           type="text"
           class="form-control mt-2"
@@ -29,7 +29,7 @@
         />
       </div>
       <div class="col">
-        <h4>เลือกกระเป๋าเงินคืนหยวน</h4>
+        <h4>{{ "exchange.select_refund_wallet" | transloco }}</h4>
         <div class="dropdown w-100 mt-2" dropdown>
           <button
             class="btn btn-secondary dropdown-toggle w-100"
@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="col">
-        <h4>ต้องการใช้ยอดเงินคืน</h4>
+        <h4>{{ "exchange.use_refund_balance_wanted" | transloco }}</h4>
         <input
           type="text"
           class="form-control mt-2"
@@ -69,21 +69,21 @@
           class="btn btn-success w-100"
           (click)="addItem()"
         >
-          + เพิ่มยอด
+          {{ "exchange.add_amount" | transloco }}
         </button>
         <button
           *ngIf="i !== 0"
           class="btn btn-danger w-100"
           (click)="removeItem(i)"
         >
-          - ลบยอด
+          {{ "exchange.remove_amount" | transloco }}
         </button>
       </div>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-lg-12 form-group">
-      <label for="paymentDetailsRemark">หมายเหตุ (ถ้ามี)</label>
+      <label for="paymentDetailsRemark">{{ "exchange.remark_optional" | transloco }}</label>
       <textarea
         class="form-control mt-2"
         id="paymentDetailsRemark"
@@ -94,7 +94,7 @@
   </div>
   <div class="button-container">
     <button class="btn btn-danger mr-2" type="button" (click)="onCancel()">
-      ยกเลิก
+      {{ "cancel" | transloco }}
     </button>
     <button
       class="btn btn-primary"
@@ -102,7 +102,7 @@
       (click)="handleNextFormState()"
       [disabled]="verifyDisbledConfirmButton()"
     >
-      ยืนยันสร้างรายการ
+      {{ "exchange.confirm_create_order" | transloco }}
     </button>
   </div>
 </div>

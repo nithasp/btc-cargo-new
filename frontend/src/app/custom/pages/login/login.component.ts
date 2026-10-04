@@ -3,7 +3,13 @@ import { Component, OnInit } from "@angular/core"
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"
 import { Router } from "@angular/router"
 import { RecaptchaErrorParameters } from "ng-recaptcha"
-import { ApiService, AuthService } from "../../services"
+import { environment } from "src/environments/environment"
+import {
+  ApiService,
+  AuthService,
+  clearStorageKeepingLanguage,
+} from "../../services"
+import { TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "app-login",
@@ -26,6 +32,9 @@ export class LoginComponent implements OnInit {
   newRegisterMsg: boolean = false
   userInfo: any
 
+  demoEnabled: boolean = environment.autoDemoLogin
+  isDemoLoading: boolean = false
+
   captcha: string = ""
   // Temporarily disable recaptcha validation
   isReCaptchaActive: boolean = true
@@ -35,7 +44,8 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private authService: AuthService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -81,7 +91,7 @@ export class LoginComponent implements OnInit {
               this.authService.isMsgBoxDisplay.next(true)
               this.authService.isLoginSuccess.next(true)
               this.authService.loginMsg.next(
-                "เข้าสู่ระบบสำเร็จ เรากำลังจะพาคุณไปยังหน้า Dashboard"
+                this.transloco.translate("auth.login_success")
               )
 
               if (this.rememberMeStatus) {
@@ -104,7 +114,7 @@ export class LoginComponent implements OnInit {
             this.authService.isMsgBoxDisplay.next(true)
             this.authService.isLoginSuccess.next(false)
             this.authService.loginMsg.next(
-              "บัญชีนี้ไม่มีอยู่ในระบบ หรือรหัสผ่านไม่ถูกต้อง ลองใส่บัญชีอื่นหรือ"
+              this.transloco.translate("auth.login_failed")
             )
             this.newRegisterMsg = true
           }
@@ -112,9 +122,33 @@ export class LoginComponent implements OnInit {
     } else {
       this.authService.isMsgBoxDisplay.next(true)
       this.authService.isLoginSuccess.next(false)
-      this.authService.loginMsg.next("กรุณากรอกข้อมูลให้ครบทุกช่อง")
+      this.authService.loginMsg.next(this.transloco.translate("auth.fill_all_fields"))
       this.newRegisterMsg = false
     }
+  }
+
+  enterDemo() {
+    if (this.isDemoLoading) {
+      return
+    }
+    this.isDemoLoading = true
+
+    this.authService.loginAsDemo().subscribe(
+      () => {
+        this.router.navigate(["/web"])
+      },
+      (err) => {
+        console.log("Something went wrong!", err.error, err)
+
+        this.authService.isMsgBoxDisplay.next(true)
+        this.authService.isLoginSuccess.next(false)
+        this.authService.loginMsg.next(
+          this.transloco.translate("auth.demo_unavailable")
+        )
+        this.newRegisterMsg = false
+        this.isDemoLoading = false
+      }
+    )
   }
 
   checkUser() {
@@ -151,7 +185,7 @@ export class LoginComponent implements OnInit {
   checkRememberMeStatus() {
     const status = JSON.parse(localStorage.getItem("rememberMe"))
     if (!status) {
-      localStorage.clear()
+      clearStorageKeepingLanguage()
       this.authService.isMsgBoxDisplay.next(false)
     }
   }

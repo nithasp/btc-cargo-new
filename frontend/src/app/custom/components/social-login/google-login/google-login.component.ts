@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { SocialAuthService, GoogleLoginProvider } from "angularx-social-login";
 import { AuthService } from "src/app/custom/services/auth.service";
 import { ApiService } from "src/app/custom/services/api.service";
+import { TranslocoService } from "@ngneat/transloco";
 
 @Component({
   selector: "app-google-login",
@@ -22,7 +23,8 @@ export class GoogleLoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private authService: AuthService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -73,14 +75,14 @@ export class GoogleLoginComponent implements OnInit {
     this.authService.isMsgBoxDisplay.next(true);
     this.authService.isLoginSuccess.next(true);
     this.authService.loginMsg.next(
-      "เข้าสู่ระบบสำเร็จ เรากำลังจะพาคุณไปยังหน้า Dashboard"
+      this.transloco.translate("auth.login_success")
     );
   }
   showFailedLoginMsg() {
     this.authService.isMsgBoxDisplay.next(true);
     this.authService.isLoginSuccess.next(false);
     this.authService.loginMsg.next(
-      "เกิดข้อผิดพลาดในการเข้าสู่ระบบ ลองเข้าสู่ระบบใหม่อีกครั้ง ถ้าเข้าไม่ได้ลองลบ Cookies แล้วเข้าสู่ระบบใหม่ หรือว่ายกเลิกการ Block third-party cookies ใน Incognito Mode"
+      this.transloco.translate("auth.google_login_failed")
     );
   }
 

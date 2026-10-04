@@ -1,18 +1,17 @@
 <div>
   <div *ngIf="formState === 'selectAccount'">
     <div>
-      <h4>กรุณาใส่รายละเอียดการส่งคำขอจ่ายผ่าน Alipay</h4>
+      <h4>{{ "exchange.alipay_details_prompt" | transloco }}</h4>
       <h4 class="text-danger">
-        หากต้องการฝากจ่ายมากกว่า 30,000 หยวน
-        กรุณาสั่งแยกออเดอร์และส่งมาจ่ายโดยให้แต่ละยอดไม่เกิน 30,000 หยวน
+        {{ "exchange.alipay_limit_note" | transloco }}
       </h4>
       <h4>
-        <a href="javascript:void()" target="_blank"> วิธีกดยอดฝากจ่าย </a>
+        <a href="javascript:void()" target="_blank"> {{ "exchange.alipay_how_to_request" | transloco }} </a>
       </h4>
       <h4>
-        <a href="javascript:void()" target="_blank"> ดูวิธียืนยันตัว Alipay </a>
+        <a href="javascript:void()" target="_blank"> {{ "exchange.alipay_how_to_verify" | transloco }} </a>
       </h4>
-      <h4 class="mt-3 mb-3">กรุณาเลือกบัญชีที่ส่งยอดเข้ามา</h4>
+      <h4 class="mt-3 mb-3">{{ "exchange.alipay_select_account" | transloco }}</h4>
       <div *ngFor="let account of accounts" class="custom-control custom-radio">
         <input
           type="radio"
@@ -29,14 +28,14 @@
     </div>
     <div class="button-container">
       <button class="btn btn-danger mr-2" type="button" (click)="onCancel()">
-        ยกเลิก
+        {{ "cancel" | transloco }}
       </button>
       <button
         class="btn btn-primary"
         type="button"
         (click)="handleNextFormState()"
       >
-        ดำเนินการต่อ
+        {{ "continue" | transloco }}
       </button>
     </div>
   </div>

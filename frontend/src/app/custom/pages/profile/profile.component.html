@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-12">
           <h1 class="display-2 text-white text-capitalize greeting">
-            สวัสดี {{ userInfo.first_name || userInfo.username }}
+            {{ "profile.hello" | transloco }} {{ userInfo.first_name || userInfo.username }}
           </h1>
         </div>
       </div>
@@ -22,7 +22,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase mb-0 text-white">
-                    จำนวนพัสดุถึงโกดังจีน
+                    {{ "profile.parcels_at_china_warehouse" | transloco }}
                   </h5>
 
                   <span class="h2 font-weight-bold mb-0 text-white"> 123 </span>
@@ -30,7 +30,7 @@
               </div>
 
               <p class="mt-3 mb-0 text-sm">
-                <span class="text-light"> (กดเข้าไปดูรายการทั้งหมดได้) </span>
+                <span class="text-light"> {{ "profile.click_to_view_all" | transloco }} </span>
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@
                   <h5
                     class="card-title text-uppercase text-nowrap mb-0 text-white"
                   >
-                    จำนวนพัสดุออกจากโกดังจีน
+                    {{ "profile.parcels_left_china_warehouse" | transloco }}
                   </h5>
 
                   <span class="h2 font-weight-bold mb-0 text-white"> 456 </span>
@@ -52,7 +52,7 @@
               </div>
 
               <p class="mt-3 mb-0 text-sm">
-                <span class="text-light"> (กดเข้าไปดูรายการทั้งหมดได้) </span>
+                <span class="text-light"> {{ "profile.click_to_view_all" | transloco }} </span>
               </p>
             </div>
           </div>
@@ -64,7 +64,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase mb-0 text-white">
-                    จำนวนพัสดุถึงโกดังไทย
+                    {{ "profile.parcels_at_thai_warehouse" | transloco }}
                   </h5>
 
                   <span class="h2 font-weight-bold mb-0 text-white"> 789 </span>
@@ -72,7 +72,7 @@
               </div>
 
               <p class="mt-3 mb-0 text-sm">
-                <span class="text-light"> (กดเข้าไปดูรายการทั้งหมดได้) </span>
+                <span class="text-light"> {{ "profile.click_to_view_all" | transloco }} </span>
               </p>
             </div>
           </div>
@@ -92,25 +92,25 @@
                 <div class="col">
                   <div class="card-profile-stats">
                     <div>
-                      <span class="heading"> จำนวนออเดอร์ส่ง </span>
+                      <span class="heading"> {{ "profile.shipping_orders_count" | transloco }} </span>
 
                       <span class="description text-dark"> 11 </span>
                     </div>
 
                     <div>
-                      <span class="heading"> จำนวนออเดอร์ซื้อ </span>
+                      <span class="heading"> {{ "profile.purchase_orders_count" | transloco }} </span>
 
                       <span class="description text-dark"> 22 </span>
                     </div>
 
                     <div>
-                      <span class="heading"> จำนวนออเดอร์แลกเงิน </span>
+                      <span class="heading"> {{ "profile.exchange_orders_count" | transloco }} </span>
 
                       <span class="description text-dark"> 33 </span>
                     </div>
 
                     <div>
-                      <span class="heading"> จำนวนออเดอร์ซื้อสินค้า </span>
+                      <span class="heading"> {{ "profile.product_orders_count" | transloco }} </span>
 
                       <span class="description text-dark"> 44 </span>
                     </div>
@@ -128,11 +128,11 @@
                   <div class="wrap-userForm2" formGroupName="extendeduser">
                     <div class="form-group">
                       <label for="telephone" class="form-control-label">
-                        Telephone
+                        {{ "telephone" | transloco }}
                       </label>
                       <input
                         id="telephone"
-                        placeholder="โทรศัพท์"
+                        [placeholder]="'telephone' | transloco"
                         type="text"
                         class="form-control"
                         formControlName="telephone"
@@ -143,11 +143,11 @@
                       *ngIf="this.userInfo.extendeduser.referralCode"
                     >
                       <label for="referral-code" class="form-control-label">
-                        Referral Code (โค้ดส่วนลดตัวแทน)
+                        {{ "profile.referral_code_label" | transloco }}
                       </label>
                       <input
                         id="referral-code"
-                        placeholder="โค้ดส่วนลดตัวแทน"
+                        [placeholder]="'profile.agent_discount_code' | transloco"
                         type="text"
                         class="form-control"
                         [value]="this.userInfo.extendeduser?.referralCode"
@@ -156,7 +156,7 @@
                     </div>
                     <div class="text-right mb-2">
                       <button class="btn btn-sm btn-primary" type="submit">
-                        Save
+                        {{ "save" | transloco }}
                       </button>
                     </div>
                   </div>
@@ -173,7 +173,7 @@
                 (click)="connectGoogle()"
                 *ngIf="!userInfo.socials.google"
               >
-                เชื่อมต่อ Google
+                {{ "profile.connect_google" | transloco }}
               </button>
               <div class="social-info" *ngIf="userInfo.socials.google">
                 <div class="wrap-user-thumbnail">
@@ -197,7 +197,7 @@
                 (click)="connectFacebook()"
                 *ngIf="!userInfo.socials.facebook"
               >
-                เชื่อมต่อ Facebook
+                {{ "profile.connect_facebook" | transloco }}
               </button>
               <div class="social-info" *ngIf="userInfo.socials.facebook">
                 <div class="wrap-user-thumbnail">
@@ -221,7 +221,7 @@
                 (click)="connectLine()"
                 *ngIf="!userInfo.socials.line"
               >
-                เชื่อมต่อ LINE
+                {{ "profile.connect_line" | transloco }}
               </button>
               <div class="social-info" *ngIf="userInfo.socials.line">
                 <div class="wrap-user-thumbnail">
@@ -245,14 +245,14 @@
                 (click)="connectLineNotify()"
                 *ngIf="!userInfo.extendeduser?.line_notify"
               >
-                เชื่อมต่อ LINE NOTIFY
+                {{ "profile.connect_line_notify" | transloco }}
               </button>
               <button
                 class="btn btn-danger"
                 (click)="isDisplayConfirmRevokeLineNotify = true"
                 *ngIf="userInfo.extendeduser?.line_notify"
               >
-                ยกเลิก LINE NOTIFY
+                {{ "profile.disconnect_line_notify" | transloco }}
               </button>
             </div>
           </div>
@@ -266,7 +266,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase mb-0 text-white">
-                        จำนวนพัสดุถึงโกดังจีน
+                        {{ "profile.parcels_at_china_warehouse" | transloco }}
                       </h5>
 
                       <span class="h2 font-weight-bold mb-0 text-white">
@@ -277,7 +277,7 @@
 
                   <p class="mt-3 mb-0 text-sm">
                     <span class="text-light">
-                      (กดเข้าไปดูรายการทั้งหมดได้)
+                      {{ "profile.click_to_view_all" | transloco }}
                     </span>
                   </p>
                 </div>
@@ -292,7 +292,7 @@
                       <h5
                         class="card-title text-uppercase text-nowrap mb-0 text-white"
                       >
-                        จำนวนพัสดุออกจากโกดังจีน
+                        {{ "profile.parcels_left_china_warehouse" | transloco }}
                       </h5>
 
                       <span class="h2 font-weight-bold mb-0 text-white">
@@ -303,7 +303,7 @@
 
                   <p class="mt-3 mb-0 text-sm">
                     <span class="text-light">
-                      (กดเข้าไปดูรายการทั้งหมดได้)
+                      {{ "profile.click_to_view_all" | transloco }}
                     </span>
                   </p>
                 </div>
@@ -316,7 +316,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase mb-0 text-white">
-                        จำนวนพัสดุถึงโกดังไทย
+                        {{ "profile.parcels_at_thai_warehouse" | transloco }}
                       </h5>
 
                       <span class="h2 font-weight-bold mb-0 text-white">
@@ -327,7 +327,7 @@
 
                   <p class="mt-3 mb-0 text-sm">
                     <span class="text-light">
-                      (กดเข้าไปดูรายการทั้งหมดได้)
+                      {{ "profile.click_to_view_all" | transloco }}
                     </span>
                   </p>
                 </div>
@@ -339,7 +339,7 @@
             <div class="card-header">
               <div class="row align-items-center">
                 <div class="col-12">
-                  <h2 class="card-title">Edit profile</h2>
+                  <h2 class="card-title">{{ "profile.edit_profile" | transloco }}</h2>
                 </div>
               </div>
             </div>
@@ -362,19 +362,19 @@
                 [formGroup]="userForm1"
                 (ngSubmit)="handleSubmitUserForm1()"
               >
-                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <h6 class="heading-small text-muted mb-4">{{ "profile.user_information" | transloco }}</h6>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">
-                          Username
+                          {{ "auth.username" | transloco }}
                         </label>
 
                         <input
                           class="form-control"
                           id="input-username"
-                          placeholder="Username"
+                          [placeholder]="'auth.username' | transloco"
                           type="text"
                           [value]="userInfo ? userInfo.username : ''"
                           readonly
@@ -385,13 +385,13 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-userId">
-                          User ID
+                          {{ "profile.user_id" | transloco }}
                         </label>
 
                         <input
                           class="form-control"
                           id="input-userId"
-                          placeholder="User ID"
+                          [placeholder]="'profile.user_id' | transloco"
                           type="text"
                           [value]="userInfo ? userInfo.id : ''"
                           readonly
@@ -405,13 +405,13 @@
                           class="form-control-label"
                           for="input-first-name"
                         >
-                          First name
+                          {{ "profile.first_name" | transloco }}
                         </label>
 
                         <input
                           class="form-control"
                           id="input-first-name"
-                          placeholder="First name"
+                          [placeholder]="'profile.first_name' | transloco"
                           type="text"
                           formControlName="first_name"
                         />
@@ -421,13 +421,13 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name">
-                          Last name
+                          {{ "profile.last_name" | transloco }}
                         </label>
 
                         <input
                           class="form-control"
                           id="input-last-name"
-                          placeholder="Last name"
+                          [placeholder]="'profile.last_name' | transloco"
                           type="text"
                           formControlName="last_name"
                         />
@@ -437,7 +437,7 @@
                     <div class="col-lg-6">
                       <div class="form-group" formGroupName="extendeduser">
                         <label class="form-control-label" for="input-birthdate">
-                          Birthdate
+                          {{ "profile.birthdate" | transloco }}
                         </label>
                         <div
                           class="input-group input-group-alternative input-group-birthdate"
@@ -464,7 +464,7 @@
                           />
                         </div>
                         <small class="text-danger" *ngIf="!isDateValid"
-                          >รูปแบบของวันที่ไม่ถูกต้อง</small
+                          >{{ "profile.invalid_date_format" | transloco }}</small
                         >
                       </div>
                     </div>
@@ -472,13 +472,13 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">
-                          Email address
+                          {{ "profile.email_address" | transloco }}
                         </label>
 
                         <input
                           class="form-control"
                           id="input-email"
-                          placeholder="Email"
+                          [placeholder]="'auth.email' | transloco"
                           type="email"
                           formControlName="email"
                           readonly
@@ -489,12 +489,12 @@
                 </div>
                 <div class="text-right">
                   <button class="btn btn-sm btn-primary" type="submit">
-                    Save
+                    {{ "save" | transloco }}
                   </button>
                 </div>
 
                 <h6 class="heading-small text-muted mb-1 mt-1">
-                  Address information
+                  {{ "profile.address_information" | transloco }}
                 </h6>
                 <div class="text-right mb-3">
                   <button
@@ -502,7 +502,7 @@
                     (click)="isDisplayAddAddress = true"
                     type="button"
                   >
-                    เพิ่มที่อยู่
+                    {{ "profile.add_address" | transloco }}
                   </button>
                 </div>
                 <div class="pl-lg-4" *ngFor="let addr of addresses">
@@ -532,17 +532,17 @@
                         <p>{{ addr.person }}</p>
                         <p>{{ addr.address }}</p>
                         <p>{{ addr.district | addressTransformer }}</p>
-                        <p>เบอร์โทรศัพท์ {{ addr.telephone }}</p>
+                        <p>{{ "phone_number" | transloco }} {{ addr.telephone }}</p>
                         <div class="mt-2">
                           <span
                             *ngIf="addr.id === shippingAddressId"
                             class="badge badge-pill badge-default mr-2"
-                            >ที่อยู่จัดส่ง</span
+                            >{{ "shipping_address" | transloco }}</span
                           >
                           <span
                             *ngIf="addr.id === billingAddressId"
                             class="badge badge-pill badge-primary"
-                            >ที่อยู่ออกใบเสร็จ</span
+                            >{{ "billing_address" | transloco }}</span
                           >
                         </div>
                       </div>
@@ -561,12 +561,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add new address</h5>
+          <h5 class="modal-title">{{ "add_new_address" | transloco }}</h5>
           <button
             type="button"
             class="close-btn"
             data-dismiss="modal"
-            aria-label="Close"
+            [attr.aria-label]="'close' | transloco"
             (click)="isDisplayAddAddress = false"
           >
             <span aria-hidden="true">&times;</span>
@@ -577,12 +577,12 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-address-name">
-                  ชื่อที่อยู่
+                  {{ "address_name" | transloco }}
                 </label>
                 <input
                   class="form-control"
                   id="input-address-name"
-                  placeholder="ชื่อที่อยู่"
+                  [placeholder]="'address_name' | transloco"
                   type="text"
                   maxlength="50"
                   [(ngModel)]="newAddressName"
@@ -594,12 +594,12 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-name">
-                  ชื่อ-นามสกุล
+                  {{ "full_name" | transloco }}
                 </label>
                 <input
                   class="form-control"
                   id="input-name"
-                  placeholder="ชื่อ-นามสกุล"
+                  [placeholder]="'full_name' | transloco"
                   type="text"
                   maxlength="50"
                   [(ngModel)]="newReceiverName"
@@ -611,13 +611,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-phone-number">
-                  เบอร์โทรศัพท์
+                  {{ "phone_number" | transloco }}
                 </label>
 
                 <input
                   class="form-control"
                   id="input-phone-number"
-                  placeholder="เบอร์โทรศัพท์"
+                  [placeholder]="'phone_number' | transloco"
                   type="tel"
                   pattern="[0-9]*"
                   maxlength="15"
@@ -643,7 +643,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxAddJuristic"
-                    >นิติบุคคล</label
+                    >{{ "juristic_person" | transloco }}</label
                   >
                 </div>
               </div>
@@ -654,13 +654,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-vat">
-                  เลขประจำตัวผู้เสียภาษี
+                  {{ "tax_id" | transloco }}
                 </label>
 
                 <input
                   class="form-control"
                   id="input-vat"
-                  placeholder="เลขประจำตัวผู้เสียภาษี"
+                  [placeholder]="'tax_id' | transloco"
                   type="text"
                   [(ngModel)]="newVat"
                 />
@@ -671,12 +671,12 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-address-1">
-                  บ้านเลขที่ ซอย ถนน ฯลฯ
+                  {{ "address_line_hint" | transloco }}
                 </label>
                 <input
                   class="form-control"
                   id="input-address-1"
-                  placeholder="บ้านเลขที่ ซอย ถนน ฯลฯ"
+                  [placeholder]="'address_line_hint' | transloco"
                   type="text"
                   maxlength="100"
                   [(ngModel)]="newAddressLine1"
@@ -688,7 +688,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="select-new-address">
-                  ที่อยู่
+                  {{ "address" | transloco }}
                 </label>
                 <select-address
                   #address2
@@ -714,7 +714,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxAddDefaultAddress"
-                    >ที่อยู่จัดส่ง</label
+                    >{{ "shipping_address" | transloco }}</label
                   >
                 </div>
                 <div
@@ -730,7 +730,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxAddRegisterAddress"
-                    >ที่อยู่ออกใบเสร็จ</label
+                    >{{ "billing_address" | transloco }}</label
                   >
                 </div>
               </div>
@@ -743,7 +743,7 @@
             class="btn btn-danger"
             (click)="onCloseAddAddressModal()"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
           <button
             type="button"
@@ -751,7 +751,7 @@
             data-dismiss="modal"
             (click)="createAddress()"
           >
-            บันทึก
+            {{ "save" | transloco }}
           </button>
         </div>
       </div>
@@ -766,7 +766,7 @@
             type="button"
             class="close-btn"
             data-dismiss="modal"
-            aria-label="Close"
+            [attr.aria-label]="'close' | transloco"
             (click)="isDisplayAddress = false"
           >
             <span aria-hidden="true">&times;</span>
@@ -777,13 +777,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-address-name">
-                  ชื่อที่อยู่
+                  {{ "address_name" | transloco }}
                 </label>
                 <input
                   [(ngModel)]="addressName"
                   class="form-control"
                   id="input-address-name"
-                  placeholder="ชื่อที่อยู่"
+                  [placeholder]="'address_name' | transloco"
                   type="text"
                   maxlength="50"
                 />
@@ -794,13 +794,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-name">
-                  ชื่อ-นามสกุล
+                  {{ "full_name" | transloco }}
                 </label>
                 <input
                   [(ngModel)]="receiverName"
                   class="form-control"
                   id="input-name"
-                  placeholder="ชื่อ-นามสกุล"
+                  [placeholder]="'full_name' | transloco"
                   type="text"
                   maxlength="50"
                 />
@@ -811,14 +811,14 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-phone-number">
-                  เบอร์โทรศัพท์
+                  {{ "phone_number" | transloco }}
                 </label>
 
                 <input
                   [(ngModel)]="telephone"
                   class="form-control"
                   id="input-phone-number"
-                  placeholder="เบอร์โทรศัพท์"
+                  [placeholder]="'phone_number' | transloco"
                   type="tel"
                   pattern="[0-9]*"
                   maxlength="15"
@@ -843,7 +843,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxJuristic"
-                    >นิติบุคคล</label
+                    >{{ "juristic_person" | transloco }}</label
                   >
                 </div>
               </div>
@@ -854,14 +854,14 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-vat">
-                  เลขประจำตัวผู้เสียภาษี
+                  {{ "tax_id" | transloco }}
                 </label>
 
                 <input
                   [(ngModel)]="vat"
                   class="form-control"
                   id="input-vat"
-                  placeholder="เลขประจำตัวผู้เสียภาษี"
+                  [placeholder]="'tax_id' | transloco"
                   type="text"
                 />
               </div>
@@ -871,13 +871,13 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-address-1">
-                  บ้านเลขที่ ซอย ถนน ฯลฯ
+                  {{ "address_line_hint" | transloco }}
                 </label>
                 <input
                   [(ngModel)]="addressLine1"
                   class="form-control"
                   id="input-address-1"
-                  placeholder="บ้านเลขที่ ซอย ถนน ฯลฯ"
+                  [placeholder]="'address_line_hint' | transloco"
                   type="text"
                   maxlength="100"
                 />
@@ -888,7 +888,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-control-label" for="select-address-1">
-                  ที่อยู่
+                  {{ "address" | transloco }}
                 </label>
                 <select-address
                   #address2
@@ -915,7 +915,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxDefaultAddress-1"
-                    >ที่อยู่จัดส่ง</label
+                    >{{ "shipping_address" | transloco }}</label
                   >
                 </div>
                 <div
@@ -931,7 +931,7 @@
                   <label
                     class="custom-control-label"
                     for="customCheckboxRegisterAddress-1"
-                    >ที่อยู่ออกใบเสร็จ</label
+                    >{{ "billing_address" | transloco }}</label
                   >
                 </div>
               </div>
@@ -944,7 +944,7 @@
             class="btn btn-danger"
             (click)="isDisplayAddress = false"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
           <button
             type="button"
@@ -952,7 +952,7 @@
             data-dismiss="modal"
             (click)="updateAddress()"
           >
-            บันทึก
+            {{ "save" | transloco }}
           </button>
         </div>
       </div>
@@ -963,7 +963,7 @@
       <div class="modal-content confirm-delete-modal-content">
         <div class="modal-header"></div>
         <div class="modal-body text-center">
-          <h3>คุณต้องการลบที่อยู่ {{ targetDeleteAddressName }} หรือไม่</h3>
+          <h3>{{ "profile.confirm_delete_address" | transloco: { name: targetDeleteAddressName } }}</h3>
         </div>
         <div class="modal-footer justify-content-center">
           <button
@@ -971,7 +971,7 @@
             class="btn btn-danger"
             (click)="isDisplayConfirmDeleteAddress = false"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
           <button
             type="button"
@@ -979,7 +979,7 @@
             data-dismiss="modal"
             (click)="deleteAddress()"
           >
-            ยืนยัน
+            {{ "confirm" | transloco }}
           </button>
         </div>
       </div>
@@ -990,14 +990,12 @@
       <div class="modal-content fail-delete-modal-content">
         <div class="modal-header"></div>
         <div class="modal-body text-center">
-          <h2>ไม่สามารถลบที่อยู่ {{ targetDeleteAddressName }} ได้</h2>
+          <h2>{{ "profile.cannot_delete_address" | transloco: { name: targetDeleteAddressName } }}</h2>
           <h4>
-            เนื่องจาก
-            {{ targetDeleteAddressName }}
-            ถูกใช้เป็นที่อยู่จัดส่งหรือที่อยู่ออกใบเสร็จ
+            {{ "profile.address_in_use" | transloco: { name: targetDeleteAddressName } }}
           </h4>
           <p>
-            กรุณาเลือกที่อยู่อยู่จัดส่งหรือที่อยู่ออกใบเสร็จอื่นก่อนทำการลบที่อยู่
+            {{ "profile.choose_other_address_first" | transloco }}
           </p>
         </div>
         <div class="modal-footer justify-content-center">
@@ -1006,7 +1004,7 @@
             class="btn btn-danger"
             (click)="isDisplayFailDeleteAddress = false"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
         </div>
       </div>
@@ -1020,7 +1018,7 @@
       >
         <div class="modal-header"></div>
         <div class="modal-body text-center">
-          <h3>คุณต้องการยกเลิก Line Notifyหรือไม่</h3>
+          <h3>{{ "profile.confirm_disconnect_line_notify" | transloco }}</h3>
         </div>
         <div class="modal-footer justify-content-center">
           <button
@@ -1028,7 +1026,7 @@
             class="btn btn-danger"
             (click)="isDisplayConfirmRevokeLineNotify = false"
           >
-            ปิด
+            {{ "close" | transloco }}
           </button>
           <button
             type="button"
@@ -1036,7 +1034,7 @@
             data-dismiss="modal"
             (click)="disconnectLineNotify()"
           >
-            ยืนยัน
+            {{ "confirm" | transloco }}
           </button>
         </div>
       </div>

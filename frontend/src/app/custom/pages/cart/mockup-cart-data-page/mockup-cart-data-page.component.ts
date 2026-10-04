@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "src/app/custom/services/api.service";
 import { CartService } from "src/app/custom/services/cart.service";
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 
 @Component({
   selector: "app-mockup-cart-data-page",
   templateUrl: "./mockup-cart-data-page.component.html",
   styleUrls: ["./mockup-cart-data-page.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "shop" }],
 })
 export class MockupCartDataPageComponent implements OnInit {
   isLoading: boolean = true;

@@ -1,20 +1,22 @@
 import { Component, OnInit } from "@angular/core"
 import { Router } from "@angular/router"
 import { MasterDataService, TrackingService } from "src/app/custom/services"
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "create-parcel",
   templateUrl: "./create-parcel.component.html",
   styleUrls: ["./create-parcel.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "parcel" }],
 })
 export class CreateParcelComponent implements OnInit {
   items = [
     {
       parcelNo: null,
       deliveryTypeId: 1,
-      boxType: "ไม่ตี",
-      qcType: "ไม่ต้องการ QC",
-      pictureType: "ไม่ต้องการดูรูปถ่าย",
+      boxType: "crate_none",
+      qcType: "qc_not_required",
+      pictureType: "photo_not_required",
       note: null,
     },
   ]
@@ -26,7 +28,8 @@ export class CreateParcelComponent implements OnInit {
   constructor(
     private router: Router,
     private trackingService: TrackingService,
-    private masterDataService: MasterDataService
+    private masterDataService: MasterDataService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -53,9 +56,9 @@ export class CreateParcelComponent implements OnInit {
     this.items.push({
       parcelNo: null,
       deliveryTypeId: 1,
-      boxType: "ไม่ตี",
-      qcType: "ไม่ต้องการ QC",
-      pictureType: "ไม่ต้องการดูรูปถ่าย",
+      boxType: "crate_none",
+      qcType: "qc_not_required",
+      pictureType: "photo_not_required",
       note: null,
     })
   }
@@ -82,9 +85,9 @@ export class CreateParcelComponent implements OnInit {
   }
 
   getBoxType(type) {
-    if (type === "ตีเฟรม") {
+    if (type === "crate_frame") {
       return "normal"
-    } else if (type === "ตีลังทึบ") {
+    } else if (type === "crate_solid") {
       return "solid"
     }
     return "no"
@@ -98,7 +101,7 @@ export class CreateParcelComponent implements OnInit {
         if (!response.data.exist) {
           this.submitTrackingDetails()
         } else {
-          alert("เลขพัสดุซ้ำ กรุณาใส่เลขพัสดุอื่น")
+          alert(this.transloco.translate("duplicate_tracking_number", {}, "parcel"))
         }
       },
       (error) => {
@@ -114,9 +117,9 @@ export class CreateParcelComponent implements OnInit {
           shopping_serial: item.parcelNo,
           delivery_type_id: item.deliveryTypeId,
           shipping_with_box: this.getBoxType(item.boxType),
-          qc: item.qcType === "ไม่ต้องการ QC" ? false : true,
+          qc: item.qcType === "qc_not_required" ? false : true,
           required_picture:
-            item.pictureType === "ไม่ต้องการดูรูปถ่าย" ? false : true,
+            item.pictureType === "photo_not_required" ? false : true,
           remark: item.note,
         }
       }),

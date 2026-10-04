@@ -6,11 +6,13 @@ import {
   AccountType,
 } from "../../../interfaces"
 import { ExchangeService, StorageService } from "../../../services"
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "bank-payment",
   templateUrl: "./bank-payment.component.html",
   styleUrls: ["./bank-payment.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "exchange" }],
 })
 export class BankPaymentComponent implements OnInit {
   form: string = "input"
@@ -23,7 +25,8 @@ export class BankPaymentComponent implements OnInit {
 
   constructor(
     private storageService: StorageService,
-    private exchangeService: ExchangeService
+    private exchangeService: ExchangeService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {}
@@ -80,7 +83,7 @@ export class BankPaymentComponent implements OnInit {
             },
             (error) => {
               console.log("error ", error)
-              alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง")
+              alert(this.transloco.translate("error_occurred_try_again"))
               this.uploadedFile = undefined
               return
             }

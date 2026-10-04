@@ -1,14 +1,14 @@
 <div class="card">
   <div class="card-header">
-    <h2 class="card-title">สรุปรายการ</h2>
+    <h2 class="card-title">{{ "summary" | transloco }}</h2>
   </div>
   <div class="card-body payment-summary-body">
     <div class="row">
       <div class="col-lg-2">
-        <h4>บริการ</h4>
+        <h4>{{ "exchange.service" | transloco }}</h4>
       </div>
       <div class="col">
-        <p>{{ getPaymentMethodLabel() }}</p>
+        <p>{{ getPaymentMethodLabel() | transloco }}</p>
       </div>
     </div>
     <div
@@ -16,7 +16,7 @@
       class="row mt-3"
     >
       <div class="col-lg-2">
-        <h4>ชื่อบัญชี</h4>
+        <h4>{{ "exchange.account_name" | transloco }}</h4>
       </div>
       <div class="col">
         <p>{{ details.account_name }}</p>
@@ -27,7 +27,7 @@
       class="row mt-3"
     >
       <div class="col-lg-2">
-        <h4>เลขบัญชี</h4>
+        <h4>{{ "exchange.account_number" | transloco }}</h4>
       </div>
       <div class="col">
         <p>{{ details.account_number }}</p>
@@ -38,35 +38,35 @@
       class="row mt-3"
     >
       <div class="col-lg-2">
-        <h4>บัญชี</h4>
+        <h4>{{ "exchange.account" | transloco }}</h4>
       </div>
       <div class="col">
-        <p>แจ้งรายละเอียดบัญชีเป็นไฟล์ภาพ</p>
+        <p>{{ "exchange.account_details_as_image" | transloco }}</p>
       </div>
     </div>
     <div *ngIf="paymentMethod === 'alipay'" class="row mt-3">
       <div class="col-lg-2">
-        <h4>บัญชีที่ส่งยอดเข้า</h4>
+        <h4>{{ "exchange.account_request_sent_to" | transloco }}</h4>
       </div>
       <div class="col">
         <p>{{ getAlipayAccountName(details.alipay_account_id) }}</p>
       </div>
     </div>
-    <h4 class="mt-4 mb-4">รายละเอียดยอดเงินที่ต้องชำระ</h4>
+    <h4 class="mt-4 mb-4">{{ "exchange.amount_due_details" | transloco }}</h4>
     <div *ngIf="paymentMethod === 'alipay'" class="row">
       <div class="col-lg-2">
-        <h4>รายละเอียดยอดย่อย</h4>
+        <h4>{{ "exchange.sub_amount_details" | transloco }}</h4>
       </div>
       <div class="col-2">
         <p class="text-center">{{ getSplitAmount() }}</p>
       </div>
       <div class="col-2">
-        <p>หยวน</p>
+        <p>{{ "yuan" | transloco }}</p>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-lg-2">
-        <h4>ยอดรวมหยวน</h4>
+        <h4>{{ "exchange.total_yuan" | transloco }}</h4>
       </div>
       <div class="col-2">
         <p class="text-center">
@@ -74,23 +74,23 @@
         </p>
       </div>
       <div class="col-2">
-        <p>หยวน</p>
+        <p>{{ "yuan" | transloco }}</p>
       </div>
     </div>
     <div *ngIf="paymentMethod === 'alipay'" class="row mt-3">
       <div class="col-lg-2">
-        <h4>ใช้ยอดเงินคืน</h4>
+        <h4>{{ "exchange.use_refund_balance" | transloco }}</h4>
       </div>
       <div class="col-2">
         <p class="text-center">{{ getTotalWalletAmount() }}</p>
       </div>
       <div class="col-2">
-        <p>หยวน</p>
+        <p>{{ "yuan" | transloco }}</p>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-lg-2">
-        <h4>อัตราแลกเปลี่ยน</h4>
+        <h4>{{ "exchange.exchange_rate" | transloco }}</h4>
       </div>
       <div class="col-2">
         <p class="text-center">{{ getExchangeRate() }}</p>
@@ -98,26 +98,26 @@
     </div>
     <div class="row mt-3">
       <div class="col-lg-2">
-        <h4>สรุปยอดเงินที่ต้องชำระ</h4>
+        <h4>{{ "exchange.total_amount_to_pay" | transloco }}</h4>
       </div>
       <div class="col-2">
         <p class="text-center">{{ getResult() }}</p>
       </div>
       <div class="col-2">
-        <p>บาท</p>
+        <p>{{ "baht" | transloco }}</p>
       </div>
     </div>
     <div class="row warning-row">
       <h4 class="text-danger">
-        *กรุณารอสถานะรายการเปลี่ยนเป็น “รอชำระเงิน” ก่อนทำการชำระเงิน
+        {{ "exchange.wait_for_order_status" | transloco }}
       </h4>
     </div>
     <div class="button-container">
       <button class="btn btn-danger mr-2" type="button" (click)="onCancel()">
-        ยกเลิก
+        {{ "cancel" | transloco }}
       </button>
       <button class="btn btn-primary" type="button" (click)="onSubmit()">
-        ยืนยันสร้างรายการชำระ
+        {{ "exchange.confirm_create_payment" | transloco }}
       </button>
     </div>
   </div>

@@ -1,10 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { AffiliateService, ExchangeService } from "../../../services";
 import { AffiliateModal } from "src/app/custom/interfaces";
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 @Component({
   selector: "affiliate-modal",
   templateUrl: "./affiliate-modal.component.html",
   styleUrls: ["./affiliate-modal.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "affiliate" }],
 })
 export class AffiliateModalComponent implements OnInit {
   @Output() isMainContentDisplay = new EventEmitter<AffiliateModal>();
@@ -20,7 +22,8 @@ export class AffiliateModalComponent implements OnInit {
 
   constructor(
     private affiliateService: AffiliateService,
-    private exchangeService: ExchangeService
+    private exchangeService: ExchangeService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -84,17 +87,17 @@ export class AffiliateModalComponent implements OnInit {
             },
             (err) => {
               console.log(err);
-              alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+              alert(this.transloco.translate("error_occurred_try_again"));
             }
           );
         },
         (err) => {
           console.log(err);
-          alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+          alert(this.transloco.translate("error_occurred_try_again"));
         }
       );
     } else {
-      alert("กรุณาอัพโหลดรูปของท่านให้ครบ");
+      alert(this.transloco.translate("upload_all_images", {}, "affiliate"));
     }
   }
 

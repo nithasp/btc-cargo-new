@@ -1,80 +1,51 @@
-# BTC Cargo - Freight Management System
-
-A dynamic and modern frontend for a **Freight Management and Tracking System** built with Angular. This Single-Page Application (SPA) provides a complete user interface for managing logistics operations, including order processing, shipment tracking, and business analytics.
-
----
+# BTC Cargo Frontend
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/nithasp/btc-cargo/master/screenshots/sc2.png" target="_blank">
-    <img src="screenshots/sc2.png" width="100%" hspace="5" />
-  </a>
+  <img src="screenshots/login.png" width="49%" alt="Login page" />
+  <img src="screenshots/dashboard.png" width="49%" alt="Main dashboard" />
 </p>
 
----
+The Angular single-page application of the BTC Cargo freight management system. It talks to the
+API in [`../backend`](../backend); see the [project README](../README.md) for the whole picture.
 
-## Features
+## Tech stack
 
--   **Dashboard Overview:** A central hub displaying key performance indicators (KPIs) like total orders, delivered shipments, and revenue, providing an at-a-glance view of business health.
--   **Comprehensive Order Management:** Full CRUD (Create, Read, Update, Delete) functionality for managing the entire lifecycle of cargo orders through an intuitive and responsive interface.
--   **Interactive Shipment Tracking:** A dedicated tracking feature that allows users to search for orders and monitor their status through a clear, visual pipeline, simulating real-world logistics stages from "Booked" to "In Transit" to "Delivered."
+- **Framework:** Angular 11, TypeScript
+- **State:** RxJS observables and Angular services
+- **UI:** Argon Dashboard (Bootstrap 4)
 
-## Tech Stack
+## Setup
 
--   **Framework:** Angular
--   **Language:** TypeScript
--   **State Management:** RxJS Observables & Angular Services
--   **Routing:** Angular Router
--   **Styling:** CSS3
--   **Build Tool:** Angular CLI
+Start the backend first (see [`../backend/README.md`](../backend/README.md)), then:
 
-## Installation & Setup
+```bash
+npm install --legacy-peer-deps
+npm start
+```
 
-Follow these steps to get the development environment running on your local machine.
+Open `http://localhost:4200`: it goes straight into the portal as the demo account. Log out to reach
+the login and register pages; `demo` / `demo1234` signs back in.
 
-### Prerequisites
+- `--legacy-peer-deps` is required: the project pins `zone.js@0.10.2` while `@angular/core@11.0.5`
+  asks for `~0.10.3`, and npm 7+ stops with `ERESOLVE` otherwise.
+- Use `npm start`, not a bare `ng serve`. Angular 11 builds with webpack 4, which needs
+  `--openssl-legacy-provider` on Node 17 and newer; the npm scripts pass it.
 
--   Ensure you have **Node.js** (which includes npm) installed on your system.
--   Ensure you have the **Angular CLI** installed globally.
-    ```bash
-    npm install -g @angular/cli
-    ```
+## Configuration
 
-> **Note on Node.js versions.** This project targets Angular 11, whose build
-> pipeline runs on webpack 4. webpack 4 hashes with MD4, which OpenSSL 3
-> (bundled with Node 17 and newer) disables by default. The `npm` scripts in
-> this repo therefore launch the Angular CLI with `--openssl-legacy-provider`,
-> which keeps the project building on current Node releases. Run the project
-> through those scripts rather than invoking a global `ng` directly.
+`src/environments/environment.ts` (development) and `environment.prod.ts` (production build):
 
-### Installation Steps
+| Key | What it is |
+| --- | ---------- |
+| `apiUrl` | Address of the backend API. `http://localhost:3000` in development |
+| `autoDemoLogin` | `true`: a visitor with no session enters as the demo account. `false`: everyone signs in first |
+| `googleClientId`, `facebookAppId` | Social login apps |
+| `lineLoginLiffId`, `lineConnectLiffId` | LINE LIFF apps for sign-in and for connecting from the profile page |
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/nithasp/btc-cargo.git
-    cd btc-cargo
-    ```
+## Production build
 
-2.  **Install all required dependencies:**
-    ```bash
-    npm install --legacy-peer-deps
-    ```
-    The `--legacy-peer-deps` flag is required. npm 7 and newer enforce peer
-    dependencies strictly, and this project pins `zone.js@0.10.2` while
-    `@angular/core@11.0.5` asks for `~0.10.3`; a plain `npm install` stops
-    with an `ERESOLVE` error.
+```bash
+npm run build
+```
 
-3.  **Run the development server:**
-    ```bash
-    npm start
-    ```
-    Use `npm start` rather than a bare `ng serve`: the npm script passes the
-    `--openssl-legacy-provider` flag that webpack 4 needs on modern Node. A
-    global `ng serve` will fail with `ERR_OSSL_EVP_UNSUPPORTED`.
-
-    To produce a production bundle:
-    ```bash
-    npm run build
-    ```
-
-4.  **Open your browser:**
-    Navigate to `http://localhost:4200`. The application will automatically reload if you change any source file.
+Set `apiUrl` in `environment.prod.ts` to the deployed backend before building.

@@ -8,6 +8,7 @@ import {
   GoogleLoginProvider,
   SocialAuthService,
 } from "angularx-social-login"
+import { environment } from "src/environments/environment"
 import { addresses as addressList } from "../../../model/addresses"
 import {
   AddressService,
@@ -15,15 +16,17 @@ import {
   AuthService,
   UserService,
 } from "../../services"
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
   styleUrls: ["./profile.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "profile" }],
 })
 export class ProfileComponent implements OnInit {
   baseUrl: string
-  liffId: any = "1656798245-1XOVnk67"
+  liffId: any = environment.lineConnectLiffId
   userForm1: FormGroup
   userForm2: FormGroup
   userInfo: any
@@ -82,7 +85,8 @@ export class ProfileComponent implements OnInit {
     private socialAuthService: SocialAuthService,
     private addressService: AddressService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -173,14 +177,14 @@ export class ProfileComponent implements OnInit {
             this.isDateValid = true
             this.isUpdateSuccess = true
             this.userInfo.first_name = res.first_name
-            this.modalBoxMsg = "โปรไฟล์ของคุณอัพเดทเรียบร้อยแล้ว"
+            this.modalBoxMsg = this.transloco.translate("update_success", {}, "profile")
             this.goToModalBox()
           },
           (err) => {
             console.log(err)
             this.isUpdateSuccess = false
             this.modalBoxMsg =
-              "อัพเดทโปรไฟล์ไม่สำเร็จ กรุณาตรวจสอบความถูกต้องของข้อมูล"
+              this.transloco.translate("update_failed", {}, "profile")
             this.goToModalBox()
           }
         )
@@ -208,14 +212,14 @@ export class ProfileComponent implements OnInit {
         .subscribe(
           (res) => {
             this.isUpdateSuccess = true
-            this.modalBoxMsg = "โปรไฟล์ของคุณอัพเดทเรียบร้อยแล้ว"
+            this.modalBoxMsg = this.transloco.translate("update_success", {}, "profile")
             this.goToModalBox()
           },
           (err) => {
             console.log(err)
             this.isUpdateSuccess = false
             this.modalBoxMsg =
-              "อัพเดทโปรไฟล์ไม่สำเร็จ กรุณาตรวจสอบความถูกต้องของข้อมูล"
+              this.transloco.translate("update_failed", {}, "profile")
             this.goToModalBox()
           }
         )
@@ -262,12 +266,12 @@ export class ProfileComponent implements OnInit {
         )
         .subscribe(
           (res) => {
-            alert("เชื่อมต่อสำเร็จ")
+            alert(this.transloco.translate("connect_success", {}, "profile"))
             this.updateUser()
           },
           (err) => {
             console.log(err)
-            alert("เชื่อมต่อไม่สำเร็จ")
+            alert(this.transloco.translate("connect_failed", {}, "profile"))
           }
         )
     }
@@ -283,12 +287,12 @@ export class ProfileComponent implements OnInit {
         )
         .subscribe(
           (res) => {
-            alert("เชื่อมต่อสำเร็จ")
+            alert(this.transloco.translate("connect_success", {}, "profile"))
             this.updateUser()
           },
           (err) => {
             console.log(err)
-            alert("เชื่อมต่อไม่สำเร็จ")
+            alert(this.transloco.translate("connect_failed", {}, "profile"))
           }
         )
     }
@@ -305,13 +309,13 @@ export class ProfileComponent implements OnInit {
         )
         .subscribe(
           (res) => {
-            alert("เชื่อมต่อสำเร็จ")
+            alert(this.transloco.translate("connect_success", {}, "profile"))
             this.lineLogout()
             this.updateUser()
           },
           (err) => {
             console.log(err)
-            alert("เชื่อมต่อไม่สำเร็จ")
+            alert(this.transloco.translate("connect_failed", {}, "profile"))
           }
         )
     }
@@ -327,7 +331,7 @@ export class ProfileComponent implements OnInit {
           },
           (err) => {
             console.log(err)
-            alert("เชื่อมต่อไม่สำเร็จ")
+            alert(this.transloco.translate("connect_failed", {}, "profile"))
           }
         )
     }
@@ -346,7 +350,7 @@ export class ProfileComponent implements OnInit {
           },
           (err) => {
             console.log(err)
-            alert("เชื่อมต่อไม่สำเร็จ")
+            alert(this.transloco.translate("connect_failed", {}, "profile"))
           }
         )
     }
@@ -361,7 +365,7 @@ export class ProfileComponent implements OnInit {
       })
       .catch((err) => {
         console.log(err)
-        alert("เชื่อมต่อไม่สำเร็จ")
+        alert(this.transloco.translate("connect_failed", {}, "profile"))
       })
   }
 

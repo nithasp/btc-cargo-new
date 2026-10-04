@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core"
 import { Router } from "@angular/router"
 import { HtmlContent } from "../../../interfaces"
 import { ApiService, AuthService, UserService } from "../../../services"
+import { TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "app-terms-and-conditions",
@@ -20,7 +21,8 @@ export class TermsAndConditionsComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private userService: UserService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +52,7 @@ export class TermsAndConditionsComponent implements OnInit {
       },
       (error) => {
         console.log("error ", error)
-        alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง")
+        alert(this.transloco.translate("error_occurred_try_again"))
       }
     )
   }

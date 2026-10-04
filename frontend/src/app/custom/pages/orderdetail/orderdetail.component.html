@@ -2,13 +2,13 @@
   <div class="inner bg-white">
     <div class="order-detail-header row">
       <div class="col-2 th">
-        <span>ออเดอร์</span>
+        <span>{{ "shop.order" | transloco }}</span>
       </div>
       <div class="col-2 th">
-        <span>ส่งออเดอร์</span>
+        <span>{{ "shop.submit_order" | transloco }}</span>
       </div>
       <div class="col-3 th">
-        <span>สถานะ</span>
+        <span>{{ "status" | transloco }}</span>
       </div>
     </div>
     <div class="order-detail-items">
@@ -20,10 +20,10 @@
           <span>2022-05-30 13:01</span>
         </div>
         <div class="col-3 td td-status">
-          <span>รอตรวจสอบ</span>
+          <span>{{ "shop.status_pending_review" | transloco }}</span>
         </div>
         <div class="col-2 td td-details">
-          <button class="btn btn-primary">รายละเอียด</button>
+          <button class="btn btn-primary">{{ "details" | transloco }}</button>
         </div>
       </div>
 
@@ -35,10 +35,10 @@
           <span>2022-05-16 01:44</span>
         </div>
         <div class="col-3 td td-status">
-          <span>ตรวจสอบแล้ว รอชำระเงิน</span>
+          <span>{{ "shop.status_reviewed_awaiting_payment" | transloco }}</span>
         </div>
         <div class="col-2 td td-details">
-          <button class="btn btn-primary">รายละเอียด</button>
+          <button class="btn btn-primary">{{ "details" | transloco }}</button>
         </div>
       </div>
 
@@ -50,10 +50,10 @@
           <span>2022-02-17 23:02</span>
         </div>
         <div class="col-3 td td-status">
-          <span>ปิดการสั่งซื้อ</span>
+          <span>{{ "shop.status_order_closed" | transloco }}</span>
         </div>
         <div class="col-2 td td-details">
-          <button class="btn btn-primary">รายละเอียด</button>
+          <button class="btn btn-primary">{{ "details" | transloco }}</button>
         </div>
       </div>
 
@@ -65,10 +65,10 @@
           <span>2022-03-15 21:01</span>
         </div>
         <div class="col-3 td td-status">
-          <span>ยกเลิก</span>
+          <span>{{ "shop.status_cancelled" | transloco }}</span>
         </div>
         <div class="col-2 td td-details">
-          <button class="btn btn-primary">รายละเอียด</button>
+          <button class="btn btn-primary">{{ "details" | transloco }}</button>
         </div>
       </div>
 
@@ -80,10 +80,10 @@
           <span>2022-02-17 15:33</span>
         </div>
         <div class="col-3 td td-status">
-          <span>ปิดการสั่งซื้อ</span>
+          <span>{{ "shop.status_order_closed" | transloco }}</span>
         </div>
         <div class="col-2 td td-details">
-          <button class="btn btn-primary">รายละเอียด</button>
+          <button class="btn btn-primary">{{ "details" | transloco }}</button>
         </div>
       </div>
     </div>

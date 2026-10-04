@@ -5,14 +5,16 @@ import {
   DeliveryType,
 } from "../../../interfaces"
 import { MasterDataService, TrackingService } from "../../../services"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "created-parcel-list",
   templateUrl: "./created-parcel-list.component.html",
   styleUrls: ["./created-parcel-list.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "parcel" }],
 })
 export class CreatedParcelListComponent implements OnInit {
-  status = "เข้าโกดังจีน"
+  status = "status_in_china_warehouse"
   bsValue = new Date()
 
   details: any
@@ -75,27 +77,27 @@ export class CreatedParcelListComponent implements OnInit {
   getBoxLabel(type) {
     switch (type) {
       case "normal":
-        return "ตีเฟรม"
+        return "parcel.crate_frame"
       case "solid":
-        return "ตีลังทึบ"
+        return "parcel.crate_solid"
       default:
-        return "ไม่ตีลังไม้"
+        return "parcel.crate_none_long"
     }
   }
 
   getPictureTypeLabel(bool) {
     if (bool) {
-      return "ต้องการดูรูปถ่าย"
+      return "parcel.photo_required"
     } else {
-      return "ไม่ต้องการดู"
+      return "parcel.photo_not_required"
     }
   }
 
   getQcTypeLabel(bool) {
     if (bool) {
-      return "ต้องการ QC"
+      return "parcel.qc_required"
     } else {
-      return "ไม่ต้องการ QC"
+      return "parcel.qc_not_required"
     }
   }
 

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Observable } from "rxjs"
 import { Address } from '../interfaces/address'
+import { btcBaseUrl } from "./config"
 
 @Injectable({
   providedIn: "root",
@@ -17,7 +18,7 @@ export class AddressService {
         "content-type": "application/json",
         Authorization: `Token ${accessToken}`,
       })
-      return this.http.get<Address>("https://btc-uat.beonit.xyz/api/address/", {
+      return this.http.get<Address>(`${btcBaseUrl}/api/address/`, {
         headers: httpHeadersValue,
       })
     }
@@ -32,7 +33,7 @@ export class AddressService {
         Authorization: `Token ${accessToken}`,
       })
       return this.http.post<Address>(
-        "https://btc-uat.beonit.xyz/api/address/",
+        `${btcBaseUrl}/api/address/`,
         address,
         { headers: httpHeadersValue }
       )
@@ -48,7 +49,7 @@ export class AddressService {
         Authorization: `Token ${accessToken}`,
       })
       return this.http.get<Address>(
-        `https://btc-uat.beonit.xyz/api/address/${id}/`,
+        `${btcBaseUrl}/api/address/${id}/`,
         { headers: httpHeadersValue }
       )
     }
@@ -63,7 +64,7 @@ export class AddressService {
         Authorization: `Token ${accessToken}`,
       })
       return this.http.put<Address>(
-        `https://btc-uat.beonit.xyz/api/address/${addressId}/`,
+        `${btcBaseUrl}/api/address/${addressId}/`,
         address,
         { headers: httpHeadersValue }
       )
@@ -79,7 +80,7 @@ export class AddressService {
         Authorization: `Token ${accessToken}`,
       })
       return this.http.patch<Address>(
-        `https://btc-uat.beonit.xyz/api/address/${addressId}/`,
+        `${btcBaseUrl}/api/address/${addressId}/`,
         address,
         { headers: httpHeadersValue }
       )
@@ -95,7 +96,7 @@ export class AddressService {
         Authorization: `Token ${accessToken}`,
       })
       return this.http.delete<Address>(
-        `https://btc-uat.beonit.xyz/api/address/${id}/`,
+        `${btcBaseUrl}/api/address/${id}/`,
         { headers: httpHeadersValue }
       )
     }

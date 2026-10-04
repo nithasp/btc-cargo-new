@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute } from "@angular/router"
 import { ApiResponse, Details, Quotation } from "src/app/custom/interfaces"
 import { TrackingService } from "src/app/custom/services"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "app-transport-payment-detail",
   templateUrl: "./transport-payment-detail.component.html",
   styleUrls: ["./transport-payment-detail.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "payment" }],
 })
 export class TransportPaymentDetailComponent implements OnInit {
   transportPaymentNumber: number

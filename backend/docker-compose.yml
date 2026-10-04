@@ -1,0 +1,35 @@
+name: btc-cargo
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: btc-cargo-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: btc_cargo_user
+      POSTGRES_PASSWORD: btc_cargo_pass
+      POSTGRES_DB: btc_cargo_dev
+    ports:
+      # Published to this machine only, so the database is not reachable from the local network
+      - '127.0.0.1:5433:5432'
+    volumes:
+      - btc_cargo_pg17_data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh:ro
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U btc_cargo_user -d btc_cargo_dev']
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer
+    container_name: btc-cargo-adminer
+    restart: always
+    ports:
+      - '127.0.0.1:8082:8080'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  btc_cargo_pg17_data:

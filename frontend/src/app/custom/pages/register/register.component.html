@@ -6,7 +6,7 @@
         <div class="card bg-secondary border-0">
           <div class="card-body px-lg-5 py-lg-5">
             <div class="text-center text-muted mb-4">
-              <small>ลงทะเบียน</small>
+              <small>{{ "auth.register" | transloco }}</small>
             </div>
 
             <ng-container *ngIf="isMsgBoxDisplay">
@@ -46,7 +46,7 @@
                   </div>
                   <input
                     class="form-control"
-                    placeholder="ชื่อผู้ใช้งาน"
+                    [placeholder]="'auth.username' | transloco"
                     type="text"
                     (focus)="focus = true"
                     (blur)="focus = false"
@@ -60,17 +60,16 @@
                   *ngIf="username.invalid && username.touched"
                 >
                   <small *ngIf="username.errors.required"
-                    >กรุณาใส่ชื่อผู้ใช้งาน</small
+                    >{{ "auth.error_username_required" | transloco }}</small
                   >
                   <small *ngIf="username.errors.pattern"
-                    >ชื่อผู้ใช้งานต้องเป็นภาษาอังกฤษ ตัวเลข สัญลักษณ์
-                    และห้ามมีช่องว่าง</small
+                    >{{ "auth.error_username_pattern" | transloco }}</small
                   >
                   <small *ngIf="username.errors.minlength"
-                    >ชื่อผู้ใช้งานต้องอยู่ระหว่าง 4-16 ตัวอักษร</small
+                    >{{ "auth.error_username_length" | transloco }}</small
                   >
                   <small *ngIf="username.errors.maxlength"
-                    >ชื่อผู้ใช้งานต้องอยู่ระหว่าง 4-16 ตัวอักษร</small
+                    >{{ "auth.error_username_length" | transloco }}</small
                   >
                 </div>
               </div>
@@ -83,7 +82,7 @@
                   </div>
                   <input
                     class="form-control"
-                    placeholder="อีเมล"
+                    [placeholder]="'auth.email' | transloco"
                     type="email"
                     (focus)="focus1 = true"
                     (blur)="focus1 = false"
@@ -93,9 +92,9 @@
                   />
                 </div>
                 <div class="error-msg" *ngIf="email.invalid && email.touched">
-                  <small *ngIf="email.errors.required">กรุณาใส่อีเมล</small>
+                  <small *ngIf="email.errors.required">{{ "auth.error_email_required" | transloco }}</small>
                   <small *ngIf="email.errors.pattern"
-                    >รูปแบบอีเมลไม่ถูกต้อง</small
+                    >{{ "auth.error_email_invalid" | transloco }}</small
                   >
                 </div>
               </div>
@@ -110,7 +109,7 @@
                   </div>
                   <input
                     class="form-control"
-                    placeholder="รหัสผ่าน"
+                    [placeholder]="'auth.password' | transloco"
                     type="password"
                     [type]="showPassword1 ? 'text' : 'password'"
                     (focus)="focus2 = true"
@@ -134,17 +133,16 @@
                   *ngIf="password1.invalid && password1.touched"
                 >
                   <small *ngIf="password1.errors.required"
-                    >กรุณาใส่รหัสผ่าน</small
+                    >{{ "auth.error_password_required" | transloco }}</small
                   >
                   <small *ngIf="password1.errors.pattern"
-                    >รหัสผ่านต้องเป็นภาษาอังกฤษ ตัวเลข หรือสัญลักษณ์เท่านั้น
-                    และห้ามมีช่องว่าง</small
+                    >{{ "auth.error_password_pattern" | transloco }}</small
                   >
                   <small *ngIf="password1.errors.minlength"
-                    >รหัสผ่านต้องอยู่ระหว่าง 8-16 ตัวอักษร</small
+                    >{{ "auth.error_password_length" | transloco }}</small
                   >
                   <small *ngIf="password1.errors.maxlength"
-                    >รหัสผ่านต้องอยู่ระหว่าง 8-16 ตัวอักษร</small
+                    >{{ "auth.error_password_length" | transloco }}</small
                   >
                 </div>
               </div>
@@ -159,7 +157,7 @@
                   </div>
                   <input
                     class="form-control"
-                    placeholder="รหัสผ่านยืนยัน"
+                    [placeholder]="'auth.confirm_password' | transloco"
                     type="password"
                     [type]="showPassword2 ? 'text' : 'password'"
                     (focus)="focus4 = true"
@@ -183,10 +181,10 @@
                   *ngIf="password2.invalid && password2.touched"
                 >
                   <small *ngIf="password2.errors.required"
-                    >กรุณาใส่รหัสผ่านยืนยัน</small
+                    >{{ "auth.error_confirm_password_required" | transloco }}</small
                   >
                   <small *ngIf="password2.errors.MustMatch"
-                    >รหัสผ่านยืนยันไม่ตรงกับรหัสผ่าน</small
+                    >{{ "auth.error_password_mismatch" | transloco }}</small
                   >
                 </div>
               </div>
@@ -203,7 +201,7 @@
                   </div>
                   <input
                     class="form-control"
-                    placeholder="รหัสอ้างอิง"
+                    [placeholder]="'auth.referral_code' | transloco"
                     type="text"
                     (focus)="focus3 = true"
                     (blur)="focus3 = false"
@@ -215,7 +213,7 @@
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-primary mt-4">
-                  ถัดไป
+                  {{ "next" | transloco }}
                 </button>
               </div>
             </form>
@@ -224,7 +222,7 @@
         <div class="row mt-3">
           <div class="col-12 text-right">
             <a class="text-white" [routerLink]="['/login']">
-              <small>เข้าสู่ระบบ</small>
+              <small>{{ "auth.sign_in" | transloco }}</small>
             </a>
           </div>
         </div>

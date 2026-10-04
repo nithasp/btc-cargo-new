@@ -1,23 +1,23 @@
 <section id="bills">
   <div class="card container-card">
     <div class="card-header">
-      <h2 class="card-title">ยอดบิลทั้งหมด</h2>
+      <h2 class="card-title">{{ "payment.all_bills_title" | transloco }}</h2>
     </div>
     <div class="card-body" *ngIf="bills.length === 0">
-      <h3 class="text-center p-3">ไม่มีรายการบิล</h3>
+      <h3 class="text-center p-3">{{ "payment.no_bills" | transloco }}</h3>
     </div>
     <div class="card-body" *ngIf="bills.length > 0">
       <div class="wrapper-table overflow-x-auto">
         <table class="table align-items-center">
           <thead class="thead-light">
             <tr>
-              <th>ประเภทบิล</th>
-              <th>เลขที่บิล</th>
-              <th>วันที่สร้างบิล</th>
-              <th>จำนวนสินค้า</th>
-              <th>ยอดชำระ</th>
-              <th>สถานะ</th>
-              <th>ดูรายละเอียด</th>
+              <th>{{ "payment.bill_type" | transloco }}</th>
+              <th>{{ "payment.bill_number" | transloco }}</th>
+              <th>{{ "payment.bill_created_date" | transloco }}</th>
+              <th>{{ "item_quantity" | transloco }}</th>
+              <th>{{ "amount_due" | transloco }}</th>
+              <th>{{ "status" | transloco }}</th>
+              <th>{{ "view_details" | transloco }}</th>
             </tr>
           </thead>
           <tbody>
@@ -36,11 +36,11 @@
                   [routerLink]="['/web/payment-notice/', bill.id]"
                   *ngIf="bill.state === 'wait'"
                 >
-                  แจ้งการชำระเงิน
+                  {{ "payment.report_payment" | transloco }}
                 </a>
               </td>
               <td>
-                <span> ดูรายละเอียด </span>
+                <span> {{ "view_details" | transloco }} </span>
               </td>
             </tr>
           </tbody>
@@ -59,7 +59,7 @@
               (click)="handleChangePage(pagination.page - 1)"
             >
               <i class="fa fa-angle-left"></i>
-              <span class="sr-only">Previous</span>
+              <span class="sr-only">{{ "paginator.previous" | transloco }}</span>
             </a>
           </li>
           <li
@@ -82,7 +82,7 @@
               (click)="handleChangePage(pagination.page + 1)"
             >
               <i class="fa fa-angle-right"></i>
-              <span class="sr-only">Next</span>
+              <span class="sr-only">{{ "paginator.next" | transloco }}</span>
             </a>
           </li>
         </ul>

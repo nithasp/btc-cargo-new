@@ -6,11 +6,13 @@ import {
   Wallet,
 } from "../../../interfaces"
 import { StorageService, WalletService } from "../../../services"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "payment-details",
   templateUrl: "./payment-details.component.html",
   styleUrls: ["./payment-details.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "exchange" }],
 })
 export class PaymentDetailsComponent implements OnInit {
   form: string = "input"
@@ -70,9 +72,9 @@ export class PaymentDetailsComponent implements OnInit {
 
   getAmountLabel(index: number) {
     if (this.paymentMethod === PaymentMethod.Alipay) {
-      return `ยอดที่ ${index + 1}`
+      return "exchange.amount_no"
     } else {
-      return "ยอดเงินรวม"
+      return "exchange.total_amount"
     }
   }
 

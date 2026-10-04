@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/custom/services';
+import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-warehouse-address',
   templateUrl: './warehouse-address.component.html',
-  styleUrls: ['./warehouse-address.component.scss']
+  styleUrls: ['./warehouse-address.component.scss'],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'overview' }],
 })
 export class WarehouseAddressComponent implements OnInit {
   remarkKey: string = "warehouse_address_remark"

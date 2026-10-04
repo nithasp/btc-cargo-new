@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { Pagination } from "../../interfaces";
 import { ToConfirmService, ExchangeService } from "../../services";
 import { ToConfirmRecords } from "../../interfaces";
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 
 @Component({
   selector: "app-goods-confirm",
   templateUrl: "./goods-confirm.component.html",
   styleUrls: ["./goods-confirm.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "parcel" }],
 })
 export class GoodsConfirmComponent implements OnInit {
   isDisplayModal: boolean = false;
@@ -20,7 +22,8 @@ export class GoodsConfirmComponent implements OnInit {
 
   constructor(
     private toConfirmService: ToConfirmService,
-    private exchangeService: ExchangeService
+    private exchangeService: ExchangeService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -86,23 +89,23 @@ export class GoodsConfirmComponent implements OnInit {
           };
           this.toConfirmService.submitToConfirm(toConfirmParams).subscribe(
             (res) => {
-              alert("ส่งหลักฐานการสั่งซื้อสินค้าสำเร็จ");
+              alert(this.transloco.translate("proof_submitted", {}, "parcel"));
               this.isDisplayModal = false;
               this.confirmImage = undefined;
             },
             (err) => {
               console.log(err);
-              alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+              alert(this.transloco.translate("error_occurred_try_again"));
             }
           );
         },
         (err) => {
           console.log(err);
-          alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+          alert(this.transloco.translate("error_occurred_try_again"));
         }
       );
     } else {
-      alert("กรุณาอัพโหลดรูปภาพหลักฐานการสั่งซื้อสินค้าของท่าน");
+      alert(this.transloco.translate("upload_proof_required", {}, "parcel"));
     }
   }
 

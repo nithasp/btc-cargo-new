@@ -1,24 +1,23 @@
 <section id="exchange">
     <div class="container">
         <h3>
-            <u>ทำไมฉันไม่สามารถสร้างรายการแลกเงินใหม่ได้</u>
+            <u>{{ "faq.exchange_title" | transloco }}</u>
         </h3>
-        <p>การที่ปุ่ม สร้างรายการชำระใหม่ ไม่สามารถกดได้ เป็นผลมาจากเงื่อนไขดังต่อไปนี้</p>
+        <p>{{ "faq.exchange_intro" | transloco }}</p>
         <ol>
-            <li>ไม่อยู่ในเวลาเปิดรับรายการชำระใหม่
+            <li>{{ "faq.exchange_outside_hours" | transloco }}
                 <ul>
-                    <li>วันที่ให้บริการ: ทุกวันทำการของบริษัท <br/>
-                    (จันทร์ - เสาร์ ยกเว้นวันหยุดตามปฎิทิน)</li>
-                    <li>เวลาที่ให้บริการ: หลังจากอัตราแลกเปลี่ยนประจำวันถูกอัพเดต ถึง 17.00 น.</li>
+                    <li>{{ "faq.exchange_service_days" | transloco }} <br/>
+                    {{ "faq.exchange_service_days_note" | transloco }}</li>
+                    <li>{{ "faq.exchange_service_hours" | transloco }}</li>
                 </ul>
             </li>
-            <li>อัตราแลกเปลี่ยนประจำวันยังไม่ถูกอัพเดต<br/>
-            (ลูกค้าสามารถตั้งให้ระบบแจ้งเตือนเมื่อมีการเปลี่ยนแปลงของอัตราแลกเปลี่ยนประจำวันได้ที่เมนู ข้อมูลสมาชิก)</li>
-            <li>ไม่เปิดให้บริการในขณะนี้<br />
-            (ตามปกติจะมีการประกาศให้ทราบ)</li>
-            <li>บัญชีผู้ใช้ยังไม่ถูกยืนยันตัว
-            ลูกค้าต้องทำการยืนยันตัวในระบบก่อนที่จะใช้บริการ โดยเมื่อเข้าหน้าเมนู <span class="text-primary">บริการโอน/แลก/จ่ายเงินหยวน</span>
-            จะมีข้อความขึ้นมาให้ทำการยืนยันตัว</li>
+            <li>{{ "faq.exchange_rate_not_updated" | transloco }}<br/>
+            {{ "faq.exchange_rate_notify_hint" | transloco }}</li>
+            <li>{{ "faq.exchange_closed" | transloco }}<br />
+            {{ "faq.exchange_closed_note" | transloco }}</li>
+            <li>{{ "faq.exchange_not_verified_1" | transloco }} <span class="text-primary">{{ "menu.yuan_service" | transloco }}</span>
+            {{ "faq.exchange_not_verified_2" | transloco }}</li>
         </ol>
     </div>
 </section>

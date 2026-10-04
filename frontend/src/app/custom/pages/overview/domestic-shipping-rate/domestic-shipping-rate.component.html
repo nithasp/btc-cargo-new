@@ -2,20 +2,19 @@
   <div class="container-fluid overview-container">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">ค่าบริการจัดส่งในไทย</h5>
+        <h5 class="card-title">{{ "overview.domestic_title" | transloco }}</h5>
       </div>
       <div class="card-body">
-        <h4 class="sub-title">ค่าบริการจัดส่งในไทย</h4>
+        <h4 class="sub-title">{{ "overview.domestic_title" | transloco }}</h4>
         <small class="text-danger"
-          >(ฝากพัสดุไว้ที่โกดังไทยฟรี 5 วัน นับวันแรกคือวันที่พัสดุมาไทย หากเกิน
-          5 วันจะมีค่าเก็บพัสดุวันละ 10 บาทต่อชิ้น)</small
+          >{{ "overview.domestic_free_storage_note" | transloco }}</small
         >
         <table style="width: 100%; text-align: center">
           <thead>
             <tr>
-              <th class="float-left" style="width: 40%">ขนส่ง</th>
-              <th style="width: 20%">ค่าจัดส่ง</th>
-              <th style="width: 20%">ค่าบริการจัดส่ง (บาท)</th>
+              <th class="float-left" style="width: 40%">{{ "overview.carrier" | transloco }}</th>
+              <th style="width: 20%">{{ "overview.delivery_cost" | transloco }}</th>
+              <th style="width: 20%">{{ "overview.delivery_service_fee" | transloco }}</th>
             </tr>
           </thead>
           <tbody>
@@ -26,39 +25,35 @@
                 <small>
                   <ul>
                     <li>
-                      เฉพาะสินค้าที่สามารถแพ็คลงกล่องได้ ขนาดไม่เกินไซส์ L
-                      (หรือกล่องขนาด 30x40x50 cm)
+                      {{ "overview.jt_box_limit" | transloco }}
                     </li>
                     <li>
-                      เฉพาะพัสดุที่มีขนาด 3 ด้านรวมกันไม่เกิน 150
-                      เซนติเมตรและน้ำหนักไม่เกิน 20 กิโลกรัม
+                      {{ "overview.jt_size_limit" | transloco }}
                     </li>
                     <li>
-                      แอดมินโกดังจะตรวจสอบค่าขนส่งได้ก็ต่อเมื่อลูกค้าสร้างรายการจัดส่งเข้ามาในระบบแล้ว
+                      {{ "overview.admin_checks_after_order" | transloco }}
                     </li>
-                    <li>ตัดรอบส่งพัสดุ 12.00-14.00 น.</li>
+                    <li>{{ "overview.cutoff_time" | transloco }}</li>
                     <li>
-                      การส่งของ แอดมินโกดังทำตามคิวแจ้งยอดชำระ
-                      หากไม่ทันจะจัดส่งในวันถัดไป
+                      {{ "overview.dispatch_queue" | transloco }}
                     </li>
                     <li>
-                      รอบรถบริษัทจะอิงรอบจัดส่งจากคิวก่อนหน้าโดยจะส่งได้เร็วสุดคือในวันถัดไปหลังจากชำระเงิน
+                      {{ "overview.company_truck_schedule" | transloco }}
                     </li>
                   </ul>
                 </small>
               </td>
-              <td>ค่าจัดส่งตามจริง</td>
+              <td>{{ "overview.actual_delivery_cost" | transloco }}</td>
               <td>0</td>
             </tr>
             <tr>
               <td class="text-left">
-                มารับเอง :
+                {{ "overview.self_pickup_label" | transloco }}
                 <br />
                 <small>
                   <ul>
                     <li>
-                      เข้ารับเองได้ช่วง 9.00-18.00น. ทุกวันจันทร์-เสาร์
-                      โกดังอยู่ย่านดอนเมือง ใกล้กับวัดทุ่งสีกัน
+                      {{ "overview.self_pickup_hours" | transloco }}
                     </li>
                   </ul>
                 </small>
@@ -68,88 +63,76 @@
             </tr>
             <tr>
               <td class="text-left">
-                ขนส่งต่างจังหวัด :
+                {{ "overview.provincial_carrier_label" | transloco }}
                 <br />
                 <small>
                   <ul>
                     <li>
-                      มีค่าบริการรวมการซ่อมและบรรจุพัสดุใหม่ ไม่จำกัดจำนวน
+                      {{ "overview.provincial_service_fee" | transloco }}
                     </li>
                     <li>
-                      ค่าจัดส่งในประเทศไทย ลูกค้าต้องเป็นผู้ชำระกับคนส่งพัสดุ
-                      โดยราคาค่าขนส่งในไทยจะเริ่มต้นที่ 100 บาทต่อชิ้น
+                      {{ "overview.provincial_pay_on_delivery" | transloco }}
                     </li>
                     <li>
-                      ทางบริษัทจะช่วยตรวจสอบและหาขนส่งที่เหมาะสมกับให้ลูกค้า
+                      {{ "overview.provincial_company_helps" | transloco }}
                     </li>
-                    <li>ตัดรอบส่งพัสดุ 12.00-14.00 น.</li>
+                    <li>{{ "overview.cutoff_time" | transloco }}</li>
                     <li>
-                      การส่งของทำตามคิวแจ้งยอดชำระ
-                      หากไม่ทันจัดส่งภายในวันที่ทำรายกากร จะจัดส่งในรอบวันถัดไป
+                      {{ "overview.provincial_dispatch_queue" | transloco }}
                     </li>
                   </ul>
                 </small>
               </td>
-              <td>ค่าจัดส่งตามจริง</td>
+              <td>{{ "overview.actual_delivery_cost" | transloco }}</td>
               <td>100</td>
             </tr>
             <tr>
               <td class="text-left">
-                รถบริษัทจัดส่ง :
+                {{ "overview.company_truck_label" | transloco }}
                 <br />
                 <small>
                   <ul>
                     <li>
-                      ค่าขนส่งตั้งแต่ 5,000 บาทขึ้นไป จัดส่งฟรีด้วยรถกระบะตู้ทึบ
-                      2.1 เมตรเท่านั้น เฉพาะในกรุงเทพ นนทบุรี สมุทรปราการ
-                      และปทุมธานี
+                      {{ "overview.truck_free_over_5000" | transloco }}
                     </li>
                     <li>
-                      ค่าขนส่งน้อยกว่า 5,000 บาท มีค่าขนส่งเที่ยวละ 400 บาท
-                      เฉพาะในกรุงเทพ นนทบุรี สมุทรปราการ และปทุมธานี
+                      {{ "overview.truck_under_5000" | transloco }}
                     </li>
                     <li>
-                      หากพัสดุของลูกค้ามีจำนวนมาก
-                      หรือมีขนาดใหญ่และน้ำหนักมากที่ไม่สามารถใช้แรงคนยกได้
-                      บริษัทฯ จะจัดส่งด้วยการเหมารถกระบะสี่ล้อ/หกล้อ
-                      หรือรถเฮี้ยบ
-                      <br />และมีค่าบริการเพิ่มเติม เริ่มต้น 2,000 บาท
-                      จัดส่งได้ทั่วประเทศไทย
+                      {{ "overview.truck_large_parcels_1" | transloco }}
+                      <br />{{ "overview.truck_large_parcels_2" | transloco }}
                     </li>
                     <li>
-                      รอบรถบริษัทจะอิงรอบจัดส่งจากคิวก่อนหน้าโดยจะส่งได้เร็วสุดคือในวันถัดไปหลังจากชำระเงิน
+                      {{ "overview.company_truck_schedule" | transloco }}
                     </li>
                   </ul>
                 </small>
               </td>
-              <td>0 - 400 บาท</td>
+              <td>{{ "overview.fee_0_400" | transloco }}</td>
               <td>0</td>
             </tr>
             <tr>
               <td class="text-left">
-                ส่งไปรษณีย์แบบลงทะเบียน / EMS :
+                {{ "overview.post_label" | transloco }}
                 <br />
                 <small>
                   <ul>
                     <li>
-                      เฉพาะพัสดุที่สามารถแพ็คลงกล่องได้ ขนาดไม่เกินไซส์ L
-                      (หรือกล่องขนาด 30x40x50 cm)
+                      {{ "overview.post_box_limit" | transloco }}
                     </li>
-                    <li>จำกัดน้ำหนักไม่เกิน 10 กิโลกรัม สำหรับแบบลงทะเบียน</li>
-                    <li>จำกัดน้ำหนักไม่เกิน 20 กิโลกรัม สำหรับแบบ EMS</li>
+                    <li>{{ "overview.post_registered_limit" | transloco }}</li>
+                    <li>{{ "overview.post_ems_limit" | transloco }}</li>
                     <li>
-                      เหมาะกับพัสดุที่หนักไม่เกิน 10 กิโลกรัม
-                      หรือมีการตกลงกับลูกค้าก่อนจัดส่ง
+                      {{ "overview.post_suitable" | transloco }}
                     </li>
-                    <li>ตัดรอบส่งพัสดุ 12.00-14.00 น.</li>
+                    <li>{{ "overview.cutoff_time" | transloco }}</li>
                     <li>
-                      การส่งของ แอดมินโกดังทำตามคิวแจ้งยอดชำระ
-                      หากไม่ทันจะจัดส่งในวันถัดไป
+                      {{ "overview.dispatch_queue" | transloco }}
                     </li>
                   </ul>
                 </small>
               </td>
-              <td>ค่าจัดส่งตามจริง</td>
+              <td>{{ "overview.actual_delivery_cost" | transloco }}</td>
               <td>0</td>
             </tr>
           </tbody>

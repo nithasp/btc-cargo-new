@@ -1,13 +1,15 @@
 import { Component, OnInit } from "@angular/core"
 import { MasterDataService, TrackingService } from "../../../services"
 import { ApiResponse, Details, Detail, Pagination } from "../../../interfaces"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 @Component({
   selector: "parcel-list",
   templateUrl: "./parcel-list.component.html",
   styleUrls: ["./parcel-list.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "parcel" }],
 })
 export class ParcelListComponent implements OnInit {
-  status = "เข้าโกดังจีน"
+  status = "status_in_china_warehouse"
   bsValue = new Date()
 
   details: Detail[]
@@ -74,21 +76,21 @@ export class ParcelListComponent implements OnInit {
     )
   }
 
-  getLocationText(input) {
+  getLocationKey(input) {
     if (this.locations) {
       const location = this.locations.find((item) => item.id === input?.id)
       switch (location?.display_name) {
         case "CN-WH/Stock":
-          return "เข้าโกดังจีน"
+          return "status_in_china_warehouse"
         case "TH-WH/Stock":
-          return "ถึงไทย"
+          return "status_arrived_thailand"
         case "Transit":
-          return "ออกจากจีน"
+          return "status_departed_china"
         default:
-          return "-"
+          return null
       }
     }
-    return "-"
+    return null
   }
 
   handleChangePage(pageNumber) {

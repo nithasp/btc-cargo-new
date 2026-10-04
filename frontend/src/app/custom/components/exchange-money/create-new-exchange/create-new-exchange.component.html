@@ -1,9 +1,9 @@
 <div class="card">
   <div class="card-header">
-    <h2 class="card-title">สร้างการชำระใหม่</h2>
+    <h2 class="card-title">{{ "exchange.create_new_payment" | transloco }}</h2>
   </div>
   <div class="card-body">
-    <h3>เลือกช่องทางการชำระ</h3>
+    <h3>{{ "exchange.select_payment_channel" | transloco }}</h3>
     <div class="payment-container">
       <div class="payment-method-container">
         <div
@@ -11,14 +11,14 @@
           [ngClass]="{ activePaymentMethod: paymentMethod === 'bank' }"
           (click)="onSelectPaymenyMethod('bank')"
         >
-          ชำระผ่านธนาคาร
+          {{ "exchange.pay_via_bank" | transloco }}
         </div>
         <div
           class="payment-method"
           [ngClass]="{ activePaymentMethod: paymentMethod === 'alipay' }"
           (click)="onSelectPaymenyMethod('alipay')"
         >
-          ฝากจ่ายผ่าน Alipay บริษัท
+          {{ "exchange.pay_via_alipay" | transloco }}
         </div>
       </div>
       <div class="payment-details">

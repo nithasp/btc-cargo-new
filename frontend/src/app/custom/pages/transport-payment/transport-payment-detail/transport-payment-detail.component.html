@@ -1,14 +1,14 @@
 <section id="transport-payment-detail">
   <div class="card container-card">
     <div class="card-header d-flex align-items-center justify-content-between">
-      <h2 class="card-title">สินค้ารอชำระค่าขนส่ง</h2>
+      <h2 class="card-title">{{ "payment.pending_shipping_payment" | transloco }}</h2>
       <a class="btn btn-primary text-white" href="javascript:void(0)"
-        >+ สร้างรายการชำระเงิน</a
+        >{{ "payment.create_payment_order" | transloco }}</a
       >
     </div>
     <div class="card-body">
       <div class="card-header bg-white">
-        <h2 class="card-title text-dark">รายการพัสดุ</h2>
+        <h2 class="card-title text-dark">{{ "parcel_list" | transloco }}</h2>
       </div>
       <ng-container *ngIf="items && items.lot">
         <div class="wrapper-table overflow-x-auto">
@@ -18,13 +18,13 @@
                 <th>
                   <input type="checkbox" (click)="checkAllBox($event.target)" />
                 </th>
-                <th>เลขพัสดุ</th>
-                <th>น้ำหนัก</th>
-                <th>กว้าง</th>
-                <th>ยาว</th>
-                <th>สูง</th>
-                <th>ปริมาตร</th>
-                <th>ค่าขนส่ง</th>
+                <th>{{ "tracking_number" | transloco }}</th>
+                <th>{{ "weight" | transloco }}</th>
+                <th>{{ "width" | transloco }}</th>
+                <th>{{ "length" | transloco }}</th>
+                <th>{{ "height" | transloco }}</th>
+                <th>{{ "volume" | transloco }}</th>
+                <th>{{ "shipping_fee" | transloco }}</th>
                 <!-- <th>คิดตาม</th>
               <th>หน่วยละ</th> -->
               </tr>
@@ -36,77 +36,73 @@
                 </td>
                 <td>
                   <div>
-                    <p>เลขตู้ {{ items.lot.serial_number }}</p>
+                    <p>{{ "container_no" | transloco }} {{ items.lot.serial_number }}</p>
                     <p>
-                      เลขพัสดุ
+                      {{ "tracking_number" | transloco }}
                       <span class="text-primary bold">{{
                         items.lot.shopping_serial
                       }}</span>
                     </p>
-                    <p>จำนวนพัสดุ {{ items.lot.quantity }} ชิ้น</p>
+                    <p>{{ "parcel_quantity" | transloco }} {{ items.lot.quantity }} {{ "pieces" | transloco }}</p>
                   </div>
                 </td>
                 <td>
                   <div>
                     <p>
-                      น้ำหนัก
-                      {{ items.lot.weight }}
-                      กก.
+                      {{ "weight" | transloco }} {{ items.lot.weight }} {{ "kg" | transloco }}
                     </p>
                     <p>
-                      น้ำหนักรวม
-                      {{ items.lot.total_weight }}
-                      กก.
+                      {{ "total_weight" | transloco }} {{ items.lot.total_weight }} {{ "kg" | transloco }}
                     </p>
                   </div>
                 </td>
                 <td>
-                  <p>กว้าง {{ items.lot.width }} ซม.</p>
+                  <p>{{ "width" | transloco }} {{ items.lot.width }} {{ "cm" | transloco }}</p>
                 </td>
                 <td>
-                  <p>ยาว {{ items.lot.depth }} ซม.</p>
+                  <p>{{ "length" | transloco }} {{ items.lot.depth }} {{ "cm" | transloco }}</p>
                 </td>
                 <td>
-                  <p>สูง {{ items.lot.height }} ซม.</p>
+                  <p>{{ "height" | transloco }} {{ items.lot.height }} {{ "cm" | transloco }}</p>
                 </td>
                 <td>
                   <div class="space-3-columns">
                     <p>
-                      <span>ปริมาตร</span>
+                      <span>{{ "volume" | transloco }}</span>
                       <span>{{ items.lot.volume }}</span>
-                      <span>ลบ.ม.</span>
+                      <span>{{ "m3" | transloco }}</span>
                     </p>
                     <p>
-                      <span>ปริมาตรรวม</span>
+                      <span>{{ "total_volume" | transloco }}</span>
                       <span> {{ items.lot.total_volume }} </span>
-                      <span>ลบ.ม.</span>
+                      <span>{{ "m3" | transloco }}</span>
                     </p>
                   </div>
                 </td>
                 <td>
                   <div class="space-3-columns">
                     <p>
-                      <span>ค่าขนส่ง</span>
+                      <span>{{ "shipping_fee" | transloco }}</span>
                       <span class="text-danger">
                         {{ items.lot.delivery_cost }}
                       </span>
-                      <span>บาท</span>
+                      <span>{{ "baht" | transloco }}</span>
                     </p>
                     <p>
-                      <span>ค่าใช้จ่ายอื่นๆ</span>
+                      <span>{{ "other_fees" | transloco }}</span>
                       <span class="text-danger"> {{ items.lot.other_cost }} </span>
-                      <span>บาท</span>
+                      <span>{{ "baht" | transloco }}</span>
                     </p>
 
                     <p>
-                      <span>ค่าจัดเก็บพัสดุ</span>
+                      <span>{{ "storage_fee" | transloco }}</span>
                       <span> {{ items.lot.storage_cost }} </span>
-                      <span>บาท</span>
+                      <span>{{ "baht" | transloco }}</span>
                     </p>
                     <p>
-                      <span>รวม</span>
+                      <span>{{ "total" | transloco }}</span>
                       <span> {{ items.lot.total_cost }} </span>
-                      <span>บาท</span>
+                      <span>{{ "baht" | transloco }}</span>
                     </p>
                   </div>
                 </td>
@@ -117,32 +113,27 @@
             <thead class="t-footer">
               <tr>
                 <th colspan="2">
-                  รวมจำนวนพัสดุ {{ renderText(items.lot?.quantity) }} ชิ้น
+                  {{ "payment.total_parcel_quantity" | transloco }} {{ renderText(items.lot?.quantity) }} {{ "pieces" | transloco }}
                 </th>
                 <th>
-                  น้ำหนักรวม
-                  {{ renderText(items.lot?.total_weight).toFixed(2) }} กก.
+                  {{ "total_weight" | transloco }} {{ renderText(items.lot?.total_weight).toFixed(2) }} {{ "kg" | transloco }}
                 </th>
                 <th></th>
                 <th></th>
                 <th></th>
                 <th>
-                  ปริมาตรรวม
-                  {{ renderText(items.lot?.total_volume) }} ลบ.ม.
+                  {{ "total_volume" | transloco }} {{ renderText(items.lot?.total_volume) }} {{ "m3" | transloco }}
                 </th>
                 <th class="total-cost">
                   <div>
                     <p>
-                      ค่าขนส่ง
-                      {{ renderText(items.lot?.delivery_cost) }} บาท
+                      {{ "shipping_fee" | transloco }} {{ renderText(items.lot?.delivery_cost) }} {{ "baht" | transloco }}
                     </p>
                     <p>
-                      ค่าใช้จ่ายอื่นๆ
-                      {{ renderText(items.lot?.other_cost) }} บาท
+                      {{ "other_fees" | transloco }} {{ renderText(items.lot?.other_cost) }} {{ "baht" | transloco }}
                     </p>
                     <p>
-                      ค่าจัดเก็บพัสดุ
-                      {{ renderText(items.lot?.storage_cost) }} บาท
+                      {{ "storage_fee" | transloco }} {{ renderText(items.lot?.storage_cost) }} {{ "baht" | transloco }}
                     </p>
                   </div>
                 </th>

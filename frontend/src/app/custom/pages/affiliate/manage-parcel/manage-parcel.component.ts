@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { Pagination, SaleSummaryRecords } from "../../../interfaces";
 import { SaleSummaryService } from "src/app/custom/services";
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 
 @Component({
   selector: "app-manage-parcel",
   templateUrl: "./manage-parcel.component.html",
   styleUrls: ["./manage-parcel.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "affiliate" }],
 })
 export class ManageParcelComponent implements OnInit {
   bsValue: Date = new Date();
@@ -16,7 +18,10 @@ export class ManageParcelComponent implements OnInit {
 
   isMainContentDisplay: boolean = false;
 
-  constructor(private saleSummaryService: SaleSummaryService) {}
+  constructor(
+    private saleSummaryService: SaleSummaryService,
+    private transloco: TranslocoService
+  ) {}
 
   ngOnInit(): void {
     this.getSaleSummary();
@@ -57,7 +62,11 @@ export class ManageParcelComponent implements OnInit {
     };
     if (discountValueNumber > item.affiliate_commission) {
       alert(
-        `ส่วนลดต้องไม่มากกว่าค่า Affiliate Commission ปัจจุบันคือ ${item.affiliate_commission} บาท`
+        this.transloco.translate(
+          "discount_exceeds_commission",
+          { amount: item.affiliate_commission },
+          "affiliate"
+        )
       );
     } else {
       this.saleSummaryService.editDiscount(body).subscribe(
@@ -66,7 +75,7 @@ export class ManageParcelComponent implements OnInit {
         },
         (err) => {
           console.log(err);
-          alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+          alert(this.transloco.translate("error_occurred_try_again"));
         }
       );
     }

@@ -3,42 +3,42 @@
     <div class="card">
       <div class="card-header">
         <h5 class="card-title">
-          ที่อยู่โกดังจีน (สำหรับบริการขนส่งสินค้าจากจีนอย่างเดียว)
+          {{ "overview.warehouse_title" | transloco }}
         </h5>
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-12 text-right">
-            <small><a [routerLink]="">วิธีใส่ที่อยู่</a></small>
+            <small><a [routerLink]="">{{ "overview.how_to_enter_address" | transloco }}</a></small>
           </div>
         </div>
         <table style="width: 100%">
           <tbody>
             <tr>
-              <td style="width: 30%">ชื่อผู้รับ (收货人)</td>
+              <td style="width: 30%">{{ "overview.recipient_name" | transloco }}</td>
               <td style="width: 1%">:</td>
               <td style="width: 79%">BTC101大</td>
             </tr>
             <tr>
-              <td>ที่อยู่ (地址)</td>
+              <td>{{ "overview.address_cn" | transloco }}</td>
               <td>:</td>
               <td>
                 广州市白云区白云湖街道夏茅兵房路261号7431工厂74-2-仓库 BTC101
               </td>
             </tr>
             <tr>
-              <td>รหัสไปรษณีย์ (邮编)</td>
+              <td>{{ "overview.postal_code_cn" | transloco }}</td>
               <td>:</td>
               <td>510000</td>
             </tr>
             <tr>
-              <td>เบอร์โทรศัพท์ (电话)</td>
+              <td>{{ "overview.phone_cn" | transloco }}</td>
               <td>:</td>
               <td>18665714234</td>
             </tr>
             <tr>
               <td colspan="3">
-                <span class="remark-title">หมายเหตุ : </span>
+                <span class="remark-title">{{ "overview.note_label" | transloco }} </span>
                 <div [innerHTML]="remarkHTML"></div>
               </td>
             </tr>

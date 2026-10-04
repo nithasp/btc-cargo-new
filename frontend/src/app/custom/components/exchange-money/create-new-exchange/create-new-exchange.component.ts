@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core"
 import { StorageService } from "../../../services"
 import { ExchangeMoneyActiveStage, PaymentMethod } from "../../../interfaces"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "create-new-exchange",
   templateUrl: "./create-new-exchange.component.html",
   styleUrls: ["./create-new-exchange.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "exchange" }],
 })
 export class CreateNewExchangeComponent implements OnInit {
   paymentMethod: PaymentMethod

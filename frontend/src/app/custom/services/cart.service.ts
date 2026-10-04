@@ -5,6 +5,7 @@ import { AuthService } from "./auth.service";
 import { CartData } from "../interfaces/cart";
 import { Shop } from "../interfaces/shop";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { TranslocoService } from "@ngneat/transloco";
 
 @Injectable({
   providedIn: "root",
@@ -25,7 +26,8 @@ export class CartService {
   constructor(
     private apiService: ApiService,
     private authService: AuthService,
-    private http: HttpClient
+    private http: HttpClient,
+    private transloco: TranslocoService
   ) {}
 
   addItem(item: CartData) {
@@ -241,7 +243,7 @@ export class CartService {
           },
           (err) => {
             console.log(err, err.error.detail);
-            alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+            alert(this.transloco.translate("error_occurred_try_again"));
           }
         );
     }
@@ -285,7 +287,7 @@ export class CartService {
                     },
                     (err) => {
                       console.log(err, err.error.detail);
-                      alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+                      alert(this.transloco.translate("error_occurred_try_again"));
                       this.isLoadingIconDisplay.next(false);
                     }
                   );
@@ -303,7 +305,7 @@ export class CartService {
                     },
                     (err) => {
                       console.log(err, err.error.detail);
-                      alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+                      alert(this.transloco.translate("error_occurred_try_again"));
                       this.isLoadingIconDisplay.next(false);
                     }
                   );
@@ -311,7 +313,7 @@ export class CartService {
             },
             (err) => {
               console.log(err, err.error.detail);
-              alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง");
+              alert(this.transloco.translate("error_occurred_try_again"));
             }
           );
       }

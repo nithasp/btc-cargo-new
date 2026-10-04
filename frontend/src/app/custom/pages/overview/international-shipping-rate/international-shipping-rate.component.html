@@ -2,74 +2,73 @@
   <div class="container-fluid overview-container">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">ค่าบริการขนส่งสินค้าจากจีนมาไทย</h5>
+        <h5 class="card-title">{{ "overview.intl_rate_title" | transloco }}</h5>
       </div>
       <div class="card-body">
-        <h4 class="sub-title">ค่าบริการขนส่งสินค้าจากจีนมาไทย</h4>
+        <h4 class="sub-title">{{ "overview.intl_rate_title" | transloco }}</h4>
         <small class="text-danger"
-          >กรุณาศึกษาเกณฑ์เบื้องต้นในการแยกประเภทสินค้า
-          <a routerLink="/faq/goods-type">ที่นี่</a>
-          เพื่อความเข้าใจตรงกันในการขนส่ง
-          กรุณาสอบถามประเภทสินค้าก่อนสั่งซื้อทุกครั้ง</small
+          >{{ "overview.intl_study_criteria" | transloco }}
+          <a routerLink="/faq/goods-type">{{ "overview.here" | transloco }}</a>
+          {{ "overview.intl_ask_before_order" | transloco }}</small
         >
         <div class="table-container">
           <table class="table table-sm table-borderless">
             <thead class="text-center">
               <tr>
-                <th>ประเภทสินค้า</th>
-                <th>คำอธิบาย</th>
-                <th>คิดตามน้ำหนัก (฿/กก.)</th>
-                <th>คิดตามปริมาตร (฿/คิว)</th>
-                <th>ระยะเวลานำเข้า</th>
+                <th>{{ "goods_type" | transloco }}</th>
+                <th>{{ "overview.description" | transloco }}</th>
+                <th>{{ "overview.rate_by_weight" | transloco }}</th>
+                <th>{{ "overview.rate_by_volume" | transloco }}</th>
+                <th>{{ "overview.import_lead_time" | transloco }}</th>
               </tr>
             </thead>
             <tbody class="text-center">
               <tr>
                 <td>P</td>
-                <td>ทั่วไป (รถ)</td>
+                <td>{{ "goods_general_truck" | transloco }}</td>
                 <td>25</td>
                 <td>6200</td>
-                <td>5 - 15 วัน</td>
+                <td>{{ "overview.days_5_15" | transloco }}</td>
               </tr>
               <tr>
                 <td>D</td>
-                <td>มอก. (รถ)</td>
+                <td>{{ "goods_tis_truck" | transloco }}</td>
                 <td id="rateW-d">40</td>
                 <td id="rateQ-d">7200</td>
-                <td>5 - 15 วัน</td>
+                <td>{{ "overview.days_5_15" | transloco }}</td>
               </tr>
               <tr>
                 <td>HY</td>
-                <td>อย.</td>
+                <td>{{ "overview.goods_fda" | transloco }}</td>
                 <td>70</td>
                 <td>10500</td>
-                <td>ตั้งแต่ 2 สัปดาห์ขึ้นไป</td>
+                <td>{{ "overview.from_2_weeks" | transloco }}</td>
               </tr>
               <tr>
                 <td>M</td>
-                <td>แบรนด์/ลิขสิทธิ์ (ขั้นต่ำ 10 กก./ชิ้น)</td>
+                <td>{{ "overview.goods_brand_min" | transloco }}</td>
                 <td>180</td>
                 <td>18000</td>
-                <td>ตั้งแต่ 2 สัปดาห์ขึ้้นไป</td>
+                <td>{{ "overview.from_2_weeks" | transloco }}</td>
               </tr>
               <tr>
                 <td>SP</td>
-                <td>ทั่วไป (เรือ)</td>
+                <td>{{ "goods_general_ship" | transloco }}</td>
                 <td id="rateW-p">20</td>
                 <td id="rateQ-p">4000</td>
-                <td>ตั้งแต่ 2 สัปดาห์ขึ้้นไป</td>
+                <td>{{ "overview.from_2_weeks" | transloco }}</td>
               </tr>
               <tr>
                 <td>SD</td>
-                <td>มอก. (เรือ)</td>
+                <td>{{ "goods_tis_ship" | transloco }}</td>
                 <td id="rateW-d">35</td>
                 <td id="rateQ-d">6000</td>
-                <td>ตั้งแต่ 2 สัปดาห์ขึ้้นไป</td>
+                <td>{{ "overview.from_2_weeks" | transloco }}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <span class="remark-title">หมายเหตุ : </span>
+        <span class="remark-title">{{ "overview.note_label" | transloco }} </span>
         <div [innerHTML]="remarkHTML"></div>
       </div>
     </div>

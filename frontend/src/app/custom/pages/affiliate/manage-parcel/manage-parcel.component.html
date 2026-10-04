@@ -1,24 +1,24 @@
 <section id="manage-parcel" *ngIf="isMainContentDisplay">
   <div class="card container-card">
     <div class="card-header">
-      <h2 class="card-title">จัดการพัสดุ</h2>
+      <h2 class="card-title">{{ "menu.manage_parcels" | transloco }}</h2>
     </div>
     <div class="card-body" *ngIf="saleSummaryItems.length === 0">
-      <h3 class="text-center p-3">ไม่มีรายการจัดการพัสดุ</h3>
+      <h3 class="text-center p-3">{{ "affiliate.no_parcels_to_manage" | transloco }}</h3>
     </div>
     <div class="card-body" *ngIf="saleSummaryItems.length > 0">
       <div
         class="container-filter mb-3 d-flex align-items-center justify-content-between"
       >
-        <h2>รายการพัสดุ</h2>
+        <h2>{{ "parcel_list" | transloco }}</h2>
         <div class="d-flex wrapper-input">
           <div class="d-flex align-items-center mr-3 no-order">
-            <span class="text-nowrap mr-3 title">เลขพัสดุ</span>
+            <span class="text-nowrap mr-3 title">{{ "tracking_number" | transloco }}</span>
             <input type="text" class="form-control" placeholder="" />
           </div>
           <div class="d-flex align-items-center mr-3 export-date">
             <span class="export-date text-nowrap mr-3 title"
-              >วันที่ออกจากจีน
+              >{{ "china_departure_date" | transloco }}
             </span>
             <div
               class="input-group input-group-alternative input-group-birthdate"
@@ -45,12 +45,12 @@
             </div>
           </div>
           <div class="d-flex align-items-center mr-3 status">
-            <span class="mr-3 title">สถานะ</span>
+            <span class="mr-3 title">{{ "status" | transloco }}</span>
             <div class="btc-select-wrapper status">
               <select class="select-status">
-                <option>เข้าโกดังจีน</option>
-                <option>ออกจีน</option>
-                <option>ถึงไทย</option>
+                <option>{{ "status_in_china_warehouse" | transloco }}</option>
+                <option>{{ "status_left_china" | transloco }}</option>
+                <option>{{ "status_arrived_thailand" | transloco }}</option>
               </select>
             </div>
           </div>
@@ -60,12 +60,12 @@
         <table class="table align-items-center">
           <thead class="thead-light">
             <tr>
-              <th>เลขที่รายการ</th>
-              <th>เลขพัสดุ</th>
-              <th>ค่าขนส่ง</th>
-              <th>เรท</th>
-              <th>ค่าคอมมิชชั่น</th>
-              <th>ส่วนลด</th>
+              <th>{{ "transaction_number" | transloco }}</th>
+              <th>{{ "tracking_number" | transloco }}</th>
+              <th>{{ "shipping_fee" | transloco }}</th>
+              <th>{{ "rate" | transloco }}</th>
+              <th>{{ "affiliate.commission" | transloco }}</th>
+              <th>{{ "discount" | transloco }}</th>
             </tr>
           </thead>
           <tbody>
@@ -79,48 +79,48 @@
               <td>
                 <div class="shipping-price">
                   <div class="space-3-columns">
-                    <span>ค่าขนส่ง</span>
+                    <span>{{ "shipping_fee" | transloco }}</span>
                     <span>{{ item.delivery_price.delivery_price }}</span>
-                    <span>บาท</span>
+                    <span>{{ "baht" | transloco }}</span>
                   </div>
                   <div class="space-3-columns">
-                    <span>ค่าใช้จ่ายอื่นๆ</span>
+                    <span>{{ "other_fees" | transloco }}</span>
                     <span>{{ item.delivery_price.other_cost }}</span>
-                    <span>บาท</span>
+                    <span>{{ "baht" | transloco }}</span>
                   </div>
                   <div class="space-3-columns">
-                    <span>ค่าจัดเก็บพัสดุ</span>
+                    <span>{{ "storage_fee" | transloco }}</span>
                     <span>{{ item.delivery_price.storage_cost }}</span>
-                    <span>บาท</span>
+                    <span>{{ "baht" | transloco }}</span>
                   </div>
                   <div class="space-3-columns">
-                    <span>รวม</span>
+                    <span>{{ "total" | transloco }}</span>
                     <span>{{ item.delivery_price.total_cost }}</span>
-                    <span>บาท</span>
+                    <span>{{ "baht" | transloco }}</span>
                   </div>
                 </div>
               </td>
               <td>
                 <div class="rate">
                   <div class="space-3-columns">
-                    <span>ราคาทุน</span>
+                    <span>{{ "affiliate.cost_price" | transloco }}</span>
                     <span>{{ item.rate.cost_price }}</span>
-                    <span>บาท</span>
+                    <span>{{ "baht" | transloco }}</span>
                   </div>
                   <div class="space-3-columns">
-                    <span>ราคาขาย</span>
+                    <span>{{ "affiliate.selling_price" | transloco }}</span>
                     <span>{{ item.rate.selling_price }}</span>
-                    <span>บาท</span>
+                    <span>{{ "baht" | transloco }}</span>
                   </div>
                 </div>
               </td>
-              <td>ค่าคอมมิชชั่น {{ item.final_commission }} บาท</td>
+              <td>{{ "affiliate.commission" | transloco }} {{ item.final_commission }} {{ "baht" | transloco }}</td>
               <td>
-                <div>ส่วนลดปัจจุบัน {{ item.discount_commission }} บาท</div>
+                <div>{{ "affiliate.current_discount" | transloco }} {{ item.discount_commission }} {{ "baht" | transloco }}</div>
                 <div class="mt-3">
                   <input
                     type="number"
-                    placeholder="กรอกส่วนลด"
+                    [placeholder]="'affiliate.enter_discount' | transloco"
                     class="form-control discount my-2"
                     (keydown)="handleAmountPay($event)"
                     #discountValue
@@ -129,7 +129,7 @@
                     class="btn btn-success py-1 px-2 w-100"
                     (click)="editDiscount(item, discountValue)"
                   >
-                    แก้ไขส่วนลด
+                    {{ "affiliate.edit_discount" | transloco }}
                   </button>
                 </div>
               </td>
@@ -153,7 +153,7 @@
               (click)="handleChangePage(pagination.page - 1)"
             >
               <i class="fa fa-angle-left"></i>
-              <span class="sr-only">Previous</span>
+              <span class="sr-only">{{ "paginator.previous" | transloco }}</span>
             </a>
           </li>
           <li
@@ -176,7 +176,7 @@
               (click)="handleChangePage(pagination.page + 1)"
             >
               <i class="fa fa-angle-right"></i>
-              <span class="sr-only">Next</span>
+              <span class="sr-only">{{ "paginator.next" | transloco }}</span>
             </a>
           </li>
         </ul>

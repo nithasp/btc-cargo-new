@@ -12,11 +12,13 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 import { VectorMapComponent1 } from "./vector-map/vector-map.component";
+import { LanguageSwitchComponent } from "./language-switch/language-switch.component";
 
 import { RouterModule } from "@angular/router";
 import { CollapseModule } from "ngx-bootstrap/collapse";
 import { DxVectorMapModule, DxPieChartModule } from 'devextreme-angular';
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
+import { TranslocoModule } from "@ngneat/transloco";
 
 @NgModule({
   imports: [
@@ -28,18 +30,21 @@ import { BsDropdownModule } from "ngx-bootstrap/dropdown";
     DxVectorMapModule,
     DxPieChartModule,
     InfiniteScrollModule,
+    TranslocoModule,
   ],
   declarations: [
     FooterComponent,
     VectorMapComponent1,
     NavbarComponent,
     SidebarComponent,
+    LanguageSwitchComponent,
   ],
   exports: [
     FooterComponent,
     VectorMapComponent1,
     NavbarComponent,
     SidebarComponent,
+    LanguageSwitchComponent,
   ],
   providers: [
     {

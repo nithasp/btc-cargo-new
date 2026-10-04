@@ -11,11 +11,13 @@ import {
   ExchangeService,
   StorageService,
 } from "../../../services"
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "app-create-exchange",
   templateUrl: "./create-exchange.component.html",
   styleUrls: ["./create-exchange.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "exchange" }],
 })
 export class CreateExchangeComponent implements OnInit {
   annoucementKey: string = "payment_announcement"
@@ -37,7 +39,8 @@ export class CreateExchangeComponent implements OnInit {
     private exchangeService: ExchangeService,
     private storageService: StorageService,
     private currencyService: CurrencyService,
-    private router: Router
+    private router: Router,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -65,7 +68,7 @@ export class CreateExchangeComponent implements OnInit {
       },
       (error) => {
         console.log("error ", error)
-        alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง")
+        alert(this.transloco.translate("error_occurred_try_again"))
         this.router.navigate(["/web/warehouse-address"])
         this.isLoading = false
       }
@@ -101,7 +104,7 @@ export class CreateExchangeComponent implements OnInit {
       },
       (error) => {
         console.log("error ", error)
-        alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง")
+        alert(this.transloco.translate("error_occurred_try_again"))
       }
     )
     this.uploadedFile = undefined
@@ -118,7 +121,7 @@ export class CreateExchangeComponent implements OnInit {
       },
       (error) => {
         console.log("error ", error)
-        alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง")
+        alert(this.transloco.translate("error_occurred_try_again"))
       }
     )
   }

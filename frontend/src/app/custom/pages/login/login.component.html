@@ -8,7 +8,7 @@
             <div class="card bg-secondary border-0 mb-0">
               <div class="card-header bg-transparent pb-5">
                 <div class="text-center mt-2 mb-3">
-                  <small>เข้าสู่ระบบโดย</small>
+                  <small>{{ "auth.sign_in_with" | transloco }}</small>
                 </div>
 
                 <div class="btn-wrapper text-center">
@@ -40,7 +40,7 @@
                           class="text-white"
                           *ngIf="newRegisterMsg"
                         >
-                          <u>สมัครใหม่</u>
+                          <u>{{ "auth.sign_up_link" | transloco }}</u>
                         </a>
                       </p>
                     </div>
@@ -48,7 +48,7 @@
                 </ng-container>
 
                 <div class="text-center mb-4">
-                  <small> หรือเข้าสู่ระบบด้วยข้อมูลประจำตัว </small>
+                  <small> {{ "auth.or_sign_in_with_credentials" | transloco }} </small>
                 </div>
 
                 <form
@@ -68,7 +68,7 @@
                       </div>
                       <input
                         class="form-control"
-                        placeholder="ชื่อผู้ใช้งาน"
+                        [placeholder]="'auth.username' | transloco"
                         type="text"
                         (focus)="focus = true"
                         (blur)="focus = false"
@@ -92,7 +92,7 @@
                       </div>
                       <input
                         class="form-control"
-                        placeholder="รหัสผ่าน"
+                        [placeholder]="'auth.password' | transloco"
                         type="password"
                         [type]="showPassword ? 'text' : 'password'"
                         (focus)="focus2 = true"
@@ -122,7 +122,7 @@
                       (click)="toggleRememberMe()"
                     />
                     <label class="custom-control-label" for=" customCheckLogin">
-                      <span>จดจำผู้ใช้งาน</span>
+                      <span>{{ "auth.remember_me" | transloco }}</span>
                     </label>
                   </div>
                   <!-- <div class="reCAPTCHA-wrapper mt-2">
@@ -138,23 +138,37 @@
                       class="btn btn-primary my-4"
                       [disabled]="!isReCaptchaActive"
                     >
-                      เข้าสู่ระบบ
+                      {{ "auth.sign_in" | transloco }}
                     </button>
                   </div>
                 </form>
+
+                <div class="text-center" *ngIf="demoEnabled">
+                  <small class="d-block mb-3">
+                    {{ "auth.or_explore_without_account" | transloco }}
+                  </small>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    [disabled]="isDemoLoading"
+                    (click)="enterDemo()"
+                  >
+                    {{ "auth.explore_demo" | transloco }}
+                  </button>
+                </div>
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-6">
                 <a class="text-white" href="javascript:void(0)">
-                  <small>ลืมรหัสผ่าน?</small>
+                  <small>{{ "auth.forgot_password" | transloco }}</small>
                 </a>
               </div>
 
               <div class="col-6 text-right">
                 <a class="text-white" [routerLink]="['/register']">
-                  <small>สร้างบัญชีใหม่</small>
+                  <small>{{ "auth.create_account" | transloco }}</small>
                 </a>
               </div>
             </div>

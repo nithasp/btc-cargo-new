@@ -1,23 +1,23 @@
 <section>
   <div class="card parcel-list-card">
     <div class="card-header justify-content-between">
-      <h2 class="card-title">ติดตามรายการพัสดุ</h2>
+      <h2 class="card-title">{{ "parcel.track_parcels" | transloco }}</h2>
       <a
         class="btn btn-icon btn-3 btn-primary create-button"
         type="button"
         [routerLink]="['/web/create-parcel']"
       >
         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-        <span class="btn-inner--text">สร้างรายการพัสดุ</span>
+        <span class="btn-inner--text">{{ "parcel.create_parcel_list" | transloco }}</span>
       </a>
     </div>
     <div class="card-body">
       <div *ngIf="!isEmptyDetails()">
         <div class="title-section">
-          <h2>รายการพัสดุ</h2>
+          <h2>{{ "parcel_list" | transloco }}</h2>
           <div class="filter-section">
             <div class="title-with-input">
-              <p class="text-nowrap mr-3">เลขพัสดุ</p>
+              <p class="text-nowrap mr-3">{{ "tracking_number" | transloco }}</p>
               <input
                 type="text"
                 class="form-control mr-3 input-text w-auto"
@@ -26,7 +26,7 @@
               />
             </div>
             <div class="title-with-input">
-              <p class="text-nowrap mr-3">วันที่ออกจากจีน</p>
+              <p class="text-nowrap mr-3">{{ "china_departure_date" | transloco }}</p>
               <div class="form-group mr-3 mb-0">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="title-with-input">
-              <p class="text-nowrap mr-3">สถานะ</p>
+              <p class="text-nowrap mr-3">{{ "status" | transloco }}</p>
               <div class="dropdown" dropdown>
                 <button
                   class="btn btn-secondary dropdown-toggle"
@@ -57,21 +57,21 @@
                   id="dropdownMenuButton"
                   dropdownToggle
                 >
-                  {{ status }}
+                  {{ status | transloco }}
                 </button>
                 <div
                   aria-labelledby="dropdownMenuButton"
                   *dropdownMenu
                   class="dropdown-menu"
                 >
-                  <a class="dropdown-item" (click)="status = 'เข้าโกดังจีน'"
-                    >เข้าโกดังจีน</a
+                  <a class="dropdown-item" (click)="status = 'status_in_china_warehouse'"
+                    >{{ "status_in_china_warehouse" | transloco }}</a
                   >
-                  <a class="dropdown-item" (click)="status = 'ออกจีน'"
-                    >ออกจีน</a
+                  <a class="dropdown-item" (click)="status = 'status_left_china'"
+                    >{{ "status_left_china" | transloco }}</a
                   >
-                  <a class="dropdown-item" (click)="status = 'ถึงไทย'"
-                    >ถึงไทย</a
+                  <a class="dropdown-item" (click)="status = 'status_arrived_thailand'"
+                    >{{ "status_arrived_thailand" | transloco }}</a
                   >
                 </div>
               </div>
@@ -82,12 +82,12 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th class="col-3">เลขพัสดุ</th>
-                <th class="col-1">ประเภทการขนส่ง</th>
-                <th class="col-2">ตีลังไม้</th>
-                <th class="col-2">ดูรูปถ่าย</th>
+                <th class="col-3">{{ "tracking_number" | transloco }}</th>
+                <th class="col-1">{{ "parcel.shipping_type" | transloco }}</th>
+                <th class="col-2">{{ "parcel.wooden_crate" | transloco }}</th>
+                <th class="col-2">{{ "parcel.view_photo" | transloco }}</th>
                 <th class="col-2">QC</th>
-                <th class="col-2">หมายเหตุ</th>
+                <th class="col-2">{{ "remark" | transloco }}</th>
               </tr>
             </thead>
             <tbody>
@@ -99,13 +99,13 @@
                   {{ getDeliveryTypeLabel(item.delivery_type) }}
                 </td>
                 <td class="text-center">
-                  {{ getBoxLabel(item.shipping_with_box) }}
+                  {{ getBoxLabel(item.shipping_with_box) | transloco }}
                 </td>
                 <td class="text-center">
-                  {{ getPictureTypeLabel(item.required_picture) }}
+                  {{ getPictureTypeLabel(item.required_picture) | transloco }}
                 </td>
                 <td class="text-center">
-                  {{ getQcTypeLabel(item.qc) }}
+                  {{ getQcTypeLabel(item.qc) | transloco }}
                 </td>
                 <td>
                   {{ renderText(item.remarks) }}
@@ -127,7 +127,7 @@
                 (click)="handleChangePage(pagination.page - 1)"
               >
                 <i class="fa fa-angle-left"></i>
-                <span class="sr-only">Previous</span>
+                <span class="sr-only">{{ "paginator.previous" | transloco }}</span>
               </a>
             </li>
             <li
@@ -152,14 +152,14 @@
                 (click)="handleChangePage(pagination.page + 1)"
               >
                 <i class="fa fa-angle-right"></i>
-                <span class="sr-only">Next</span>
+                <span class="sr-only">{{ "paginator.next" | transloco }}</span>
               </a>
             </li>
           </ul>
         </div>
       </div>
       <div *ngIf="isEmptyDetails()">
-        <h3 class="text-center p-3">ไม่มีรายการพัสดุ</h3>
+        <h3 class="text-center p-3">{{ "parcel.no_parcels" | transloco }}</h3>
       </div>
     </div>
   </div>

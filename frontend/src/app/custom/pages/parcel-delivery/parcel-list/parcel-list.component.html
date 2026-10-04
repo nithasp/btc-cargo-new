@@ -1,15 +1,15 @@
 <section>
   <div class="card parcel-list-card">
     <div class="card-header">
-      <h2 class="card-title">ติดตามรายการพัสดุ</h2>
+      <h2 class="card-title">{{ "parcel.track_parcels" | transloco }}</h2>
     </div>
     <div class="card-body">
       <div *ngIf="!isEmptyDetails()">
         <div class="title-section">
-          <h2>รายการพัสดุ</h2>
+          <h2>{{ "parcel_list" | transloco }}</h2>
           <div class="filter-section">
             <div class="title-with-input">
-              <p class="text-nowrap mr-3">เลขพัสดุ</p>
+              <p class="text-nowrap mr-3">{{ "tracking_number" | transloco }}</p>
               <input
                 type="text"
                 class="form-control mr-3 input-text w-auto"
@@ -18,7 +18,7 @@
               />
             </div>
             <div class="title-with-input">
-              <p class="text-nowrap mr-3">วันที่ออกจากจีน</p>
+              <p class="text-nowrap mr-3">{{ "china_departure_date" | transloco }}</p>
               <div class="form-group mr-3 mb-0">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
@@ -41,7 +41,7 @@
               </div>
             </div>
             <div class="title-with-input">
-              <p class="text-nowrap mr-3">สถานะ</p>
+              <p class="text-nowrap mr-3">{{ "status" | transloco }}</p>
               <div class="dropdown" dropdown>
                 <button
                   class="btn btn-secondary dropdown-toggle"
@@ -49,21 +49,21 @@
                   id="dropdownMenuButton"
                   dropdownToggle
                 >
-                  {{ status }}
+                  {{ status | transloco }}
                 </button>
                 <div
                   aria-labelledby="dropdownMenuButton"
                   *dropdownMenu
                   class="dropdown-menu"
                 >
-                  <a class="dropdown-item" (click)="status = 'เข้าโกดังจีน'"
-                    >เข้าโกดังจีน</a
+                  <a class="dropdown-item" (click)="status = 'status_in_china_warehouse'"
+                    >{{ "status_in_china_warehouse" | transloco }}</a
                   >
-                  <a class="dropdown-item" (click)="status = 'ออกจีน'"
-                    >ออกจีน</a
+                  <a class="dropdown-item" (click)="status = 'status_left_china'"
+                    >{{ "status_left_china" | transloco }}</a
                   >
-                  <a class="dropdown-item" (click)="status = 'ถึงไทย'"
-                    >ถึงไทย</a
+                  <a class="dropdown-item" (click)="status = 'status_arrived_thailand'"
+                    >{{ "status_arrived_thailand" | transloco }}</a
                   >
                 </div>
               </div>
@@ -74,12 +74,12 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">เลขพัสดุ</th>
+                <th scope="col">{{ "tracking_number" | transloco }}</th>
                 <th scope="col">QC</th>
-                <th scope="col">วันที่</th>
-                <th scope="col">ค่าขนส่ง</th>
-                <th scope="col">หมายเหตุ</th>
-                <th scope="col">สถานะ</th>
+                <th scope="col">{{ "parcel.date" | transloco }}</th>
+                <th scope="col">{{ "shipping_fee" | transloco }}</th>
+                <th scope="col">{{ "remark" | transloco }}</th>
+                <th scope="col">{{ "status" | transloco }}</th>
               </tr>
             </thead>
             <tbody>
@@ -87,26 +87,24 @@
                 <td>
                   <div class="d-flex flex-row justify-content-between">
                     <div>
-                      <div>เลขตู้ {{ renderText(item.lot?.shipping_lot) }}</div>
+                      <div>{{ "container_no" | transloco }} {{ renderText(item.lot?.shipping_lot) }}</div>
                       <div class="d-flex">
-                        <div>เลขพัสดุ</div>
+                        <div>{{ "tracking_number" | transloco }}</div>
                         <h5 class="text-primary">
                           {{ renderText(item.china_tracking.shopping_serial) }}
                         </h5>
                       </div>
 
                       <div>
-                        จำนวนพัสดุ {{ renderText(item.lot?.total_amount) }} ชิ้น
+                        {{ "parcel_quantity" | transloco }} {{ renderText(item.lot?.total_amount) }} {{ "pieces" | transloco }}
                       </div>
 
                       <div>
-                        ปริมาตรรวม
-                        {{ renderText(item.lot?.child_ids[0].volume) }} cbm
+                        {{ "total_volume" | transloco }} {{ renderText(item.lot?.child_ids[0].volume) }} cbm
                       </div>
 
                       <div>
-                        น้ำหนัก
-                        {{ renderText(item.lot?.child_ids[0].weight) }} kg
+                        {{ "weight" | transloco }} {{ renderText(item.lot?.child_ids[0].weight) }} kg
                       </div>
                     </div>
                     <div class="thumbnail"></div>
@@ -115,17 +113,17 @@
                 <td>
                   <div class="qc-section">
                     <div class="video">Video</div>
-                    <div class="mt-2">0 ชิ้น</div>
+                    <div class="mt-2">0 {{ "pieces" | transloco }}</div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex flex-row">
                     <div class="d-flex flex-2 flex-column">
-                      <div class="key-text">วันที่เข้าโกดังจีน</div>
-                      <div class="key-text">วันที่ออกจากจีน</div>
-                      <div class="key-text">วันที่คาดว่าจะถึงไทย</div>
-                      <div class="key-text">วันที่ถึงไทย</div>
-                      <div class="key-text">วันที่จัดส่ง</div>
+                      <div class="key-text">{{ "parcel.date_in_china_warehouse" | transloco }}</div>
+                      <div class="key-text">{{ "china_departure_date" | transloco }}</div>
+                      <div class="key-text">{{ "parcel.date_expected_thailand" | transloco }}</div>
+                      <div class="key-text">{{ "parcel.date_arrived_thailand" | transloco }}</div>
+                      <div class="key-text">{{ "parcel.date_delivered" | transloco }}</div>
                     </div>
                     <div class="d-flex flex-1 flex-column">
                       <div>dd/mm/yy</div>
@@ -142,11 +140,11 @@
                       class="d-flex flex-2 flex-column justify-content-between mr-4"
                     >
                       <div>
-                        <div class="key-text">ค่าขนส่ง</div>
-                        <div class="key-text">ค่าใช้จ่ายอื่นๆ</div>
-                        <div class="key-text">ค่าจัดเก็บพัสดุ</div>
+                        <div class="key-text">{{ "shipping_fee" | transloco }}</div>
+                        <div class="key-text">{{ "other_fees" | transloco }}</div>
+                        <div class="key-text">{{ "storage_fee" | transloco }}</div>
                       </div>
-                      <div class="key-text">รวม</div>
+                      <div class="key-text">{{ "total" | transloco }}</div>
                     </div>
                     <div
                       class="d-flex flex-1 flex-column justify-content-between mr-3"
@@ -169,11 +167,11 @@
                       class="d-flex flex-1 flex-column justify-content-between"
                     >
                       <div>
-                        <div>บาท</div>
-                        <div>บาท</div>
-                        <div>บาท</div>
+                        <div>{{ "baht" | transloco }}</div>
+                        <div>{{ "baht" | transloco }}</div>
+                        <div>{{ "baht" | transloco }}</div>
                       </div>
-                      <div>บาท</div>
+                      <div>{{ "baht" | transloco }}</div>
                     </div>
                   </div>
                 </td>
@@ -183,25 +181,20 @@
                   </div>
                 </td>
                 <td class="text-nowrap">
-                  {{ getLocationText(item.lot?.current_location) }}
+                  {{
+                    (getLocationKey(item.lot?.current_location) | transloco) ||
+                      "-"
+                  }}
                   <i
-                    *ngIf="
-                      getLocationText(item.lot?.current_location) ===
-                      'เข้าโกดังจีน'
-                    "
+                    *ngIf="getLocationKey(item.lot?.current_location) === 'status_in_china_warehouse'"
                     class="fas fa-warehouse ml-2"
                   ></i>
                   <i
-                    *ngIf="
-                      getLocationText(item.lot?.current_location) === 'ถึงไทย'
-                    "
+                    *ngIf="getLocationKey(item.lot?.current_location) === 'status_arrived_thailand'"
                     class="fas fa-truck-loading ml-2"
                   ></i>
                   <i
-                    *ngIf="
-                      getLocationText(item.lot?.current_location) ===
-                      'ออกจากจีน'
-                    "
+                    *ngIf="getLocationKey(item.lot?.current_location) === 'status_departed_china'"
                     class="fas fa-truck ml-2"
                   ></i>
                 </td>
@@ -222,7 +215,7 @@
                 (click)="handleChangePage(pagination.page - 1)"
               >
                 <i class="fa fa-angle-left"></i>
-                <span class="sr-only">Previous</span>
+                <span class="sr-only">{{ "paginator.previous" | transloco }}</span>
               </a>
             </li>
             <li
@@ -247,14 +240,14 @@
                 (click)="handleChangePage(pagination.page + 1)"
               >
                 <i class="fa fa-angle-right"></i>
-                <span class="sr-only">Next</span>
+                <span class="sr-only">{{ "paginator.next" | transloco }}</span>
               </a>
             </li>
           </ul>
         </div>
       </div>
       <div *ngIf="isEmptyDetails()">
-        <h3 class="text-center p-3">ไม่มีรายการพัสดุ</h3>
+        <h3 class="text-center p-3">{{ "parcel.no_parcels" | transloco }}</h3>
       </div>
     </div>
   </div>

@@ -1,12 +1,12 @@
 <section id="goal" *ngIf="isMainContentDisplay">
   <div class="card container-card mb-0">
     <div class="card-header d-flex align-items-center justify-content-between">
-      <h2 class="card-title">ตั้งค่าเป้าหมาย</h2>
+      <h2 class="card-title">{{ "menu.set_goals" | transloco }}</h2>
     </div>
   </div>
   <div class="goal-section1 card container-card">
     <div class="card-body">
-      <p>ตั้งค่าเป้าหมาย</p>
+      <p>{{ "menu.set_goals" | transloco }}</p>
       <iframe
         *ngIf="goalReport"
         [src]="goalReportUrl"

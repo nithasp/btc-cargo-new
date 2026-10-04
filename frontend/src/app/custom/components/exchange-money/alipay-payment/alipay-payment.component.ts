@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core"
 import { Account, ExchangeMoneyActiveStage, PaymentMethod } from "../../../interfaces"
 import { StorageService, PaymentGatewayService } from "../../../services"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "alipay-payment",
   templateUrl: "./alipay-payment.component.html",
   styleUrls: ["./alipay-payment.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "exchange" }],
 })
 export class AlipayPaymentComponent implements OnInit {
   selectedAccountId = 1

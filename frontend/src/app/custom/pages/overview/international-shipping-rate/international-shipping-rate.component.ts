@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/custom/services';
+import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-international-shipping-rate',
   templateUrl: './international-shipping-rate.component.html',
-  styleUrls: ['./international-shipping-rate.component.scss']
+  styleUrls: ['./international-shipping-rate.component.scss'],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'overview' }],
 })
 export class InternationalShippingRateComponent implements OnInit {
 

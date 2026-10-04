@@ -4,6 +4,8 @@ import { AuthService } from "src/app/custom/services/auth.service";
 import { ApiService } from "src/app/custom/services/api.service";
 import { HttpClient } from "@angular/common/http";
 import liff from "@line/liff";
+import { environment } from "src/environments/environment";
+import { TranslocoService } from "@ngneat/transloco";
 
 @Component({
   selector: "app-line-login",
@@ -13,7 +15,7 @@ import liff from "@line/liff";
 export class LineLoginComponent implements OnInit {
   baseUrl: string = this.apiService.baseUrl;
   title = "angular-line-login";
-  liffId: any = "1656798245-ZM8GJrRA";
+  liffId: any = environment.lineLoginLiffId;
   rememberMeStatus: boolean = false;
   isLoginSuccess: boolean = false;
   loginMsg: string = "";
@@ -23,7 +25,8 @@ export class LineLoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private authService: AuthService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private transloco: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -112,14 +115,14 @@ export class LineLoginComponent implements OnInit {
     this.authService.isMsgBoxDisplay.next(true);
     this.authService.isLoginSuccess.next(true);
     this.authService.loginMsg.next(
-      "เข้าสู่ระบบสำเร็จ เรากำลังจะพาคุณไปยังหน้า Dashboard"
+      this.transloco.translate("auth.login_success")
     );
   }
   showFailedLoginMsg() {
     this.authService.isMsgBoxDisplay.next(true);
     this.authService.isLoginSuccess.next(false);
     this.authService.loginMsg.next(
-      "เกิดข้อผิดพลาดในการเข้าสู่ระบบ ลองเข้าสู่ระบบใหม่อีกครั้ง หรือลองลบ Cookies แล้วเข้าสู่ระบบใหม่"
+      this.transloco.translate("auth.social_login_failed")
     );
   }
 

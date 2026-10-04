@@ -11,11 +11,13 @@ import {
   PaymentGatewayService,
   StorageService,
 } from "../../../services"
+import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({
   selector: "payment-summary",
   templateUrl: "./payment-summary.component.html",
   styleUrls: ["./payment-summary.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "exchange" }],
 })
 export class PaymentSummaryComponent implements OnInit {
   form: string = "input"
@@ -24,7 +26,8 @@ export class PaymentSummaryComponent implements OnInit {
   constructor(
     private storageService: StorageService,
     private paymentGatewayService: PaymentGatewayService,
-    private currencyService: CurrencyService
+    private currencyService: CurrencyService,
+    private transloco: TranslocoService
   ) {}
   uploadedFile: File
 
@@ -62,9 +65,9 @@ export class PaymentSummaryComponent implements OnInit {
 
   getPaymentMethodLabel() {
     if (this.paymentMethod === PaymentMethod.Alipay) {
-      return "ชำระเงินผ่านการฝากจ่ายโดย Alipay ของบริษัท"
+      return "exchange.method_alipay"
     }
-    return "ชำระเงินผ่านบัญชีธนาคาร"
+    return "exchange.method_bank"
   }
 
   getAlipayAccountName(id) {
@@ -166,7 +169,7 @@ export class PaymentSummaryComponent implements OnInit {
         },
         (error) => {
           console.log("error ", error)
-          alert("มีข้อผิดพลาดเกิดขึ้น กรุณาลองใหม่อีกครั้ง")
+          alert(this.transloco.translate("error_occurred_try_again"))
           this.storageService.setExchangeMoneyState({
             activeStage: ExchangeMoneyActiveStage.All,
             paymentMethod: PaymentMethod.Bank,

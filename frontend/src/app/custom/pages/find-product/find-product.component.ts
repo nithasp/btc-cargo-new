@@ -1,11 +1,13 @@
 import { Component, OnInit } from "@angular/core"
 import { CartService, ProductConsignmentService } from "src/app/custom/services"
 import { CartData, ProductData, Uploads, Variants } from "../../interfaces/cart"
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({
   selector: "app-find-product",
   templateUrl: "./find-product.component.html",
   styleUrls: ["./find-product.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "shop" }],
 })
 export class FindProductComponent implements OnInit {
   isLoading: boolean = true
@@ -75,7 +77,7 @@ export class FindProductComponent implements OnInit {
   }
 
   addItem(product: CartData, variantsValue: string): void {
-    if (variantsValue === "ไม่มีตัวเลือก") {
+    if (!product.variants[0]) {
       this.productFiltered = {
         ...product,
         uploads: product.uploads[0] ?? null,
@@ -101,6 +103,7 @@ export class FindProductComponent implements OnInit {
       (x: Uploads) => x.type === variants.key
     )
     variantsRef.innerText = variants.display_name
+    variantsRef.dataset.selected = "true"
     priceRef.innerText = `¥ ${variants.price}`
     productImgRef.src = matchType
       ? matchType.file

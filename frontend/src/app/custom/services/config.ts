@@ -1,7 +1,8 @@
 import { HttpHeaders } from "@angular/common/http"
+import { environment } from "../../../environments/environment"
 
-export const baseUrl: string = "https://btc-uat.beonit.xyz/api/odoo"
-export const btcBaseUrl: string = "https://btc-uat.beonit.xyz"
+export const btcBaseUrl: string = environment.apiUrl
+export const baseUrl: string = `${btcBaseUrl}/api/odoo`
 
 export const getAccessToken = (): string => {
   return localStorage.getItem("accessToken")

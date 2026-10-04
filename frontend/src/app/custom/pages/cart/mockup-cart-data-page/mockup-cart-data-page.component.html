@@ -1,8 +1,8 @@
 <section id="products">
     <div class="inner">
-        <h1 class="mb-4">Products</h1>
+        <h1 class="mb-4">{{ "shop.products" | transloco }}</h1>
         <div class="loading" *ngIf="isLoading">
-            <h1>Loading ...</h1>
+            <h1>{{ "loading" | transloco }}</h1>
         </div>
         <div class="products-container" *ngIf="!isLoading && cartData.length > 0">
             <div class="item" *ngFor="let product of cartData">
@@ -10,7 +10,7 @@
                     <img src="{{product.image}}" class="mockup-img" />
                 </div>
                 <p class="title">{{product.title}}</p>
-                <button (click)="addItem(product)">Add to cart</button>
+                <button (click)="addItem(product)">{{ "shop.add_to_cart" | transloco }}</button>
             </div>
         </div>
     </div>

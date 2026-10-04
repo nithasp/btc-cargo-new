@@ -2,7 +2,7 @@
   <div *ngIf="verificationState === 'verified'">
     <div class="top-section">
       <div class="left-panel">
-        <h2 class="text-center">ประกาศ</h2>
+        <h2 class="text-center">{{ "announcement" | transloco }}</h2>
         <div class="left-panel-details">
           <div [innerHTML]="annoucementHtml"></div>
         </div>
@@ -15,19 +15,19 @@
         <table class="table align-items-center table-flush mt-4">
           <tbody>
             <tr class="rate-table-row">
-              <td colspan="2">อัตราแลกเปลี่ยน ประจำวันที่ 22-02-2022</td>
+              <td colspan="2">{{ "exchange.daily_rate_title" | transloco }}</td>
             </tr>
             <tr class="rate-table-row">
-              <td class="w-50">บาท > หยวน</td>
-              <td class="w-50">หยวน > บาท</td>
+              <td class="w-50">{{ "exchange.baht_to_yuan" | transloco }}</td>
+              <td class="w-50">{{ "exchange.yuan_to_baht" | transloco }}</td>
             </tr>
             <tr class="rate-table-row">
               <td class="w-50">{{ getExchangeRate() }}</td>
-              <td class="w-50">กรุณาสอบถามทางไลน์ @btccargo</td>
+              <td class="w-50">{{ "exchange.ask_via_line" | transloco }}</td>
             </tr>
           </tbody>
         </table>
-        <h4>เงื่อนไขบริการ</h4>
+        <h4>{{ "exchange.service_conditions" | transloco }}</h4>
         <div [innerHTML]="serviceConditionHtml"></div>
       </div>
     </div>
@@ -39,14 +39,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body text-center align-self-center mb-4">
-          <h1 class="mb-3 mt-3">กรุณายืนยันตัวตนก่อนใช้บริการ</h1>
+          <h1 class="mb-3 mt-3">{{ "verify_identity_before_use" | transloco }}</h1>
           <div class="d-flex row justify-content-center mb-3">
-            <h1>สถานะ</h1>
-            <h1 class="text-danger ml-2">ยังไม่ได้ยืนยันตัวตน</h1>
+            <h1>{{ "status" | transloco }}</h1>
+            <h1 class="text-danger ml-2">{{ "identity_not_verified" | transloco }}</h1>
           </div>
-          <h2 class="mb-3">อัพโหลดรูปถ่ายหน้าตรงคู่กับบัตรประชาชน</h2>
+          <h2 class="mb-3">{{ "upload_photo_with_id_card" | transloco }}</h2>
           <h2 class="text-danger mb-3">
-            (ให้เห็นหน้าคู่กับบัตรประชาชนอย่างชัดเจน)
+            {{ "photo_with_id_card_hint" | transloco }}
           </h2>
           <div class="align-self-center mt-4 mb-4">
             <input
@@ -61,14 +61,14 @@
               (click)="uploadValidationFile()"
               [disabled]="!uploadedFile"
             >
-              <h2 class="text-white">ยืนยันตัวตน</h2>
+              <h2 class="text-white">{{ "verify_identity" | transloco }}</h2>
             </button>
             <button
               type="button"
               class="btn btn-danger"
               [routerLink]="['/web/warehouse-address']"
             >
-              <h2 class="text-white">กลับไปที่หน้าภาพรวมบัญชี</h2>
+              <h2 class="text-white">{{ "back_to_account_overview" | transloco }}</h2>
             </button>
           </div>
         </div>
@@ -82,15 +82,15 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body text-center align-self-center">
-          <h1 class="mb-3 mt-3">กรุณายืนยันตัวตนก่อนใช้บริการ</h1>
+          <h1 class="mb-3 mt-3">{{ "verify_identity_before_use" | transloco }}</h1>
           <div class="d-flex row justify-content-center mb-5">
-            <h1>สถานะ</h1>
-            <h1 class="text-warning ml-2">อยู่ระหว่างการตรวจสอบ</h1>
+            <h1>{{ "status" | transloco }}</h1>
+            <h1 class="text-warning ml-2">{{ "under_review" | transloco }}</h1>
           </div>
-          <p class="mt-5">กรุณารอเจ้าหน้าที่ทำการตรวจสอบข้อมูลการยืนยันตัว</p>
+          <p class="mt-5">{{ "wait_for_identity_review" | transloco }}</p>
 
-          <p>ท่านจะได้รับการแจ้งเตือนในระบบเมื่อเจ้าหน้าที่</p>
-          <p>ทำการตรวจสอบข้อมูลแล้ว</p>
+          <p>{{ "notified_after_review_1" | transloco }}</p>
+          <p>{{ "notified_after_review_2" | transloco }}</p>
         </div>
         <div class="modal-footer justify-content-center mb-3">
           <button
@@ -98,7 +98,7 @@
             class="btn btn-danger"
             [routerLink]="['/web/warehouse-address']"
           >
-            <h2 class="text-white">กลับไปที่หน้าภาพรวมบัญชี</h2>
+            <h2 class="text-white">{{ "back_to_account_overview" | transloco }}</h2>
           </button>
         </div>
       </div>

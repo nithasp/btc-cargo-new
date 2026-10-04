@@ -1,49 +1,49 @@
 <section id="bill-detail">
   <div class="card container-card">
     <div class="card-header">
-      <h2 class="card-title">เลขที่บิล #00000{{ billNumber || 0 }}</h2>
+      <h2 class="card-title">{{ "payment.bill_number" | transloco }} #00000{{ billNumber || 0 }}</h2>
     </div>
     <div class="card-body">
       <div class="bill-detail-section1 mb-4">
         <div class="item bill-status">
-          <div class="sub-item1">สถานะบิล</div>
-          <div class="sub-item2">จัดส่งแล้ว</div>
+          <div class="sub-item1">{{ "payment.bill_status" | transloco }}</div>
+          <div class="sub-item2">{{ "shipped" | transloco }}</div>
         </div>
         <div class="item bill-creation-date">
-          <div class="sub-item1">วันที่สร้างบิล</div>
+          <div class="sub-item1">{{ "payment.bill_created_date" | transloco }}</div>
           <div class="sub-item2">DD/MM/YYYY</div>
         </div>
         <div class="item delivery-address">
-          <div class="sub-item1">ที่อยู่จัดส่ง</div>
+          <div class="sub-item1">{{ "shipping_address" | transloco }}</div>
           <div class="sub-item2">
-            <p>ชื่อ-นามสกุล</p>
-            <p>ที่อยู่</p>
-            <p>เบอร์โทร</p>
+            <p>{{ "full_name" | transloco }}</p>
+            <p>{{ "address" | transloco }}</p>
+            <p>{{ "payment.phone" | transloco }}</p>
           </div>
         </div>
         <div class="item bill-status">
-          <div class="sub-item1">ที่อยู่สำหรับออกบิล</div>
+          <div class="sub-item1">{{ "payment.bill_address" | transloco }}</div>
           <div class="sub-item2">
-            <p>ชื่อ-นามสกุล</p>
-            <p>ที่อยู่</p>
-            <p>เบอร์โทร</p>
-            <p>เลขประจำตัวผู้เสียภาษี</p>
+            <p>{{ "full_name" | transloco }}</p>
+            <p>{{ "address" | transloco }}</p>
+            <p>{{ "payment.phone" | transloco }}</p>
+            <p>{{ "tax_id" | transloco }}</p>
           </div>
         </div>
         <div class="item shipping-method">
-          <div class="sub-item1">วิธีการจัดส่ง</div>
+          <div class="sub-item1">{{ "payment.delivery_method" | transloco }}</div>
           <div class="sub-item2">J&amp;T</div>
         </div>
         <div class="item receipt">
-          <div class="sub-item1">ใบเสร็จรับเงิน/ใบรับส่งสินค้า</div>
+          <div class="sub-item1">{{ "payment.receipt_delivery_note" | transloco }}</div>
           <div class="sub-item2">INVOICE</div>
         </div>
         <div class="item discount">
-          <div class="sub-item1">ส่วนลด</div>
+          <div class="sub-item1">{{ "discount" | transloco }}</div>
           <div class="sub-item2">CODE</div>
         </div>
         <div class="item proof-of-delivery">
-          <div class="sub-item1">หลักฐานการจัดส่ง</div>
+          <div class="sub-item1">{{ "payment.proof_of_delivery" | transloco }}</div>
           <div class="sub-item2">
             <a href="javascriptvoid(0)"> Link to Image </a>
           </div>
@@ -54,25 +54,25 @@
           <table class="table align-items-center">
             <thead class="thead-light">
               <tr>
-                <th class="th-no">ลำดับ</th>
-                <th class="th-no-order">เลขตู้/ลำดับ</th>
-                <th class="th-parcel-number">เลขพัสดุ</th>
-                <th class="th-type">ประเภทสินค้า</th>
-                <th class="th-width">กว้าง</th>
-                <th class="th-length">ยาว</th>
-                <th class="th-height">สูง</th>
-                <th class="th-volume">ปริมาตร</th>
-                <th class="th-total-volume">ปริมาตรรวม</th>
-                <th class="th-weight">น้ำหนัก</th>
-                <th class="th-quantity">จำนวนกล่อง</th>
-                <th class="th-packing">ตีลัง</th>
-                <th class="th-shipping-cost-china">ค่าขนส่งในจีน</th>
-                <th class="th-etc">อื่นๆ</th>
-                <th class="th-per-unit">หน่วยละ</th>
-                <th class="th-shipping-cost">ค่าขนส่ง</th>
-                <th class="th-storage-fees">ค่าจัดเก็บพัสดุ</th>
-                <th class="th-qc-cost">ค่า QC</th>
-                <th class="th-according">คิดตาม</th>
+                <th class="th-no">{{ "payment.no" | transloco }}</th>
+                <th class="th-no-order">{{ "payment.container_and_order" | transloco }}</th>
+                <th class="th-parcel-number">{{ "tracking_number" | transloco }}</th>
+                <th class="th-type">{{ "goods_type" | transloco }}</th>
+                <th class="th-width">{{ "width" | transloco }}</th>
+                <th class="th-length">{{ "length" | transloco }}</th>
+                <th class="th-height">{{ "height" | transloco }}</th>
+                <th class="th-volume">{{ "volume" | transloco }}</th>
+                <th class="th-total-volume">{{ "total_volume" | transloco }}</th>
+                <th class="th-weight">{{ "weight" | transloco }}</th>
+                <th class="th-quantity">{{ "payment.box_quantity" | transloco }}</th>
+                <th class="th-packing">{{ "payment.crating" | transloco }}</th>
+                <th class="th-shipping-cost-china">{{ "payment.china_shipping_fee" | transloco }}</th>
+                <th class="th-etc">{{ "payment.others" | transloco }}</th>
+                <th class="th-per-unit">{{ "payment.per_unit" | transloco }}</th>
+                <th class="th-shipping-cost">{{ "shipping_fee" | transloco }}</th>
+                <th class="th-storage-fees">{{ "storage_fee" | transloco }}</th>
+                <th class="th-qc-cost">{{ "payment.qc_fee" | transloco }}</th>
+                <th class="th-according">{{ "payment.charged_by" | transloco }}</th>
               </tr>
             </thead>
             <tbody>
@@ -95,7 +95,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">2</td>
@@ -116,7 +116,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">คิวบิกเมตร</td>
+                <td class="td-according">{{ "cubic_meter" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">3</td>
@@ -137,7 +137,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">4</td>
@@ -158,7 +158,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">คิวบิกเมตร</td>
+                <td class="td-according">{{ "cubic_meter" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">5</td>
@@ -179,7 +179,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">6</td>
@@ -200,7 +200,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">7</td>
@@ -221,7 +221,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">คิวบิกเมตร</td>
+                <td class="td-according">{{ "cubic_meter" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">8</td>
@@ -242,7 +242,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">9</td>
@@ -263,7 +263,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">คิวบิกเมตร</td>
+                <td class="td-according">{{ "cubic_meter" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">10</td>
@@ -284,7 +284,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">11</td>
@@ -305,7 +305,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">12</td>
@@ -326,7 +326,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">คิวบิกเมตร</td>
+                <td class="td-according">{{ "cubic_meter" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">13</td>
@@ -347,7 +347,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">14</td>
@@ -368,7 +368,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">คิวบิกเมตร</td>
+                <td class="td-according">{{ "cubic_meter" | transloco }}</td>
               </tr>
               <tr class="item">
                 <td class="td-no">15</td>
@@ -389,7 +389,7 @@
                 <td class="td-shipping-cost">Baht</td>
                 <td class="td-storage-fees">Baht</td>
                 <td class="td-qc-cost">Baht</td>
-                <td class="td-according">น้ำหนัก</td>
+                <td class="td-according">{{ "weight" | transloco }}</td>
               </tr>
             </tbody>
           </table>
@@ -398,40 +398,40 @@
       <div class="bill-detail-section3">
         <div class="total p-3">
           <div class="item total-shipping-price">
-            <div class="sub-item1">ค่าขนส่ง</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "shipping_fee" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
           <div class="item total-other-costs">
-            <div class="sub-item1">ค่าใช้จ่ายอื่นๆ</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "other_fees" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
           <div class="item total-shipping-cost">
-            <div class="sub-item1">ค่าจัดส่งสินค้า</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "payment.delivery_fee" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
           <div class="item total-other-shipping-cost">
-            <div class="sub-item1">ค่าใช้จ่ายอื่นๆ ในการจัดส่งสินค้า</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "payment.other_delivery_fees" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
           <div class="item total-parcel-storage-fee">
-            <div class="sub-item1">ค่าจัดเก็บพัสดุ</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "storage_fee" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
           <div class="item total-discount">
-            <div class="sub-item1">ส่วนลด</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "discount" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
           <div class="item total-all">
-            <div class="sub-item1">ยอดรวม</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "payment.subtotal" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
           <div class="item total-tax">
-            <div class="sub-item1">หัก ณ ที่จ่าย 1%</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "payment.withholding_tax" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
           <div class="item grand-total-price">
-            <div class="sub-item1">รวมยอดที่ต้องชำระ</div>
-            <div class="sub-item2">0.00 บาท</div>
+            <div class="sub-item1">{{ "payment.total_amount_due" | transloco }}</div>
+            <div class="sub-item2">0.00 {{ "baht" | transloco }}</div>
           </div>
         </div>
       </div>

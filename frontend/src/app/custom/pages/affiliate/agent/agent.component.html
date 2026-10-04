@@ -1,17 +1,17 @@
 <section id="agent" *ngIf="isMainContentDisplay">
   <div class="card container-card">
     <div class="card-header d-flex align-items-center justify-content-between">
-      <h2 class="card-title">จัดการตัวแทน</h2>
+      <h2 class="card-title">{{ "menu.manage_agents" | transloco }}</h2>
       <a class="btn btn-primary text-white" href="javascript:void(0)"
-        >+ สร้างรหัสผู้แนะนำ</a
+        >{{ "affiliate.add_referral_code" | transloco }}</a
       >
     </div>
     <div class="card-body">
       <div class="agent-section1 mb-5">
-        <h2 class="mb-3">สร้างรหัสผู้แนะนำ</h2>
+        <h2 class="mb-3">{{ "affiliate.create_referral_code" | transloco }}</h2>
         <div class="wrapper">
           <div class="info referral-code">
-            <label for="referral-code">รหัสผู้แนะนำ</label>
+            <label for="referral-code">{{ "affiliate.referral_code" | transloco }}</label>
             <input
               type="text"
               placeholder=""
@@ -21,20 +21,20 @@
             />
           </div>
           <div class="info calculate-commission">
-            <label for="">การคำนวณค่าคอม</label>
+            <label for="">{{ "affiliate.commission_calculation" | transloco }}</label>
             <div class="btc-select-wrapper">
               <select (change)="handleCommission($event.target.value)">
-                <option value="cost">เรททุน</option>
-                <option value="percentage">เปอร์เซนต์</option>
+                <option value="cost">{{ "affiliate.cost_rate" | transloco }}</option>
+                <option value="percentage">{{ "affiliate.percent" | transloco }}</option>
               </select>
             </div>
           </div>
           <div class="info selling-price">
-            <label for="selling-car-general">ราคาขาย</label>
+            <label for="selling-car-general">{{ "affiliate.selling_price" | transloco }}</label>
             <div class="wrap-input">
               <div class="weight">
                 <div class="agent-input-wrapper">
-                  <label for="selling-car-general">ทั่วไป (รถ) น้ำหนัก</label>
+                  <label for="selling-car-general">{{ "affiliate.general_truck_weight" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -45,7 +45,7 @@
                 </div>
                 <div class="agent-input-wrapper">
                   <label for="selling-car-thai-industrial"
-                    >มอก. (รถ) น้ำหนัก</label
+                    >{{ "affiliate.tis_truck_weight" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -57,7 +57,7 @@
                 </div>
                 <div class="agent-input-wrapper">
                   <label for="selling-car-food-and-drug"
-                    >อย. (รถ) น้ำหนัก</label
+                    >{{ "affiliate.fda_truck_weight" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -68,7 +68,7 @@
                   />
                 </div>
                 <div class="agent-input-wrapper">
-                  <label for="selling-car-brand">แบรนด์ (รถ) น้ำหนัก</label>
+                  <label for="selling-car-brand">{{ "affiliate.brand_truck_weight" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -79,7 +79,7 @@
                 </div>
                 <div class="agent-input-wrapper">
                   <label for="selling-ship-general"
-                    >ทั่วไป (เรือ) น้ำหนัก</label
+                    >{{ "affiliate.general_ship_weight" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -91,7 +91,7 @@
                 </div>
                 <div class="agent-input-wrapper">
                   <label for="selling-ship-thai-industrial-standard"
-                    >มอก. (เรือ) น้ำหนัก</label
+                    >{{ "affiliate.tis_ship_weight" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -105,7 +105,7 @@
 
               <div class="volume">
                 <div class="agent-input-wrapper">
-                  <label for="volume-car-general">ทั่วไป (รถ) ปริมาตร</label>
+                  <label for="volume-car-general">{{ "affiliate.general_truck_volume" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -116,7 +116,7 @@
                 </div>
                 <div class="agent-input-wrapper">
                   <label for="volume-car-thai-industrial"
-                    >มอก. (รถ) ปริมาตร</label
+                    >{{ "affiliate.tis_truck_volume" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -127,7 +127,7 @@
                   />
                 </div>
                 <div class="agent-input-wrapper">
-                  <label for="volume-car-food-and-drug">อย. (รถ) ปริมาตร</label>
+                  <label for="volume-car-food-and-drug">{{ "affiliate.fda_truck_volume" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -137,7 +137,7 @@
                   />
                 </div>
                 <div class="agent-input-wrapper">
-                  <label for="volume-car-brand">แบรนด์ (รถ) ปริมาตร</label>
+                  <label for="volume-car-brand">{{ "affiliate.brand_truck_volume" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -147,7 +147,7 @@
                   />
                 </div>
                 <div class="agent-input-wrapper">
-                  <label for="volume-ship-general">ทั่วไป (เรือ) ปริมาตร</label>
+                  <label for="volume-ship-general">{{ "affiliate.general_ship_volume" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -158,7 +158,7 @@
                 </div>
                 <div class="agent-input-wrapper">
                   <label for="volume-ship-thai-industrial-standard"
-                    >มอก. (เรือ) ปริมาตร</label
+                    >{{ "affiliate.tis_ship_volume" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -172,11 +172,11 @@
             </div>
           </div>
           <div class="info cost-price">
-            <label for="cost-car-general">ราคาทุน</label>
+            <label for="cost-car-general">{{ "affiliate.cost_price" | transloco }}</label>
             <div class="wrap-input">
               <div class="weight">
                 <div class="agent-input-wrapper readonly">
-                  <label for="costing-car-general">ทั่วไป (รถ) น้ำหนัก</label>
+                  <label for="costing-car-general">{{ "affiliate.general_truck_weight" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -188,7 +188,7 @@
                 </div>
                 <div class="agent-input-wrapper readonly">
                   <label for="costing-car-thai-industrial"
-                    >มอก. (รถ) น้ำหนัก</label
+                    >{{ "affiliate.tis_truck_weight" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -201,7 +201,7 @@
                 </div>
                 <div class="agent-input-wrapper readonly">
                   <label for="costing-car-food-and-drug"
-                    >อย. (รถ) น้ำหนัก</label
+                    >{{ "affiliate.fda_truck_weight" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -213,7 +213,7 @@
                   />
                 </div>
                 <div class="agent-input-wrapper readonly">
-                  <label for="costing-car-brand">แบรนด์ (รถ) น้ำหนัก</label>
+                  <label for="costing-car-brand">{{ "affiliate.brand_truck_weight" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -225,7 +225,7 @@
                 </div>
                 <div class="agent-input-wrapper readonly">
                   <label for="costing-ship-general"
-                    >ทั่วไป (เรือ) น้ำหนัก</label
+                    >{{ "affiliate.general_ship_weight" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -238,7 +238,7 @@
                 </div>
                 <div class="agent-input-wrapper readonly">
                   <label for="costing-ship-thai-industrial-standard"
-                    >มอก. (เรือ) น้ำหนัก</label
+                    >{{ "affiliate.tis_ship_weight" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -253,7 +253,7 @@
 
               <div class="volume">
                 <div class="agent-input-wrapper readonly">
-                  <label for="selling-car-general">ทั่วไป (รถ) ปริมาตร</label>
+                  <label for="selling-car-general">{{ "affiliate.general_truck_volume" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -265,7 +265,7 @@
                 </div>
                 <div class="agent-input-wrapper readonly">
                   <label for="selling-car-thai-industrial"
-                    >มอก. (รถ) ปริมาตร</label
+                    >{{ "affiliate.tis_truck_volume" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -278,7 +278,7 @@
                 </div>
                 <div class="agent-input-wrapper readonly">
                   <label for="selling-car-food-and-drug"
-                    >อย. (รถ) ปริมาตร</label
+                    >{{ "affiliate.fda_truck_volume" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -290,7 +290,7 @@
                   />
                 </div>
                 <div class="agent-input-wrapper readonly">
-                  <label for="selling-car-brand">แบรนด์ (รถ) ปริมาตร</label>
+                  <label for="selling-car-brand">{{ "affiliate.brand_truck_volume" | transloco }}</label>
                   <input
                     type="text"
                     placeholder=""
@@ -302,7 +302,7 @@
                 </div>
                 <div class="agent-input-wrapper readonly">
                   <label for="selling-ship-general"
-                    >ทั่วไป (เรือ) ปริมาตร</label
+                    >{{ "affiliate.general_ship_volume" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -315,7 +315,7 @@
                 </div>
                 <div class="agent-input-wrapper readonly">
                   <label for="selling-ship-thai-industrial-standard"
-                    >มอก. (เรือ) ปริมาตร</label
+                    >{{ "affiliate.tis_ship_volume" | transloco }}</label
                   >
                   <input
                     type="text"
@@ -332,10 +332,10 @@
         </div>
       </div>
       <div class="agent-section2 mb-5">
-        <h2 class="mb-3">รายละเอียดผู้ดูแล</h2>
+        <h2 class="mb-3">{{ "affiliate.supervisor_details" | transloco }}</h2>
         <div class="wrapper">
           <div class="info btc-password">
-            <label for="btc-password">รหัสBTC</label>
+            <label for="btc-password">{{ "affiliate.btc_code" | transloco }}</label>
             <input
               type="text"
               placeholder=""
@@ -345,7 +345,7 @@
             />
           </div>
           <div class="info name">
-            <label for="name">ชื่อ-นามสกุล</label>
+            <label for="name">{{ "full_name" | transloco }}</label>
             <input
               type="text"
               placeholder=""
@@ -355,7 +355,7 @@
             />
           </div>
           <div class="info id-number">
-            <label for="id-number">เลขประจำตัวประชาชน</label>
+            <label for="id-number">{{ "affiliate.national_id" | transloco }}</label>
             <input
               type="text"
               placeholder=""
@@ -365,7 +365,7 @@
             />
           </div>
           <div class="info telephone">
-            <label for="telephone">โทรศัพท์</label>
+            <label for="telephone">{{ "telephone" | transloco }}</label>
             <input
               type="text"
               placeholder=""
@@ -375,7 +375,7 @@
             />
           </div>
           <div class="info email">
-            <label for="email">อีเมล์</label>
+            <label for="email">{{ "affiliate.email" | transloco }}</label>
             <input
               type="text"
               placeholder=""
@@ -385,11 +385,11 @@
             />
           </div>
           <div class="info address mt-3">
-            <label for="address1">ที่อยู่</label>
+            <label for="address1">{{ "address" | transloco }}</label>
             <div class="wrap-input-address">
               <input
                 type="text"
-                placeholder="บ้านเลขที่ ซอย ถนน ฯลฯ"
+                [placeholder]="'address_line_hint' | transloco"
                 id="address1"
                 class="form-control"
                 [(ngModel)]="addressLine1"
@@ -405,7 +405,7 @@
         </div>
         <div class="wrap-btn text-right mt-4">
           <button class="btn btn-success" (click)="createAffiliate()">
-            {{ id ? "อัพเดทข้อมูล" : "ยืนยันการสร้าง" }}
+            {{ (id ? "affiliate.update_info" : "affiliate.confirm_create") | transloco }}
           </button>
         </div>
       </div>
@@ -417,26 +417,26 @@
           >
             <thead class="thead-light">
               <tr>
-                <th rowspan="2">รหัสผู้แนะนำ</th>
-                <th colspan="6">เรทขาย (น้ำหนัก)</th>
-                <th colspan="6">เรทขาย (ปริมาตร)</th>
-                <th rowspan="2">แก้ไข/ลบ</th>
+                <th rowspan="2">{{ "affiliate.referral_code" | transloco }}</th>
+                <th colspan="6">{{ "affiliate.selling_rate_weight" | transloco }}</th>
+                <th colspan="6">{{ "affiliate.selling_rate_volume" | transloco }}</th>
+                <th rowspan="2">{{ "affiliate.edit_delete" | transloco }}</th>
               </tr>
               <tr>
                 <!-- Cost Price -->
-                <th>ทั่วไป (รถ)</th>
-                <th>มอก. (รถ)</th>
-                <th>อย. (รถ)</th>
-                <th>แบรนด์. (รถ)</th>
-                <th>ทั่วไป. (เรือ)</th>
-                <th>มอก. (เรือ)</th>
+                <th>{{ "goods_general_truck" | transloco }}</th>
+                <th>{{ "goods_tis_truck" | transloco }}</th>
+                <th>{{ "affiliate.fda_truck" | transloco }}</th>
+                <th>{{ "affiliate.brand_truck" | transloco }}</th>
+                <th>{{ "affiliate.general_ship" | transloco }}</th>
+                <th>{{ "goods_tis_ship" | transloco }}</th>
                 <!-- Shipping Price -->
-                <th>ทั่วไป (รถ)</th>
-                <th>มอก. (รถ)</th>
-                <th>อย. (รถ)</th>
-                <th>แบรนด์. (รถ)</th>
-                <th>ทั่วไป. (เรือ)</th>
-                <th>มอก. (เรือ)</th>
+                <th>{{ "goods_general_truck" | transloco }}</th>
+                <th>{{ "goods_tis_truck" | transloco }}</th>
+                <th>{{ "affiliate.fda_truck" | transloco }}</th>
+                <th>{{ "affiliate.brand_truck" | transloco }}</th>
+                <th>{{ "affiliate.general_ship" | transloco }}</th>
+                <th>{{ "goods_tis_ship" | transloco }}</th>
               </tr>
             </thead>
             <tbody>
@@ -463,7 +463,7 @@
                     class="btn bg-gray text-white"
                     (click)="editSellingPrice(item)"
                   >
-                    แก้ไข
+                    {{ "edit" | transloco }}
                   </button>
                 </td>
               </tr>

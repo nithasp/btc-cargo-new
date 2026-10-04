@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { ReportService } from "../../../services";
 import * as dayjs from "dayjs";
+import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 
 @Component({
   selector: "app-overview-manage-agent",
   templateUrl: "./overview-manage-agent.component.html",
   styleUrls: ["./overview-manage-agent.component.scss"],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: "affiliate" }],
 })
 export class OverviewManageAgentComponent implements OnInit {
   isMainContentDisplay: boolean = false;
