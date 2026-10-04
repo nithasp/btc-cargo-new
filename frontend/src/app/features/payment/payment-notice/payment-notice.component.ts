@@ -40,13 +40,11 @@ export class PaymentNoticeComponent implements OnInit {
   }
 
   billSubmit() {
-    // Convert Date to ISO Format
     const getDateValue = Date.parse(this.paymentDate)
     const tzoffsetDate = new Date().getTimezoneOffset()
     const dateValue = new Date(getDateValue - tzoffsetDate)
       .toISOString()
       .split("T")[0]
-    // Convert Time
     const getTimeValue = Date.parse(this.paymentTime)
     const tzoffsetTime = new Date().getTimezoneOffset()
     const timeValue = new Date(getTimeValue - tzoffsetTime)

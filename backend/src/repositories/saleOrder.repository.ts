@@ -1,8 +1,8 @@
 import pool from '../database';
 import { Queryable, Row } from '../types/database.types';
 import { PageRequest } from '../types/pagination.types';
-import { NewSaleOrder, SaleSummaryRecord } from '../types/payment.types';
 import { DailyCommission, DateRange, MemberCommission } from '../types/report.types';
+import { NewSaleOrder, SaleSummaryRecord } from '../types/sale.types';
 import { round2 } from '../utils/format';
 import { requireRow } from '../utils/rows';
 

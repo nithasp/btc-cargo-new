@@ -3,8 +3,8 @@ import { Router } from "@angular/router"
 import {
   ExchangeMoneyActiveStage,
   PaymentCurrency,
-  VerificationStates,
 } from "src/app/shared/models/exchange-money.model"
+import { VerificationStates } from "src/app/shared/models/verification.model"
 import { ApiService } from "src/app/shared/services/api.service"
 import { CurrencyService } from "../services/currency.service"
 import { ExchangeService } from "src/app/shared/services/exchange.service"

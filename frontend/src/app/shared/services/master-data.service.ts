@@ -5,8 +5,8 @@ import {
   baseUrl,
   getHttpHeadersValue,
 } from "src/app/core/config/api-config";
+import { ApiResponse } from "../models/common.model";
 import {
-  ApiResponse,
   System,
   ProductType,
   StockPickingType,

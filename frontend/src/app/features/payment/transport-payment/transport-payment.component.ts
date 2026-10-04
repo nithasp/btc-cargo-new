@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { ApiResponse } from "src/app/shared/models/master-data.model";
+import { ApiResponse } from "src/app/shared/models/common.model";
 import { Details } from "src/app/shared/models/tracking.model";
 import { Pagination } from "src/app/shared/models/pagination.model";
 import { Quotation } from "../models/quotation.model";

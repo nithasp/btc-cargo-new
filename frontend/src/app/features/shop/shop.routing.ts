@@ -29,6 +29,5 @@ export const ShopRoutes: Routes = [
     path: "tracking-consignment",
     component: TrackingConsignmentComponent,
   },
-  // Mockup data for test
   { path: "mockup-data", component: MockupCartDataPageComponent },
 ];

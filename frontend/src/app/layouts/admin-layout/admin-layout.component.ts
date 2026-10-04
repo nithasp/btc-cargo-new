@@ -42,8 +42,6 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getUser();
-    // The route guards can start a session while this layout is still on screen, after the one it
-    // loaded stopped working: without this it would stay hidden, or keep showing the old account
     this.sessionReady = this.authService
       .getSessionReady()
       .subscribe(() => this.getUser());

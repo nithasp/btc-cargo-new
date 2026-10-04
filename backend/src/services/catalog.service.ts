@@ -1,4 +1,5 @@
-import { Cart, ImportTemplate, Product } from '../types/content.types';
+import { Cart } from '../types/cart.types';
+import { ImportTemplate, Product } from '../types/product.types';
 import { CatalogServiceDeps } from '../types/service.types';
 import { notFound } from '../utils/errors';
 

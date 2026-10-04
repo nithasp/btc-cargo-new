@@ -1,10 +1,7 @@
-<!-- Sidenav -->
 <div class="" (window:resize)="isMobile($event)" *ngIf="hasUserAdmin">
   <app-sidebar [ngClass]="{ 'sidenav fixed-left': isMobileResolution === false }"></app-sidebar>
   <div class="main-content">
-    <!-- Top Navbar -->
     <app-navbar></app-navbar>
-    <!-- Pages -->
     <router-outlet style="min-height: 100vh;"></router-outlet>
     <app-footer></app-footer>
   </div>

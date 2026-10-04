@@ -25,7 +25,6 @@ export class AgentComponent implements OnInit {
   btcCode: string;
   sellingId: number;
   vat: string;
-  // Costing Price
   costingWeightPrice: PriceInformations["weight_price"] = {
     p: null,
     d: null,
@@ -42,7 +41,6 @@ export class AgentComponent implements OnInit {
     sp: null,
     sd: null,
   };
-  // Selling Price
   sellingWeightPrice: PriceInformations["weight_price"] = {
     p: null,
     d: null,

@@ -1,6 +1,6 @@
 import pool from '../database';
 import { Queryable, Row } from '../types/database.types';
-import { Wallet } from '../types/payment.types';
+import { Wallet } from '../types/wallet.types';
 import { formatMoney, odooDateTime } from '../utils/format';
 import { requireRow } from '../utils/rows';
 

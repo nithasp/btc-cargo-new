@@ -1,3 +1,5 @@
+import { VerificationStates } from "./verification.model"
+
 export interface ExchangeMoneyStore {
     activeStage: ExchangeMoneyActiveStage,
     paymentMethod: PaymentMethod,
@@ -14,13 +16,6 @@ export enum PaymentMethod {
     Alipay = "alipay"
 }
 
-export enum VerificationStates {
-    Unverified = "unverified",
-    Verified = "verified",
-    Reviewing = "reviewing",
-    Waiting = "waiting"
-}
-
 export enum FormState {
     SelectAccount = "selectAccount",
     PaymentDetails = "paymentDetails"
@@ -29,30 +24,6 @@ export enum FormState {
 export enum AccountType {
     Detail = "detail",
     Image = "img"
-}
-
-export interface UploadFile {
-  filename: string
-  url: string
-}
-
-export interface CreatedVerificationItem {
-    id: number
-    state: VerificationStates
-    partner: Partner
-    images: ImageUrl[]
-}
-
-
-interface Partner {
-    id: number
-    name: string
-}
-
-interface ImageUrl {
-    id: number
-    url: string
-    image_category: string
 }
 
 export interface ExchangeState {

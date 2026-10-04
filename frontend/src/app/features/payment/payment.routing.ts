@@ -9,7 +9,6 @@ import { BillDetailComponent } from "./bill-detail/bill-detail.component";
 
 export const PaymentRoutes: Routes = [
   { path: "payment-notice/:bill-id", component: PaymentNoticeComponent },
-  // Pending transport-payment
   { path: "transport-payment", component: TransportPaymentComponent },
   {
     path: "transport-payment/:transport-payment-number",

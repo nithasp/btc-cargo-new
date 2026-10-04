@@ -2,7 +2,7 @@ import { withTransaction } from '../database';
 import { QuotationInput } from '../schemas/sale.schema';
 import { EXPRESS_CARRIER_ID } from '../types/masterData.types';
 import { Paged, PageRequest } from '../types/pagination.types';
-import { SaleSummaryRecord } from '../types/payment.types';
+import { SaleSummaryRecord } from '../types/sale.types';
 import { SaleServiceDeps } from '../types/service.types';
 import { LotRow } from '../types/tracking.types';
 import { AppError, notFound } from '../utils/errors';

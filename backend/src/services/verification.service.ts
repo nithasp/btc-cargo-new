@@ -1,14 +1,14 @@
 import { config } from '../config';
 import { withTransaction } from '../database';
+import { NewNotification } from '../types/notification.types';
+import { VerificationServiceDeps } from '../types/service.types';
+import { Upload } from '../types/upload.types';
 import {
   CreatedVerification,
   VerificationImage,
   VerificationKind,
   VerificationState,
-} from '../types/affiliate.types';
-import { NewNotification } from '../types/content.types';
-import { VerificationServiceDeps } from '../types/service.types';
-import { Upload } from '../types/upload.types';
+} from '../types/verification.types';
 import { AppError } from '../utils/errors';
 import { toUploadView } from './upload.service';
 

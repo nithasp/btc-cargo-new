@@ -1,6 +1,6 @@
 import pool from '../database';
 import { Queryable, Row } from '../types/database.types';
-import { SocialAccount, SocialProvider } from '../types/user.types';
+import { SocialAccount, SocialProvider } from '../types/social.types';
 
 export class SocialAccountRepository {
   async listByUser(userId: number, db: Queryable = pool): Promise<SocialAccount[]> {

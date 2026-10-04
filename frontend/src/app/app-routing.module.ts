@@ -34,7 +34,6 @@ const routes: Routes = [
       ...ProfileRoutes,
       { path: "ngx-scanner", component: NgxScannerComponent },
       { path: "qr-scanner", component: QrScannerComponent },
-      // Page not Found
       { path: "", redirectTo: "profile", pathMatch: "full" },
     ],
   },
@@ -45,9 +44,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      //useHash: true
-    }),
+    RouterModule.forRoot(routes, {}),
   ],
   exports: [RouterModule],
 })

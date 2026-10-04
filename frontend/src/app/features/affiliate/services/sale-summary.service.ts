@@ -5,7 +5,7 @@ import {
   baseUrl,
   getHttpHeadersValue,
 } from "src/app/core/config/api-config";
-import { ApiResponse } from "src/app/shared/models/master-data.model";
+import { ApiResponse } from "src/app/shared/models/common.model";
 import { SaleSummaryResponse } from "../models/sale-summary.model";
 
 @Injectable({

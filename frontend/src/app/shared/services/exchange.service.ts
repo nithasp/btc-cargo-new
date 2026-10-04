@@ -1,11 +1,9 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { ApiResponse } from "../models/master-data.model"
-import {
-  CreatedVerificationItem,
-  ExchangeState,
-  UploadFile,
-} from "../models/exchange-money.model"
+import { ApiResponse } from "../models/common.model"
+import { ExchangeState } from "../models/exchange-money.model"
+import { UploadFile } from "../models/upload.model"
+import { CreatedVerificationItem } from "../models/verification.model"
 import { Wallet } from "../models/wallet.model"
 import {
   baseUrl,

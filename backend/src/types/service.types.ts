@@ -14,11 +14,13 @@ import { UploadRepository } from '../repositories/upload.repository';
 import { UserRepository } from '../repositories/user.repository';
 import { VerificationRepository } from '../repositories/verification.repository';
 import { WalletRepository } from '../repositories/wallet.repository';
-import { AffiliateTeam, CreatedVerification, VerificationKind, VerificationState } from './affiliate.types';
-import { NewNotification } from './content.types';
+import { AffiliateTeam } from './affiliate.types';
 import { Queryable } from './database.types';
-import { StorageDriver, Upload } from './upload.types';
+import { NewNotification } from './notification.types';
+import { StorageDriver } from './storage.types';
+import { Upload } from './upload.types';
 import { AuthUser, NewUserRow } from './user.types';
+import { CreatedVerification, VerificationKind, VerificationState } from './verification.types';
 
 export interface Notifier {
   notify(userId: number, entry: NewNotification, db?: Queryable): Promise<void>;

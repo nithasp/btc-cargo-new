@@ -114,12 +114,10 @@ export class PaymentDetailsComponent implements OnInit {
       return !this.amount
     } else {
       if (this.inputList) {
-        // Check 0 amount
         if (this.inputList.find((item) => item.credit_amount === 0)) {
           return true
         }
 
-        // Check credit return amount used exceeds credit amount in wallet
         let result = this.inputList.map((item) => {
           let wallet = this.wallets.find((w) => w.id === item.wallet_id)
           let items = this.inputList.filter(
@@ -139,7 +137,6 @@ export class PaymentDetailsComponent implements OnInit {
           return true
         }
         
-        // Check input amount exceeds credit amount in wallet
         let totalReturnCredit = 0
         this.inputList &&
           this.inputList.map(

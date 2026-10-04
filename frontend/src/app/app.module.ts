@@ -78,7 +78,6 @@ import { FaqModule } from "./features/faq/faq.module";
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    // Angular Social-x-login provider
     {
       provide: "SocialAuthServiceConfig",
       useValue: {

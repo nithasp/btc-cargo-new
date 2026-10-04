@@ -14,9 +14,6 @@ import { clearStorageKeepingLanguage } from "./language.service";
 
 const DEMO_OPT_OUT_KEY = "demoEntryDeclined";
 
-// Signing out keeps the login page through a refresh, but a tab that is opened again is a new
-// visit. sessionStorage alone cannot tell the two apart: a browser brings it back when it reopens
-// a closed tab
 function isTabRefresh(): boolean {
   return performance
     .getEntriesByType("navigation")
@@ -64,8 +61,6 @@ export class AuthService {
     return this.sessionReady.asObservable();
   }
 
-  // Signing out declines the demo for this tab: a sign-out that walked straight back in would
-  // not be one
   canEnterAsDemo(): boolean {
     return (
       environment.autoDemoLogin &&
@@ -108,7 +103,6 @@ export class AuthService {
     );
     this.socialAuthService.signOut();
     clearStorageKeepingLanguage();
-    // Declined before navigating: the login route asks whether to enter the demo
     sessionStorage.setItem(DEMO_OPT_OUT_KEY, "1");
     this.router.navigate([""]);
   }

@@ -1,5 +1,5 @@
 import { Pagination } from "./pagination.model"
-import { ApiResponse } from './master-data.model'
+import { ApiResponse } from './common.model'
 export interface TrackingValidation {
     exist: boolean
 }

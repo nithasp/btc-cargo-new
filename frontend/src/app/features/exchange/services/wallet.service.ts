@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { ApiResponse } from "src/app/shared/models/master-data.model"
+import { ApiResponse } from "src/app/shared/models/common.model"
 import { Wallet } from "src/app/shared/models/wallet.model"
 import {
   baseUrl,

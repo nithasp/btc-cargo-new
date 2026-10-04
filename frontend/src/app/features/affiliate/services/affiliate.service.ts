@@ -6,7 +6,7 @@ import {
   getHttpHeadersValue,
 } from "src/app/core/config/api-config";
 import { BehaviorSubject } from "rxjs";
-import { ApiResponse } from "src/app/shared/models/master-data.model";
+import { ApiResponse } from "src/app/shared/models/common.model";
 import { AffiliateMe, AffiliateTeam } from "../models/affiliate.model";
 
 @Injectable({

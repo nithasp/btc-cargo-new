@@ -15,14 +15,8 @@ import {
 import { UserUpdateInput } from '../schemas/user.schema';
 import { FieldErrors } from '../types/error.types';
 import { UserServiceDeps } from '../types/service.types';
-import {
-  AuthUser,
-  NewUserRow,
-  SOCIAL_PROVIDERS,
-  SocialLink,
-  SocialProvider,
-  UserDetails,
-} from '../types/user.types';
+import { SOCIAL_PROVIDERS, SocialLink, SocialProvider } from '../types/social.types';
+import { AuthUser, NewUserRow, UserDetails } from '../types/user.types';
 import { AppError, fieldError } from '../utils/errors';
 import { hashPassword, spendVerifyTime, verifyPassword } from './password.service';
 

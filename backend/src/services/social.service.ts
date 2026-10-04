@@ -3,7 +3,8 @@ import { config } from '../config';
 import { SocialLoginInput } from '../schemas/auth.schema';
 import { Json } from '../types/common.types';
 import { SocialServiceDeps } from '../types/service.types';
-import { AuthUser, SocialProfile, SocialProvider } from '../types/user.types';
+import { SocialProfile, SocialProvider } from '../types/social.types';
+import { AuthUser } from '../types/user.types';
 import { AppError } from '../utils/errors';
 
 const PROVIDER_TIMEOUT_MS = 8000;

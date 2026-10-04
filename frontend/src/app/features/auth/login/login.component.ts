@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   isDemoLoading: boolean = false
 
   captcha: string = ""
-  // Temporarily disable recaptcha validation
   isReCaptchaActive: boolean = true
 
   constructor(
@@ -47,7 +46,6 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Subscribe Global Variables
     this.subscribeGlobalVariables()
 
     this.checkRememberMeStatus()
@@ -55,7 +53,6 @@ export class LoginComponent implements OnInit {
     this.loginFormInit()
   }
 
-  // Google reCAPTCHA
   resolved(captchaResponse: any) {
     this.captcha = captchaResponse
     this.isReCaptchaActive = true
@@ -70,7 +67,6 @@ export class LoginComponent implements OnInit {
       username: ["", Validators.required],
       email: [""],
       password: ["", Validators.required],
-      //recaptchaReactive: new FormControl(null, Validators.required),
     })
   }
 

@@ -5,7 +5,7 @@ import {
   baseUrl,
   getHttpHeadersValue,
 } from "src/app/core/config/api-config"
-import { ApiResponse } from "../models/master-data.model";
+import { ApiResponse } from "../models/common.model";
 import {
   ChinaTrackingDetails,
   Details,

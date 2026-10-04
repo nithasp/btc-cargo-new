@@ -48,11 +48,8 @@ export class NavbarComponent implements OnInit {
     this.location = location;
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
-        // Show loading indicator
       }
       if (event instanceof NavigationEnd) {
-        // Hide loading indicator
-
         if (window.innerWidth < 1200) {
           document.body.classList.remove("g-sidenav-pinned");
           document.body.classList.add("g-sidenav-hidden");
@@ -61,9 +58,6 @@ export class NavbarComponent implements OnInit {
       }
 
       if (event instanceof NavigationError) {
-        // Hide loading indicator
-
-        // Present error to user
         console.log(event.error);
       }
     });

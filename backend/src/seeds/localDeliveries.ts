@@ -1,7 +1,7 @@
 import { LocalDeliverySeed } from '../types/seed.types';
 
-// Private express carriers and the provinces each one serves. A province code is the first two
-// digits of the frontend's district code, which is how the bill page matches a carrier to an address.
+// A province code is the first two digits of the frontend's district code, which is how the bill
+// page matches a carrier to an address.
 export const LOCAL_DELIVERIES: LocalDeliverySeed[] = [
   {
     id: 1,

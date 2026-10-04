@@ -5,8 +5,8 @@ import {
   getHttpHeadersWithContentType,
   btcBaseUrl,
 } from "src/app/core/config/api-config";
-import { ApiResponse } from '../models/master-data.model'
-import { HtmlContent } from '../models/common.model'
+import { ApiResponse } from '../models/common.model'
+import { HtmlContent } from '../models/content.model'
 
 @Injectable({
   providedIn: "root",

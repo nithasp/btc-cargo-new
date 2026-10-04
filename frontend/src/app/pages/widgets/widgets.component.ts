@@ -102,7 +102,6 @@ export class WidgetsComponent implements OnInit, AfterViewInit {
 
     calendar.render();
 
-    //Display Current Date as Calendar widget header
     var mYear = moment().format("YYYY");
     var mDay = moment().format("dddd, MMM D");
     document.getElementsByClassName(
@@ -112,7 +111,5 @@ export class WidgetsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Chart code goes in here
-
   }
 }

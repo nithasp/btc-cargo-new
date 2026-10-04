@@ -1,7 +1,7 @@
 import { config } from '../config';
 import { logger } from '../logger';
-import { NewNotification, NotificationPage } from '../types/content.types';
 import { Queryable } from '../types/database.types';
+import { NewNotification, NotificationPage } from '../types/notification.types';
 import { NotificationServiceDeps } from '../types/service.types';
 
 const PAGE_SIZE = 10;

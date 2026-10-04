@@ -163,13 +163,11 @@ export class CalendarComponent implements OnInit {
           titleFormat: { month: "short", year: "numeric", day: "numeric" }
         }
       },
-      // Add new event
       select: info => {
         this.addModal = this.modalService.show(this.modalAdd, this.default);
         this.startDate = info.startStr;
         this.endDate = info.endStr;
       },
-      // Edit calendar event action
       eventClick: ({ event }) => {
         this.eventId = event.id;
         this.eventTitle = event.title;

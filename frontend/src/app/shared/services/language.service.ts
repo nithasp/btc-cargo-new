@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { TranslocoService } from "@ngneat/transloco";
-
-export type Lang = "en" | "th";
+import { Lang } from "../models/language.model";
 
 const LANG_KEY = "lang";
 

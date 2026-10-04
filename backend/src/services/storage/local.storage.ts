@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { StorageDriver } from '../../types/upload.types';
+import { StorageDriver } from '../../types/storage.types';
 
 export function createLocalStorage(directory: string): StorageDriver {
   const root = path.resolve(directory);

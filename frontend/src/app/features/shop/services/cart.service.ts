@@ -130,7 +130,6 @@ export class CartService {
   }
 
   calculateTotalPrice() {
-    // Total Price
     const getTotalPrice = this.cartItemsMock.map((x: any) => {
       return x.products.reduce((acc: any, item: any) => {
         if (item.selected) {
@@ -143,7 +142,6 @@ export class CartService {
       return (acc += item);
     }, 0);
 
-    // Total Quantity
     const getTotalQuantity = this.cartItemsMock.map((x: any) => {
       return x.products.length;
     });
@@ -154,7 +152,6 @@ export class CartService {
       0
     );
 
-    // Grand Total Quantity
     const getGrandTotalQuantity = this.cartItemsMock.map((x: any) => {
       return x.products.reduce((acc: any, item: any) => {
         return (acc += item.quantity);

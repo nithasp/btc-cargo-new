@@ -1,6 +1,7 @@
 import pool from '../database';
-import { HtmlContent, NewNotification, NotificationItem } from '../types/content.types';
+import { HtmlContent } from '../types/content.types';
 import { Queryable, Row } from '../types/database.types';
+import { NewNotification, NotificationItem } from '../types/notification.types';
 
 const DEFAULT_ACTOR = 'BTC Cargo';
 

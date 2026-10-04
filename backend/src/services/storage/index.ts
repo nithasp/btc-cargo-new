@@ -1,6 +1,6 @@
 import { config } from '../../config';
 import { logger } from '../../logger';
-import { StorageDriver } from '../../types/upload.types';
+import { StorageDriver } from '../../types/storage.types';
 import { createLocalStorage } from './local.storage';
 import { createR2Storage } from './r2.storage';
 

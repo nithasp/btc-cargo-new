@@ -1,6 +1,6 @@
 import pool from '../database';
-import { Product } from '../types/content.types';
 import { Queryable } from '../types/database.types';
+import { Product } from '../types/product.types';
 
 const PRICE = "'FM999999990.00'";
 

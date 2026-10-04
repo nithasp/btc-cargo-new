@@ -1,14 +1,8 @@
 import { withTransaction } from '../database';
 import { MemberInput } from '../schemas/affiliate.schema';
-import {
-  AffiliateTeam,
-  CreatedVerification,
-  MemberData,
-  PriceMap,
-  TeamView,
-  VerificationState,
-} from '../types/affiliate.types';
+import { AffiliateTeam, MemberData, PriceMap, TeamView } from '../types/affiliate.types';
 import { AffiliateServiceDeps } from '../types/service.types';
+import { CreatedVerification, VerificationState } from '../types/verification.types';
 import { notFound } from '../utils/errors';
 
 export const STANDARD_WEIGHT_PRICE: PriceMap = { p: 25, d: 40, hy: 70, m: 180, sp: 20, sd: 35 };

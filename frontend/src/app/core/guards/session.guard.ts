@@ -24,8 +24,6 @@ export class SessionGuard implements CanActivate {
     );
   }
 
-  // Navigated to rather than returned as a UrlTree: this router ignores a redirect to the page
-  // it is already on, which would leave the refused URL in the address bar after a Back
   private toLogin(): boolean {
     this.router.navigate(["/login"]);
     return false;

@@ -40,11 +40,9 @@ export class ProfileComponent implements OnInit {
   isDisplayFailDeleteAddress: boolean = false
   isDisplayConfirmRevokeLineNotify: boolean = false
 
-  // Address
   addresses = []
   isDisableSaveButton: boolean
 
-  // Add address
   newAddressName: string
   newReceiverName: string
   newTelephone: string
@@ -53,7 +51,6 @@ export class ProfileComponent implements OnInit {
   newAddressLine1: string
   newAddressLine2: string
 
-  // Edit address
   selectedAddress: any
   addressName: string
   receiverName: string
@@ -63,7 +60,6 @@ export class ProfileComponent implements OnInit {
   addressLine1: string
   addressLine2: string
 
-  // Delete address
   targetDeleteAddressName: string
   targetDeleteAddressId: number
 
@@ -379,7 +375,6 @@ export class ProfileComponent implements OnInit {
       })
   }
 
-  // Line Connect Functions
   connectLine(): void {
     liff.init(
       { liffId: this.liffId },

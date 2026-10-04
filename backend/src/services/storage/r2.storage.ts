@@ -1,6 +1,6 @@
 import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { Readable } from 'stream';
-import { R2Options, StorageDriver } from '../../types/upload.types';
+import { R2Options, StorageDriver } from '../../types/storage.types';
 
 // The bucket stays private: objects are only ever read back through this API, which checks who is
 // asking first

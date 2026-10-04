@@ -1,6 +1,5 @@
-export interface HtmlContent {
-  id: number
-  key: string
-  html: string
-  plain: string
+export interface ApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
 }

@@ -106,7 +106,6 @@ export class CreateBillComponent implements OnInit {
   getAddress(): void {
     this.addressService.getAddress().subscribe((response: any) => {
       this.addresses = response.sort((a, b) => a.id - b.id);
-      //Get Default Address
       const defaultShippingAddress = response.find(
         (addr: Address) =>
           addr.id === this.userInfo.extendeduser.shippingAddressId
@@ -173,8 +172,6 @@ export class CreateBillComponent implements OnInit {
     });
   }
 
-  // The address list and the carrier list are separate requests that can finish in either order,
-  // so the carriers for the default address are worked out once both have arrived
   setDefaultLocalDelivery(): void {
     if (!this.expresses || !this.defaultShippingAddress) {
       return;

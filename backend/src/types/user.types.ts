@@ -1,10 +1,8 @@
+import { SocialLink, SocialProvider } from './social.types';
+
 export const USER_ROLES = ['customer', 'admin'] as const;
 
 export type UserRole = (typeof USER_ROLES)[number];
-
-export const SOCIAL_PROVIDERS = ['google', 'facebook', 'line'] as const;
-
-export type SocialProvider = (typeof SOCIAL_PROVIDERS)[number];
 
 export interface AuthUser {
   id: number;
@@ -41,11 +39,6 @@ export interface ExtendedUser {
   line_notify: boolean;
 }
 
-export interface SocialLink {
-  uid: string;
-  extra_data: Record<string, unknown>;
-}
-
 export interface UserDetails {
   id: number;
   username: string;
@@ -70,21 +63,4 @@ export interface UserUpdate {
   billingAddressId?: number | null | undefined;
   shippingAddressId?: number | null | undefined;
   hasConsent?: boolean | undefined;
-}
-
-export interface SocialAccount {
-  id: number;
-  userId: number;
-  provider: SocialProvider;
-  uid: string;
-  extraData: Record<string, unknown>;
-}
-
-export interface SocialProfile {
-  uid: string;
-  email: string | null;
-  name: string;
-  firstName?: string | undefined;
-  lastName?: string | undefined;
-  extraData: Record<string, unknown>;
 }

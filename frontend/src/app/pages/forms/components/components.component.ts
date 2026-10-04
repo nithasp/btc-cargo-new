@@ -43,7 +43,6 @@ export class FormsComponentsComponent implements OnInit {
     noUiSlider.create(c, {
       start: 100,
       connect: [true, false],
-      //step: 1000,
       range: {
         min: 100,
         max: 500
@@ -73,10 +72,7 @@ export class FormsComponentsComponent implements OnInit {
         f[b].textContent = a[b];
       });
 
-    // this variable is to delete the previous image from the dropzone state
-    // it is just to make the HTML DOM a bit better, and keep it light
     let currentSingleFile = undefined;
-    // single dropzone file - accepts only images
     new Dropzone(document.getElementById("dropzone-single"), {
       url: "/",
       thumbnailWidth: null,
@@ -98,10 +94,7 @@ export class FormsComponentsComponent implements OnInit {
       }
     });
     document.getElementsByClassName("dz-preview-single")[0].innerHTML = "";
-    // this variable is to delete the previous image from the dropzone state
-    // it is just to make the HTML DOM a bit better, and keep it light
     let currentMultipleFile = undefined;
-    // multiple dropzone file - accepts any type of file
     new Dropzone(document.getElementById("dropzone-multiple"), {
       url: "https://",
       thumbnailWidth: null,

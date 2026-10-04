@@ -1,6 +1,6 @@
 import pool from '../database';
-import { Verification, VerificationKind } from '../types/affiliate.types';
 import { Queryable, Row } from '../types/database.types';
+import { Verification, VerificationKind } from '../types/verification.types';
 import { requireRow } from '../utils/rows';
 
 export class VerificationRepository {

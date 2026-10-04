@@ -423,14 +423,12 @@
                 <th rowspan="2">{{ "affiliate.edit_delete" | transloco }}</th>
               </tr>
               <tr>
-                <!-- Cost Price -->
                 <th>{{ "goods_general_truck" | transloco }}</th>
                 <th>{{ "goods_tis_truck" | transloco }}</th>
                 <th>{{ "affiliate.fda_truck" | transloco }}</th>
                 <th>{{ "affiliate.brand_truck" | transloco }}</th>
                 <th>{{ "affiliate.general_ship" | transloco }}</th>
                 <th>{{ "goods_tis_ship" | transloco }}</th>
-                <!-- Shipping Price -->
                 <th>{{ "goods_general_truck" | transloco }}</th>
                 <th>{{ "goods_tis_truck" | transloco }}</th>
                 <th>{{ "affiliate.fda_truck" | transloco }}</th>
@@ -443,14 +441,12 @@
               <tr class="item" *ngFor="let item of teamMembers">
                 <td>{{ item.affiliate_code }}</td>
 
-                <!-- Selling Weight Price -->
                 <td>{{ item.selling_id.weight_price.p }}</td>
                 <td>{{ item.selling_id.weight_price.d }}</td>
                 <td>{{ item.selling_id.weight_price.hy }}</td>
                 <td>{{ item.selling_id.weight_price.m }}</td>
                 <td>{{ item.selling_id.weight_price.sp }}</td>
                 <td>{{ item.selling_id.weight_price.sd }}</td>
-                <!-- Selling Volume Price -->
                 <td>{{ item.selling_id.volume_price.p }}</td>
                 <td>{{ item.selling_id.volume_price.d }}</td>
                 <td>{{ item.selling_id.volume_price.hy }}</td>

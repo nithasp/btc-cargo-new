@@ -1,6 +1,6 @@
 import { WalletUpdateInput } from '../schemas/wallet.schema';
-import { Wallet } from '../types/payment.types';
 import { WalletServiceDeps } from '../types/service.types';
+import { Wallet } from '../types/wallet.types';
 import { AppError, notFound } from '../utils/errors';
 
 export function createWalletService({ wallets }: WalletServiceDeps) {

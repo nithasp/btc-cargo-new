@@ -1,5 +1,5 @@
 import pool from '../database';
-import { Cart } from '../types/content.types';
+import { Cart } from '../types/cart.types';
 import { Queryable, Row } from '../types/database.types';
 import { requireRow } from '../utils/rows';
 

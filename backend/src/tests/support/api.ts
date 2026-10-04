@@ -4,9 +4,9 @@ import pool from '../../database';
 import { seedCatalog } from '../../seeds/catalog';
 import { seedContent } from '../../seeds/content';
 import { seedMasterData } from '../../seeds/masterData';
-import { VerificationKind } from '../../types/affiliate.types';
 import { LOCATION } from '../../types/masterData.types';
 import { TestUser } from '../../types/test.types';
+import { VerificationKind } from '../../types/verification.types';
 
 export const ODOO = '/api/odoo';
 export const ORIGIN = 'http://localhost:4200';

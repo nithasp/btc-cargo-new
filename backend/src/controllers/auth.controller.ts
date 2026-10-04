@@ -2,7 +2,8 @@ import { Request, Response } from 'express';
 import { config } from '../config';
 import { INVALID_LOGIN, loginSchema, registrationSchema, socialLoginSchema } from '../schemas/auth.schema';
 import { socialService, tokenService, userService } from '../services';
-import { AuthUser, SocialProvider } from '../types/user.types';
+import { SocialProvider } from '../types/social.types';
+import { AuthUser } from '../types/user.types';
 import { asyncHandler } from '../utils/asyncHandler';
 import { AppError, fieldError } from '../utils/errors';
 import { clearRefreshCookie, readRefreshCookie, setRefreshCookie } from '../utils/refreshCookie';
@@ -30,7 +31,6 @@ export const login = asyncHandler(async (req: Request, res: Response) => {
 
   const user = await userService.authenticate(input.username.trim(), input.password);
   if (!user) {
-    // The username that was tried is kept (never the password), so repeated guessing shows up in the log
     req.log.warn({ event: 'user.login_failed', username: input.username }, 'login failed');
     throw fieldError({ non_field_errors: [INVALID_LOGIN] });
   }

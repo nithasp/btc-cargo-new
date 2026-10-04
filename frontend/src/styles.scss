@@ -31,7 +31,6 @@ textarea::placeholder {
   color: #838b91 !important;
 }
 
-// Helper CSS
 .inner {
   width: 95%;
   margin: 0 auto;
@@ -127,7 +126,6 @@ table tr th:last-child {
     min-width: 400px;
   }
 }
-// Timepicker
 .bs-timepicker-field {
   width: 60px !important;
 }
@@ -139,7 +137,6 @@ table tr th:last-child {
     border: none !important;
   }
 }
-// Dropzone
 ngx-dropzone {
   width: 150px !important;
   height: 150px !important;
@@ -158,12 +155,10 @@ ngx-dropzone-image-preview {
   }
 }
 
-// Datepicker Background Color
 .theme-red .bs-datepicker-head {
   background-color: #ca3342fc !important;
 }
 
-// Select2
 .select2-container--default .select2-selection--single {
   height: 48px !important;
   border-color: #dee2e6 !important;
@@ -188,7 +183,6 @@ ngx-dropzone-image-preview {
   z-index: 10000;
 }
 
-// BTC Custom Select
 .btc-select-wrapper {
   position: relative;
   caret-color: transparent;
@@ -204,7 +198,6 @@ ngx-dropzone-image-preview {
   font-weight: 600;
   cursor: pointer;
 
-  /* Hide Default Arrow */
   appearance: none;
 }
 .btc-select-wrapper:after {
@@ -228,7 +221,6 @@ ngx-dropzone-image-preview {
   }
 }
 
-/* CSS Only Safari */
 @media not all and (min-resolution: 0.001dpcm) {
   button,
   [type="button"],

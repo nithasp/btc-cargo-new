@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core"
-import {
-  ApiResponse,
-  DeliveryType,
-} from "src/app/shared/models/master-data.model"
+import { ApiResponse } from "src/app/shared/models/common.model"
+import { DeliveryType } from "src/app/shared/models/master-data.model"
 import { ChinaTrackingDetails } from "src/app/shared/models/tracking.model"
 import { MasterDataService } from "src/app/shared/services/master-data.service"
 import { TrackingService } from "src/app/shared/services/tracking.service"

@@ -17,7 +17,6 @@
         </a>
 
         <div class="ml-auto">
-          <!-- Sidenav toggler -->
           <div
             class="sidenav-toggler d-xl-block p-4"
             data-action="sidenav-unpin"
@@ -34,10 +33,8 @@
       </div>
       <div class="navbar-inner">
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Collapse header -->
           <ul class="navbar-nav">
             <li *ngFor="let menuitem of menuItems" class="nav-item main-item">
-              <!--If is a single link-->
               <a
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"
@@ -50,7 +47,6 @@
                   menuitem.title | transloco
                 }}</span>
               </a>
-              <!--If it have a submenu-->
               <a
                 data-toggle="collapse"
                 routerLinkActive="active"
@@ -66,7 +62,6 @@
                 }}</span>
               </a>
 
-              <!--Display the submenu items-->
               <div
                 id="{{ menuitem.collapse }}"
                 class="collapse"
@@ -79,7 +74,6 @@
                     *ngFor="let childitems of menuitem.children"
                     class="nav-item"
                   >
-                    <!--If is a single link-->
                     <a
                       routerLinkActive="active"
                       [routerLink]="[menuitem.path, childitems.path]"
@@ -89,7 +83,6 @@
                       {{ childitems.title | transloco }}
                     </a>
 
-                    <!--If it have a submenu-->
                     <a
                       data-toggle="collapse"
                       (click)="childitems.isCollapsed = !childitems.isCollapsed"
@@ -101,7 +94,6 @@
                       {{ childitems.title | transloco }}
                     </a>
 
-                    <!--Display the submenu items-->
                     <div
                       id="{{ childitems.collapse }}"
                       class="collapse"

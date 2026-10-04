@@ -16,7 +16,6 @@ export const update = asyncHandler(async (req: Request, res: Response) => {
   res.json(await userService.updateDetails(currentUserId(req), changes));
 });
 
-// LINE shut the Notify service down on 31 March 2025, so a new link can no longer be issued
 export const lineNotifyLink = asyncHandler(async () => {
   throw new AppError('LINE Notify was discontinued by LINE on 31 March 2025.', 410, 'not_configured');
 });

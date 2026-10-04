@@ -4,10 +4,8 @@
 >
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Navbar links -->
       <ul class="navbar-nav navbar-links align-items-center ml-md-auto">
         <li class="nav-item d-xl-none">
-          <!-- Sidenav toggler -->
           <div
             class="pr-3 sidenav-toggler sidenav-toggler-dark"
             data-action="sidenav-pin"
@@ -42,7 +40,6 @@
               [scrollWindow]="false"
               (scrolled)="loadMoreNotification()"
             >
-              <!-- Dropdown header -->
               <div class="px-3 py-3">
                 <h6 class="text-sm text-muted m-0">
                   {{ "you_have" | transloco }}
@@ -52,7 +49,6 @@
                   {{ "notifications_suffix" | transloco }}
                 </h6>
               </div>
-              <!-- List group -->
               <div class="list-group list-group-flush">
                 <a
                   [href]="item.notification.link"
@@ -87,7 +83,6 @@
           </div>
         </li>
       </ul>
-      <!-- User -->
       <ul class="navbar-nav navbar-user align-items-center ml-auto ml-md-0">
         <li class="nav-item dropdown" dropdown placement="bottom-right">
           <a class="nav-link pr-0 dropdown-toggle" role="button" dropdownToggle>
