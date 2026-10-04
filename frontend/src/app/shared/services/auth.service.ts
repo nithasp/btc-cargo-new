@@ -5,7 +5,11 @@ import { catchError, map, tap } from "rxjs/operators";
 import { Router } from "@angular/router";
 import { SocialAuthService } from "angularx-social-login";
 import { environment } from "../../../environments/environment";
-import { btcBaseUrl, getAccessToken, getHttpHeadersValue } from "./config";
+import {
+  btcBaseUrl,
+  getAccessToken,
+  getHttpHeadersValue,
+} from "src/app/core/config/api-config";
 import { clearStorageKeepingLanguage } from "./language.service";
 
 const DEMO_OPT_OUT_KEY = "demoEntryDeclined";

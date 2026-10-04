@@ -1,8 +1,12 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { getAccessToken, baseUrl, getHttpHeadersValue } from "./config";
-import { Quotation } from "../interfaces";
+import {
+  getAccessToken,
+  baseUrl,
+  getHttpHeadersValue,
+} from "src/app/core/config/api-config";
+import { Quotation } from "../models/quotation.model";
 
 @Injectable({
   providedIn: "root",

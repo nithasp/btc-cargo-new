@@ -1,5 +1,5 @@
-import { Pagination } from "./pagination"
-import { ApiResponse } from './master-data'
+import { Pagination } from "./pagination.model"
+import { ApiResponse } from './master-data.model'
 export interface TrackingValidation {
     exist: boolean
 }

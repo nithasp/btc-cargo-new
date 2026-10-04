@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core"
 import {
   ApiResponse,
-  ChinaTrackingDetails,
   DeliveryType,
-} from "../../../interfaces"
-import { MasterDataService, TrackingService } from "../../../services"
+} from "src/app/shared/models/master-data.model"
+import { ChinaTrackingDetails } from "src/app/shared/models/tracking.model"
+import { MasterDataService } from "src/app/shared/services/master-data.service"
+import { TrackingService } from "src/app/shared/services/tracking.service"
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({

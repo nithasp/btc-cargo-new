@@ -4,11 +4,9 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms"
 import { Router } from "@angular/router"
 import { RecaptchaErrorParameters } from "ng-recaptcha"
 import { environment } from "src/environments/environment"
-import {
-  ApiService,
-  AuthService,
-  clearStorageKeepingLanguage,
-} from "../../services"
+import { ApiService } from "src/app/shared/services/api.service"
+import { AuthService } from "src/app/shared/services/auth.service"
+import { clearStorageKeepingLanguage } from "src/app/shared/services/language.service"
 import { TranslocoService } from "@ngneat/transloco"
 
 @Component({

@@ -1,8 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { getAccessToken, baseUrl, getHttpHeadersValue } from "./config";
+import {
+  getAccessToken,
+  baseUrl,
+  getHttpHeadersValue,
+} from "src/app/core/config/api-config";
 import { BehaviorSubject } from "rxjs";
-import { ApiResponse, AffiliateMe, AffiliateTeam } from "../interfaces";
+import { ApiResponse } from "src/app/shared/models/master-data.model";
+import { AffiliateMe, AffiliateTeam } from "../models/affiliate.model";
 
 @Injectable({
   providedIn: "root",

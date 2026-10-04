@@ -4,8 +4,8 @@ import {
   AffiliateMember,
   PriceInformations,
   ReRenderSelectAddressComponentMethod,
-} from "../../../interfaces";
-import { AffiliateService } from "../../../services";
+} from "../models/affiliate.model";
+import { AffiliateService } from "../services/affiliate.service";
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 
 @Component({

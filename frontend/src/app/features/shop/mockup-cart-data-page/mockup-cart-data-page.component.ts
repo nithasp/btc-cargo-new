@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ApiService } from "src/app/custom/services/api.service";
-import { CartService } from "src/app/custom/services/cart.service";
+import { ApiService } from "src/app/shared/services/api.service";
+import { CartService } from "../services/cart.service";
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 
 @Component({

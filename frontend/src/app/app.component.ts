@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
-import { LanguageService } from "./custom/services/language.service";
+import { LanguageService } from "./shared/services/language.service";
 
 @Component({
   selector: "app-root",

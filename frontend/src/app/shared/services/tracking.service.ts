@@ -1,7 +1,16 @@
 import { Injectable } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
-import { getAccessToken, baseUrl, getHttpHeadersValue } from "./config"
-import { ApiResponse, ChinaTrackingDetails, Details, TrackingValidation } from "../interfaces";
+import {
+  getAccessToken,
+  baseUrl,
+  getHttpHeadersValue,
+} from "src/app/core/config/api-config"
+import { ApiResponse } from "../models/master-data.model";
+import {
+  ChinaTrackingDetails,
+  Details,
+  TrackingValidation,
+} from "../models/tracking.model";
 
 @Injectable({
   providedIn: "root",

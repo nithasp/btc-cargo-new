@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/custom/services';
+import { ApiService } from 'src/app/shared/services/api.service';
 import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 @Component({

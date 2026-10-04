@@ -1,23 +1,21 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { addresses as addressList } from "../../../../model/addresses";
-import { expressList } from "../../../../model/express-list";
-import { provincesData } from "../../../../model/thai-provinces";
+import { addresses as addressList } from "src/app/shared/data/addresses";
+import { expressList } from "src/app/shared/data/express-list";
+import { provincesData } from "src/app/shared/data/thai-provinces";
+import { Address } from "src/app/shared/models/address.model";
 import {
-  Address,
   LocalDelivery,
-  Provinces,
-  Quotation,
   ThaiCarrier,
-  UserInfo,
-} from "../../../interfaces";
-import {
-  AddressService,
-  AuthService,
-  MasterDataService,
-  QuotationService,
-  UserService,
-} from "../../../services";
+} from "src/app/shared/models/master-data.model";
+import { Provinces } from "src/app/shared/models/provinces.model";
+import { Quotation } from "../models/quotation.model";
+import { UserInfo } from "src/app/shared/models/user-information.model";
+import { AddressService } from "src/app/shared/services/address.service";
+import { AuthService } from "src/app/shared/services/auth.service";
+import { MasterDataService } from "src/app/shared/services/master-data.service";
+import { QuotationService } from "../services/quotation.service";
+import { UserService } from "src/app/shared/services/user.service";
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 
 @Component({

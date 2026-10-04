@@ -1,7 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { getAccessToken, btcBaseUrl, getHttpHeadersValue } from "./config";
-import { NotificationApiResponse, NotificationData } from "../interfaces";
+import {
+  getAccessToken,
+  btcBaseUrl,
+  getHttpHeadersValue,
+} from "src/app/core/config/api-config";
+import {
+  NotificationApiResponse,
+  NotificationData,
+} from "../models/notification.model";
 
 @Injectable({
   providedIn: "root",

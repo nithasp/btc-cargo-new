@@ -1,4 +1,4 @@
-import { CartData } from "./cart";
+import { CartData } from "./cart.model";
 
 export interface Shop {
   shop_id: number;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Pagination, PaymentGatewayRecords } from "src/app/custom/interfaces";
-import { PaymentGatewayService } from "src/app/custom/services";
+import { Pagination } from "src/app/shared/models/pagination.model";
+import { PaymentGatewayRecords } from "src/app/shared/models/payment-gateway.model";
+import { PaymentGatewayService } from "src/app/shared/services/payment-gateway.service";
 import * as dayjs from "dayjs";
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 

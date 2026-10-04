@@ -2,14 +2,12 @@ import { Component, OnInit } from "@angular/core"
 import * as moment from "moment"
 import {
   ExchangeMoneyActiveStage,
-  Pagination,
   PaymentMethod,
-} from "../../../interfaces"
-import {
-  CurrencyService,
-  PaymentGatewayService,
-  StorageService,
-} from "../../../services"
+} from "src/app/shared/models/exchange-money.model"
+import { Pagination } from "src/app/shared/models/pagination.model"
+import { CurrencyService } from "../../services/currency.service"
+import { PaymentGatewayService } from "src/app/shared/services/payment-gateway.service"
+import { StorageService } from "../../services/storage.service"
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({

@@ -12,11 +12,12 @@ import {
   LocationStrategy,
   PathLocationStrategy,
 } from "@angular/common";
-import { AuthService, NotificationService } from "src/app/custom/services";
+import { AuthService } from "../../services/auth.service";
+import { NotificationService } from "../../services/notification.service";
 import {
   NotificationData,
   NotificationApiResponse,
-} from "src/app/custom/interfaces";
+} from "../../models/notification.model";
 import * as dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
-import { Wallet } from "../../interfaces"
-import { WalletService } from "../../services"
+import { Wallet } from "src/app/shared/models/wallet.model"
+import { WalletService } from "../services/wallet.service"
 import * as moment from "moment";
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 

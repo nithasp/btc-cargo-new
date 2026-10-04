@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { SelectionType } from "src/app/custom/interfaces";
+import { SelectionType } from "src/app/shared/models/datatable.model";
 @Component({
   selector: "app-ngxdatatables",
   templateUrl: "ngxdatatables.component.html"

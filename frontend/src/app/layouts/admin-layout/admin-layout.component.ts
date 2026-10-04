@@ -2,13 +2,13 @@ import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
+import { AuthService } from "src/app/shared/services/auth.service";
 import {
-  AuthService,
   getAccessToken,
   btcBaseUrl,
   getHttpHeadersValue,
-} from "src/app/custom/services";
-import { UserInfo } from "src/app/custom/interfaces";
+} from "src/app/core/config/api-config";
+import { UserInfo } from "src/app/shared/models/user-information.model";
 
 @Component({
   selector: "app-admin-layout",

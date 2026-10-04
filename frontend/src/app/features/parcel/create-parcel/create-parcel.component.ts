@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Router } from "@angular/router"
-import { MasterDataService, TrackingService } from "src/app/custom/services"
+import { MasterDataService } from "src/app/shared/services/master-data.service"
+import { TrackingService } from "src/app/shared/services/tracking.service"
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({

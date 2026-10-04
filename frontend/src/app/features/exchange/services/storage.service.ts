@@ -5,7 +5,7 @@ import {
   ExchangeMoneyActiveStage,
   PaymentDetails,
   PaymentMethod,
-} from "../interfaces"
+} from "src/app/shared/models/exchange-money.model"
 
 @Injectable({
   providedIn: "root",

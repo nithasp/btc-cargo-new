@@ -9,13 +9,11 @@ import {
   SocialAuthService,
 } from "angularx-social-login"
 import { environment } from "src/environments/environment"
-import { addresses as addressList } from "../../../model/addresses"
-import {
-  AddressService,
-  ApiService,
-  AuthService,
-  UserService,
-} from "../../services"
+import { addresses as addressList } from "src/app/shared/data/addresses"
+import { AddressService } from "src/app/shared/services/address.service"
+import { ApiService } from "src/app/shared/services/api.service"
+import { AuthService } from "src/app/shared/services/auth.service"
+import { UserService } from "src/app/shared/services/user.service"
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({

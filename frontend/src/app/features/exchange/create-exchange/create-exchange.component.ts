@@ -4,13 +4,11 @@ import {
   ExchangeMoneyActiveStage,
   PaymentCurrency,
   VerificationStates,
-} from "../../../interfaces"
-import {
-  ApiService,
-  CurrencyService,
-  ExchangeService,
-  StorageService,
-} from "../../../services"
+} from "src/app/shared/models/exchange-money.model"
+import { ApiService } from "src/app/shared/services/api.service"
+import { CurrencyService } from "../services/currency.service"
+import { ExchangeService } from "src/app/shared/services/exchange.service"
+import { StorageService } from "../services/storage.service"
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({

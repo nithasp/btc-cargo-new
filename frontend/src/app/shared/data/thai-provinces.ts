@@ -1,4 +1,4 @@
-import { Provinces } from "../custom/interfaces/provinces";
+import { Provinces } from "../models/provinces.model";
 
 export const provincesData: Provinces[] = [
   {

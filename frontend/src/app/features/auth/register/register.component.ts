@@ -9,7 +9,7 @@ import {
   Validators,
 } from "@angular/forms"
 import { Router } from "@angular/router"
-import { ApiService } from "src/app/custom/services"
+import { ApiService } from "src/app/shared/services/api.service"
 import { TranslocoService } from "@ngneat/transloco"
 
 @Component({

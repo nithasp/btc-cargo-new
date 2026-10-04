@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
-import { CartService, ProductConsignmentService } from "src/app/custom/services"
-import { CartData, ProductData, Uploads, Variants } from "../../interfaces/cart"
+import { CartService } from "../services/cart.service"
+import { ProductConsignmentService } from "../services/product-consignment.service"
+import { CartData, ProductData, Uploads, Variants } from "../models/cart.model"
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({

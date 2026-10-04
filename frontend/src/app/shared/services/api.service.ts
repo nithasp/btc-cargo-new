@@ -1,7 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { getAccessToken, getHttpHeadersWithContentType, btcBaseUrl } from "./config";
-import { ApiResponse, HtmlContent } from '../interfaces'
+import {
+  getAccessToken,
+  getHttpHeadersWithContentType,
+  btcBaseUrl,
+} from "src/app/core/config/api-config";
+import { ApiResponse } from '../models/master-data.model'
+import { HtmlContent } from '../models/common.model'
 
 @Injectable({
   providedIn: "root",

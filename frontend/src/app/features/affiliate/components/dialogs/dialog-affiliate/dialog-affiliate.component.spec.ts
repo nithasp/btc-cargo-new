@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AffiliateModalComponent } from './affiliate-modal.component';
+import { DialogAffiliateComponent } from './dialog-affiliate.component';
 
-describe('AffiliateModalComponent', () => {
-  let component: AffiliateModalComponent;
-  let fixture: ComponentFixture<AffiliateModalComponent>;
+describe('DialogAffiliateComponent', () => {
+  let component: DialogAffiliateComponent;
+  let fixture: ComponentFixture<DialogAffiliateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AffiliateModalComponent ]
+      declarations: [ DialogAffiliateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AffiliateModalComponent);
+    fixture = TestBed.createComponent(DialogAffiliateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,11 +1,12 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import { ApiResponse, Wallet } from "../interfaces"
+import { ApiResponse } from "src/app/shared/models/master-data.model"
+import { Wallet } from "src/app/shared/models/wallet.model"
 import {
   baseUrl,
   getAccessToken,
   getHttpHeadersWithContentType,
-} from "./config"
+} from "src/app/core/config/api-config"
 @Injectable({
   providedIn: "root",
 })

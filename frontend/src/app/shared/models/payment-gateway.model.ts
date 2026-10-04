@@ -1,4 +1,4 @@
-import { Pagination } from "./pagination";
+import { Pagination } from "./pagination.model";
 
 export interface PaymentGatewayApiReponse {
   pagination: Pagination;

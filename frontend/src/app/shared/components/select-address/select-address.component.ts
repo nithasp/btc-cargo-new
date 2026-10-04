@@ -7,7 +7,7 @@ import {
   EventEmitter,
 } from "@angular/core"
 import { Subscription } from "rxjs"
-import { addresses } from "../../../model/addresses"
+import { addresses } from "../../data/addresses"
 import { TranslocoService } from "@ngneat/transloco"
 declare var $: any
 

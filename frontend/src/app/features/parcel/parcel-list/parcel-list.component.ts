@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core"
-import { MasterDataService, TrackingService } from "../../../services"
-import { ApiResponse, Details, Detail, Pagination } from "../../../interfaces"
+import { MasterDataService } from "src/app/shared/services/master-data.service"
+import { TrackingService } from "src/app/shared/services/tracking.service"
+import { ApiResponse } from "src/app/shared/models/master-data.model"
+import { Details, Detail } from "src/app/shared/models/tracking.model"
+import { Pagination } from "src/app/shared/models/pagination.model"
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 @Component({
   selector: "parcel-list",

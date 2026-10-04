@@ -5,8 +5,8 @@ import {
   SocialAuthService,
   FacebookLoginProvider,
 } from "angularx-social-login";
-import { AuthService } from "src/app/custom/services/auth.service";
-import { ApiService } from "src/app/custom/services/api.service";
+import { AuthService } from "src/app/shared/services/auth.service";
+import { ApiService } from "src/app/shared/services/api.service";
 import { TranslocoService } from "@ngneat/transloco";
 
 @Component({

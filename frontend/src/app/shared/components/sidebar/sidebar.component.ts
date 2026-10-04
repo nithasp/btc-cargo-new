@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { RouteInfo } from "src/app/custom/interfaces";
-import { AuthService } from "src/app/custom/services/auth.service";
+import { RouteInfo } from "../../models/sidebar.model";
+import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 
 var misc: any = {

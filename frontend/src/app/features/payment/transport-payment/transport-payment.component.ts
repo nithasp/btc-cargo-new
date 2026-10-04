@@ -1,7 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { ApiResponse, Details, Pagination, Quotation } from "../../interfaces";
-import { QuotationService, TrackingService } from "../../services";
+import { ApiResponse } from "src/app/shared/models/master-data.model";
+import { Details } from "src/app/shared/models/tracking.model";
+import { Pagination } from "src/app/shared/models/pagination.model";
+import { Quotation } from "../models/quotation.model";
+import { QuotationService } from "../services/quotation.service";
+import { TrackingService } from "src/app/shared/services/tracking.service";
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco";
 
 @Component({

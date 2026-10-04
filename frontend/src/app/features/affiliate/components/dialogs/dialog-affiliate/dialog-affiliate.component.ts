@@ -1,14 +1,15 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { AffiliateService, ExchangeService } from "../../../services";
-import { AffiliateModal } from "src/app/custom/interfaces";
+import { AffiliateService } from "../../../services/affiliate.service";
+import { ExchangeService } from "src/app/shared/services/exchange.service";
+import { AffiliateModal } from "../../../models/affiliate.model";
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 @Component({
-  selector: "affiliate-modal",
-  templateUrl: "./affiliate-modal.component.html",
-  styleUrls: ["./affiliate-modal.component.scss"],
+  selector: "dialog-affiliate",
+  templateUrl: "./dialog-affiliate.component.html",
+  styleUrls: ["./dialog-affiliate.component.scss"],
   providers: [{ provide: TRANSLOCO_SCOPE, useValue: "affiliate" }],
 })
-export class AffiliateModalComponent implements OnInit {
+export class DialogAffiliateComponent implements OnInit {
   @Output() isMainContentDisplay = new EventEmitter<AffiliateModal>();
 
   idCardFile: File;

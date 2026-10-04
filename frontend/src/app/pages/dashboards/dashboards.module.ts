@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ComponentsModule } from "../../components/components.module";
+import { SharedModule } from "../../shared/shared.module";
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ProgressbarModule } from "ngx-bootstrap/progressbar";
@@ -17,7 +17,7 @@ import { DashboardsRoutes } from "./dashboards.routing";
   declarations: [DashboardComponent, AlternativeComponent],
   imports: [
     CommonModule,
-    ComponentsModule,
+    SharedModule,
     ModalModule.forRoot(),
     ProgressbarModule.forRoot(),
     TooltipModule.forRoot(),

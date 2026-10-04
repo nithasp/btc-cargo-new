@@ -3,9 +3,10 @@ import {
   AmountSplit,
   ExchangeMoneyActiveStage,
   PaymentMethod,
-  Wallet,
-} from "../../../interfaces"
-import { StorageService, WalletService } from "../../../services"
+} from "src/app/shared/models/exchange-money.model"
+import { Wallet } from "src/app/shared/models/wallet.model"
+import { StorageService } from "../../services/storage.service"
+import { WalletService } from "../../services/wallet.service"
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({

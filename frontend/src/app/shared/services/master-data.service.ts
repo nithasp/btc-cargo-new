@@ -1,6 +1,10 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { getAccessToken, baseUrl, getHttpHeadersValue } from "./config";
+import {
+  getAccessToken,
+  baseUrl,
+  getHttpHeadersValue,
+} from "src/app/core/config/api-config";
 import {
   ApiResponse,
   System,
@@ -11,7 +15,7 @@ import {
   ThaiCarrier,
   DeliveryType,
   LocalDelivery,
-} from "../interfaces/master-data";
+} from "../models/master-data.model";
 
 @Injectable({
   providedIn: "root",

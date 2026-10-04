@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Pagination, SaleSummaryRecords } from "../../../interfaces";
-import { SaleSummaryService } from "src/app/custom/services";
+import { Pagination } from "src/app/shared/models/pagination.model";
+import { SaleSummaryRecords } from "../models/sale-summary.model";
+import { SaleSummaryService } from "../services/sale-summary.service";
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 
 @Component({

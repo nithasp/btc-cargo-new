@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core"
-import { Account, ExchangeMoneyActiveStage, PaymentMethod } from "../../../interfaces"
-import { StorageService, PaymentGatewayService } from "../../../services"
+import { Account } from "src/app/shared/models/payment-gateway.model"
+import {
+  ExchangeMoneyActiveStage,
+  PaymentMethod,
+} from "src/app/shared/models/exchange-money.model"
+import { StorageService } from "../../services/storage.service"
+import { PaymentGatewayService } from "src/app/shared/services/payment-gateway.service"
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({

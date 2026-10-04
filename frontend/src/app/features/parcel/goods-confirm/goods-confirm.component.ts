@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Pagination } from "../../interfaces";
-import { ToConfirmService, ExchangeService } from "../../services";
-import { ToConfirmRecords } from "../../interfaces";
+import { Pagination } from "src/app/shared/models/pagination.model";
+import { ToConfirmService } from "../services/to-confirm.service";
+import { ExchangeService } from "src/app/shared/services/exchange.service";
+import { ToConfirmRecords } from "../models/to-confirm.model";
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco";
 
 @Component({

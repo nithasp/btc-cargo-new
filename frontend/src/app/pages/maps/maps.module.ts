@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ComponentsModule } from "../../components/components.module";
+import { SharedModule } from "../../shared/shared.module";
 
 import { RouterModule } from "@angular/router";
 import { MapsRoutes } from "./maps.routing";
@@ -14,7 +14,7 @@ import { DxVectorMapModule, DxPieChartModule } from 'devextreme-angular';
   imports: [
     CommonModule,
     RouterModule.forChild(MapsRoutes),
-    ComponentsModule,
+    SharedModule,
     DxVectorMapModule,
     DxPieChartModule
   ]

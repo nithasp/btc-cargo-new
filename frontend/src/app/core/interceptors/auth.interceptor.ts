@@ -18,7 +18,7 @@ import {
   switchMap,
   tap,
 } from "rxjs/operators";
-import { btcBaseUrl } from "./config";
+import { btcBaseUrl } from "../config/api-config";
 
 const SESSION_PATHS = ["/api/login", "/api/registration", "/api/auth/"];
 const REFRESH_PATH = "/api/auth/refresh/";

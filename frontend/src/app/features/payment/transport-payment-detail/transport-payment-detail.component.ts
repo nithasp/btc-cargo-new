@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute } from "@angular/router"
-import { ApiResponse, Details, Quotation } from "src/app/custom/interfaces"
-import { TrackingService } from "src/app/custom/services"
+import { ApiResponse } from "src/app/shared/models/master-data.model"
+import { Details } from "src/app/shared/models/tracking.model"
+import { Quotation } from "../models/quotation.model"
+import { TrackingService } from "src/app/shared/services/tracking.service"
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({

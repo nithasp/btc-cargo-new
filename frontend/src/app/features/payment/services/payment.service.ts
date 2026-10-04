@@ -1,7 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { getAccessToken, baseUrl, getHttpHeadersValue, getHttpHeadersWithContentType } from "./config";
-import { PaginationParams } from '../interfaces'
+import {
+  getAccessToken,
+  baseUrl,
+  getHttpHeadersValue,
+  getHttpHeadersWithContentType,
+} from "src/app/core/config/api-config";
+import { PaginationParams } from 'src/app/shared/models/pagination.model'
 
 @Injectable({
   providedIn: "root",

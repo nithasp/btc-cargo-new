@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
-import { ReportService } from "../../../services";
+import { ReportService } from "../services/report.service";
 import * as dayjs from "dayjs";
 @Component({
   selector: "app-goal",

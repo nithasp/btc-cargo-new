@@ -1,18 +1,18 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Injectable } from "@angular/core"
+import { ApiResponse } from "../models/master-data.model"
 import {
-  ApiResponse,
   CreatedVerificationItem,
   ExchangeState,
   UploadFile,
-  Wallet,
-} from "../interfaces"
+} from "../models/exchange-money.model"
+import { Wallet } from "../models/wallet.model"
 import {
   baseUrl,
   btcBaseUrl,
   getAccessToken,
   getHttpHeadersWithContentType,
-} from "./config"
+} from "src/app/core/config/api-config"
 @Injectable({
   providedIn: "root",
 })

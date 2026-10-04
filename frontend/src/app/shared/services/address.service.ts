@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Observable } from "rxjs"
-import { Address } from '../interfaces/address'
-import { btcBaseUrl } from "./config"
+import { Address } from '../models/address.model'
+import { btcBaseUrl } from "src/app/core/config/api-config"
 
 @Injectable({
   providedIn: "root",

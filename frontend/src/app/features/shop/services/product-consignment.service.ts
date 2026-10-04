@@ -4,8 +4,8 @@ import {
   btcBaseUrl,
   getAccessToken,
   getHttpHeadersValue,
-} from "../services/config";
-import { CartData } from "../interfaces/cart";
+} from "src/app/core/config/api-config";
+import { CartData } from "../models/cart.model";
 
 @Injectable({
   providedIn: "root",

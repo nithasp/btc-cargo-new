@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { PurchaseService } from "../../services"
+import { PurchaseService } from "../services/purchase.service"
 import { TRANSLOCO_SCOPE } from "@ngneat/transloco"
 
 @Component({

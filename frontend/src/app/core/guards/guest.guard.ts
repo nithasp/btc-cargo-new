@@ -7,7 +7,7 @@ import {
 } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { catchError, map, switchMap } from "rxjs/operators";
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "src/app/shared/services/auth.service";
 
 // LINE sends the visitor back to the login page with these, and its sign-in finishes there:
 // entering the demo first would drop it

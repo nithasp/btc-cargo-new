@@ -1,4 +1,4 @@
-import { Pagination } from "./pagination";
+import { Pagination } from "src/app/shared/models/pagination.model";
 
 export interface ToConfirmResponse {
   records: ToConfirmRecords[];

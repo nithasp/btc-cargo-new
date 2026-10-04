@@ -1,13 +1,13 @@
-import { ComponentsModule } from "./components.module";
+import { SharedModule } from "./shared.module";
 
-describe("ComponentsModule", () => {
-  let componentsModule: ComponentsModule;
+describe("SharedModule", () => {
+  let sharedModule: SharedModule;
 
   beforeEach(() => {
-    componentsModule = new ComponentsModule();
+    sharedModule = new SharedModule();
   });
 
   it("should create an instance", () => {
-    expect(componentsModule).toBeTruthy();
+    expect(sharedModule).toBeTruthy();
   });
 });

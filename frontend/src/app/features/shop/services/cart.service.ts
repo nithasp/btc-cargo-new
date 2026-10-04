@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { ApiService } from "./api.service";
-import { AuthService } from "./auth.service";
-import { CartData } from "../interfaces/cart";
-import { Shop } from "../interfaces/shop";
+import { ApiService } from "src/app/shared/services/api.service";
+import { AuthService } from "src/app/shared/services/auth.service";
+import { CartData } from "../models/cart.model";
+import { Shop } from "../models/shop.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { TranslocoService } from "@ngneat/transloco";
 

@@ -1,4 +1,4 @@
-import { ChinaTracking, Detail } from "./tracking";
+import { ChinaTracking, Detail } from "src/app/shared/models/tracking.model";
 
 export interface Quotation {
   is_checked: boolean;

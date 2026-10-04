@@ -1,13 +1,14 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router"
 import { take } from "rxjs/operators"
-import { PaymentGatewayRecords, PaymentAccount } from "../../interfaces"
 import {
-  btcBaseUrl,
-  ExchangeService,
-  PaymentGatewayService,
-  PaymentService,
-} from "../../services"
+  PaymentGatewayRecords,
+  PaymentAccount,
+} from "src/app/shared/models/payment-gateway.model"
+import { btcBaseUrl } from "src/app/core/config/api-config"
+import { ExchangeService } from "src/app/shared/services/exchange.service"
+import { PaymentGatewayService } from "src/app/shared/services/payment-gateway.service"
+import { PaymentService } from "../services/payment.service"
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({

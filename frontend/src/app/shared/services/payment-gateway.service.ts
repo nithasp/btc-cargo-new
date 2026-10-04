@@ -1,11 +1,21 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ApiResponse, Account, ExchangeMoneyActiveStage, PaymentMethod } from "../interfaces";
+import { ApiResponse } from "../models/master-data.model";
 import {
+  ExchangeMoneyActiveStage,
+  PaymentMethod,
+} from "../models/exchange-money.model";
+import {
+  Account,
   PaymentGatewayApiReponse,
   PaymentGatewayRecords
-} from "../interfaces/payment-gateway";
-import { baseUrl, getAccessToken, getHttpHeadersValue, getHttpHeadersWithContentType } from "./config";
+} from "../models/payment-gateway.model";
+import {
+  baseUrl,
+  getAccessToken,
+  getHttpHeadersValue,
+  getHttpHeadersWithContentType,
+} from "src/app/core/config/api-config";
 
 @Injectable({
   providedIn: "root",

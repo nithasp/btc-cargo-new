@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { AuthService } from "src/app/custom/services/auth.service";
-import { ApiService } from "src/app/custom/services/api.service";
+import { AuthService } from "src/app/shared/services/auth.service";
+import { ApiService } from "src/app/shared/services/api.service";
 import { HttpClient } from "@angular/common/http";
 import liff from "@line/liff";
 import { environment } from "src/environments/environment";

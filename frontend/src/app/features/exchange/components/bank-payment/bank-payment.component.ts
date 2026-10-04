@@ -4,8 +4,9 @@ import {
   PaymentMethod,
   FormState,
   AccountType,
-} from "../../../interfaces"
-import { ExchangeService, StorageService } from "../../../services"
+} from "src/app/shared/models/exchange-money.model"
+import { ExchangeService } from "src/app/shared/services/exchange.service"
+import { StorageService } from "../../services/storage.service"
 import { TRANSLOCO_SCOPE, TranslocoService } from "@ngneat/transloco"
 
 @Component({
